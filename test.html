@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            color: white;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .btn {
+            background: rgba(255, 215, 0, 0.2);
+            border: 2px solid #ffd700;
+            padding: 12px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffd700;
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+        }
+
+        /* Ajoute hamburger JS pour mobile */
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mon Site Moderne</h1>
+        <nav>
+            <ul>
+                ><a href="#accueil">Accueil</a></li>
+                ><a href="#services">Services</a></li>
+                ><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="btn">S'inscrire</button>
+    </header>
+</body>
+
+</html>

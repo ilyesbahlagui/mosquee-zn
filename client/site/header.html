@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Header Mosquée</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ── Reset local ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FFF;
+      color: #333;
+    }
+
+    /* ════════════════════════════════════════
+       VARIABLES & CORE
+    ════════════════════════════════════════ */
+    :root {
+      --m-white: #ffffff;
+      --m-beige: #F5F2EB;
+      /* Beige sable élégant */
+      --m-peps: #E06D3D;
+      /* Terracotta vibrant / chaleureux */
+      --m-peps-hover: #C2572B;
+      --m-text: #2C3E50;
+      /* Gris très foncé pour la lisibilité */
+      --m-text-light: #64748B;
+
+      --m-glass-nav: rgba(255, 255, 255, 0.95);
+      --m-blur: blur(20px);
+      --m-transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      --m-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ════════════════════════════════════════
+       NAVBAR FLOATING -> FIXED
+    ════════════════════════════════════════ */
+    .fixed-mosquee-nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 95%;
+      max-width: 1400px;
+      z-index: 999;
+      height: 75px;
+      background: var(--m-glass-nav);
+      backdrop-filter: var(--m-blur);
+      -webkit-backdrop-filter: var(--m-blur);
+      border-radius: 40px;
+      box-shadow: var(--m-shadow);
+      transition: all var(--m-transition);
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .fixed-mosquee-nav.scrolled {
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 70px;
+      border-radius: 0;
+      background: rgba(255, 255, 255, 0.98);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .fixed-mosquee-container {
+      width: 100%;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ── Logo ── */
+    .fixed-mosquee-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      z-index: 1001;
+    }
+
+    .fixed-mosquee-logo-icon {
+      font-size: 2rem;
+      color: var(--m-peps);
+    }
+
+    .fixed-mosquee-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .fixed-mosquee-logo-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--m-text);
+      letter-spacing: -0.02em;
+    }
+
+    .fixed-mosquee-logo-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--m-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Menu Desktop ── */
+    .fixed-mosquee-menu {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+      margin: 0 auto;
+    }
+
+    .fixed-mosquee-menu-link {
+      text-decoration: none;
+      color: var(--m-text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .fixed-mosquee-menu-link:hover {
+      color: var(--m-peps);
+      background: var(--m-beige);
+    }
+
+    /* ── Actions Droite ── */
+    .fixed-mosquee-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* ── Boutons ── */
+    .fixed-mosquee-btn-don {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--m-peps);
+      color: var(--m-white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(224, 109, 61, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .fixed-mosquee-btn-don:hover {
+      transform: translateY(-2px);
+      background: var(--m-peps-hover);
+      box-shadow: 0 12px 25px rgba(224, 109, 61, 0.4);
+    }
+
+    .fixed-mosquee-btn-secondary {
+      padding: 12px 32px;
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--m-white);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .fixed-mosquee-btn-secondary:hover {
+      background: var(--m-white);
+      color: var(--m-text);
+    }
+
+    /* ── Hamburger ── */
+    .fixed-mosquee-hamburger {
+      display: none;
+      width: 45px;
+      height: 45px;
+      background: var(--m-beige);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .fixed-mosquee-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--m-text);
+      margin: 4px auto;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .fixed-mosquee-hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+
+    .fixed-mosquee-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .fixed-mosquee-hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+    /* ════════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════════ */
+    .fixed-mosquee-hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--m-text);
+    }
+
+    /* Image de fond simulée */
+    .fixed-mosquee-hero-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+      opacity: 0.6;
+      /* Assombri pour faire ressortir le texte */
+    }
+
+    .fixed-mosquee-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+      margin-top: 40px;
+    }
+
+    .fixed-mosquee-hero-content h1 {
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      color: var(--m-white);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .fixed-mosquee-hero-content h1 span {
+      color: var(--m-peps);
+      display: block;
+      font-weight: 500;
+      font-size: 0.35em;
+      letter-spacing: 0.3em;
+      margin-bottom: 15px;
+    }
+
+    .fixed-mosquee-hero-desc {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 40px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .fixed-mosquee-hero-btns {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ════════════════════════════════════════
+       ADAPTATIONS MOBILES & RESPONSIVE
+    ════════════════════════════════════════ */
+    @media (max-width: 992px) {
+
+      /* Le menu passe en mode tiroir */
+      .fixed-mosquee-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--m-white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.4s ease-in-out;
+        z-index: 1000;
+      }
+
+      .fixed-mosquee-menu.open {
+        right: 0;
+      }
+
+      .fixed-mosquee-hamburger {
+        display: block;
+      }
+
+      .fixed-mosquee-menu-link {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+
+      /* On cache le bouton de don du header sur mobile pour aérer */
+      .fixed-mosquee-actions .fixed-mosquee-btn-don {
+        display: none;
+      }
+
+      /* Et on l'affiche dans le menu mobile */
+      .mobile-don {
+        display: block !important;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      /* Réduction drastique de la taille du header sur smartphone */
+      .fixed-mosquee-nav,
+      .fixed-mosquee-nav.scrolled {
+        top: 0;
+        width: 100%;
+        border-radius: 0;
+        height: 65px;
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .fixed-mosquee-container {
+        padding: 0 15px;
+      }
+
+      .fixed-mosquee-logo-icon {
+        font-size: 1.5rem;
+      }
+
+      .fixed-mosquee-logo-name {
+        font-size: 1rem;
+      }
+
+      /* On cache le sous-titre pour gagner de la place */
+      .fixed-mosquee-logo-sub {
+        display: none;
+      }
+
+      .fixed-mosquee-hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .fixed-mosquee-hero-btns {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .fixed-mosquee-hero-btns a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ════════════════════════════════════════
+       FAUX CONTENU POUR TESTER LE SCROLL
+    ════════════════════════════════════════ */
+    .dummy-section {
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .dummy-section h2 {
+      font-size: 2.5rem;
+      color: var(--m-text);
+      margin-bottom: 20px;
+    }
+
+    .dummy-section p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      color: var(--m-text-light);
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .bg-beige {
+      background-color: var(--m-beige);
+    }
+
+    .bg-white {
+      background-color: var(--m-white);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="fixed-mosquee-header">
+    <nav class="fixed-mosquee-nav" id="main-nav">
+      <div class="fixed-mosquee-container">
+
+        <a href="#accueil" class="fixed-mosquee-logo">
+          <i class="fa-solid fa-mosque fixed-mosquee-logo-icon"></i>
+          <div class="fixed-mosquee-logo-text">
+            <span class="fixed-mosquee-logo-name">Mosquée de Tarascon</span>
+            <span class="fixed-mosquee-logo-sub">Lumière et Piété</span>
+          </div>
+        </a>
+
+        <ul class="fixed-mosquee-menu" id="nav-menu">
+          <li><a href="#presentation" class="fixed-mosquee-menu-link">Présentation</a></li>
+          <li><a href="#ensemble" class="fixed-mosquee-menu-link">Ensemble</a></li>
+          <li><a href="#galerie" class="fixed-mosquee-menu-link">Galerie</a></li>
+          <li><a href="#contact" class="fixed-mosquee-menu-link">Contact</a></li>
+          <li class="mobile-don" style="display:none;">
+            <a href="https://pay.sumup.com/b2c/Q7WS961F" class="fixed-mosquee-btn-don">
+              <i class="fa-solid fa-heart"></i> Faire un don
+            </a>
+          </li>
+        </ul>
+
+        <div class="fixed-mosquee-actions">
+          <a href="https://pay.sumup.com/b2c/Q7WS961F" class="fixed-mosquee-btn-don">
+            <i class="fa-solid fa-heart"></i> Faire un don
+          </a>
+          <button class="fixed-mosquee-hamburger" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <section class="fixed-mosquee-hero" id="accueil">
+      <div class="fixed-mosquee-hero-img"></div>
+
+      <div class="fixed-mosquee-hero-content">
+        <h1><span>Projet d'avenir</span>Construction de la nouvelle Mosquée</h1>
+        <p class="fixed-mosquee-hero-desc">
+          Participez à la construction d'un lieu d'exception pour notre communauté à Tarascon. Chaque pierre compte,
+          chaque don est une lumière.
+        </p>
+
+        <div class="fixed-mosquee-hero-btns">
+          <a href="https://pay.sumup.com/b2c/Q7WS961F" class="fixed-mosquee-btn-don"
+            style="padding:15px 40px; font-size:1.1rem">
+            Soutenir le projet
+          </a>
+          <a href="#presentation" class="fixed-mosquee-btn-secondary" style="padding:15px 40px; font-size:1.1rem">
+            Découvrir
+          </a>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="presentation" class="dummy-section bg-beige">
+      <h2>Section Beige Doux</h2>
+      <p>Ceci est une section de test pour simuler le contenu de ta page. Regarde le comportement du menu en haut ! Une
+        fois que tu descends, le menu s'arrime parfaitement au bord supérieur de l'écran et s'élargit pour devenir une
+        vraie barre de navigation classique.</p>
+      <p>Les teintes beiges reposent l'œil et contrastent super bien avec la couleur "Peps" (Terracotta) que nous avons
+        choisie pour les boutons d'appels à l'action.</p>
+    </section>
+
+    <section id="ensemble" class="dummy-section bg-white">
+      <h2>Section Blanc Pur</h2>
+      <p>Ici on alterne avec un fond blanc pour donner un rythme de lecture. Le responsive a été complètement corrigé :
+        sur mobile, ton header prend désormais le minimum de place indispensable pour laisser respirer ton image et tes
+        textes.</p>
+      <p>Le sous-titre du logo disparaît sur les petits écrans pour éviter les bugs d'affichage, et tout rentre dans
+        l'ordre !</p>
+    </section>
+
+    <section id="galerie" class="dummy-section bg-beige" style="height: 60vh;">
+      <h2>Fin de la simulation</h2>
+      <p>Teste bien le menu burger sur ton téléphone ou en réduisant la fenêtre de ton navigateur.</p>
+    </section>
+  </main>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    const hamburger = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('nav-menu');
+    const menuLinks = document.querySelectorAll('.fixed-mosquee-menu-link');
+
+    // Changement du header au scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Gestion du menu Mobile
+    const toggleMenu = () => {
+      hamburger.classList.toggle('open');
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Fermer le menu en cliquant sur un lien (mobile)
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (menu.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // Smooth Scroll propre
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navHeight = nav.offsetHeight;
+          window.scrollTo({
+            top: target.offsetTop - navHeight,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

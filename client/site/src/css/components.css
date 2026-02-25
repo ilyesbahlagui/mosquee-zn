@@ -200,38 +200,9 @@
     }
 }
 
-/* Annonce d'acquisition - style spécifique */
-.acquisition-section {
-    padding: var(--space-md) 0;
-    width: 100%;
-    box-sizing: border-box;
-}
 
-.acquisition-content {
-   
-    margin: var(--space-md) auto;
-    max-width: var(--container-xl);
- 
-    display: block;
-}
 
-.acquisition-title {
-    font-size: var(--font-size-3xl);
-    color: var(--primary);
-    padding-bottom: 2% !important;
-    font-weight: var(--font-weight-bold);
-    margin: 0 0 var(--space-sm) 0;
-    text-align: center;
-}
 
-.acquisition-text {
-    color: var(--text);
-    line-height: var(--line-height-relaxed);
-    margin: 1;
-    text-align: left !important;
-    padding-bottom: 2% !important;
-
-}
 
 
 
@@ -240,20 +211,6 @@
 
 /* Version mobile : image en background avec filtre */
 @media (max-width: 767px) {
-    .acquisition-content {
-        padding: 10px !important;
-    }
-
-    .acquisition-section {
-        padding: 10px !important;
-    }
-
-
-    .acquisition-title {
-        font-size: var(--font-size-2xl);
-        text-align: center;
-        margin-bottom: 10% !important;
-    }
 
     .hero {
         /* max-height: 60vh; */
@@ -500,22 +457,6 @@
     margin-bottom: var(--space-3xl);
 }
 
-/* Bloc d'appel aux dons mis en valeur dans la section financement */
-.fundraising-call {
-    background: linear-gradient(180deg, rgba(255, 250, 240, 0.6), rgba(255, 255, 255, 0.4));
-    /* padding: var(--space-lg); */
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    margin-bottom: var(--space-lg);
-}
-
-.fundraising-call p {
-    margin: 0 auto;
-    max-width: 900px;
-    text-align: center;
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-relaxed);
-}
 
 .btn-donate.btn-large {
     padding: var(--space-lg) var(--space-2xl);
@@ -1803,44 +1744,6 @@
     position: relative;
 }
 
-/* Style pour la boîte de hadith */
-.hadith-box {
-    background-color: #f8f9fa;
-    border-left: 4px solid var(--primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    margin: var(--space-lg) auto;
-    max-width: 800px;
-    box-shadow: var(--shadow-sm);
-}
-
-.hadith-text {
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-relaxed);
-    color: var(--primary-dark);
-    font-style: italic;
-    margin-bottom: var(--space-sm);
-    position: relative;
-  
-}
-
-.hadith-text::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -5px;
-    font-size: 1.5em;
-    color: var(--primary);
-    font-family: serif;
-    line-height: 1;
-}
-
-.hadith-source {
-    font-size: var(--font-size-base);
-    color: var(--text-light);
-    text-align: right;
-    font-weight: var(--font-weight-medium);
-}
 
 .deadline-calendar {
     font-size: 1.2em;
