@@ -1,0 +1,383 @@
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Conteneur principal */
+.container {
+    width: 100%;
+    max-width: 42rem; /* max-w-2xl */
+}
+
+.card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* En-tête */
+.header {
+    background: linear-gradient(90deg, #10b981 0%, #0d9488 100%);
+    padding: 2rem;
+    color: white;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.wallet-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+
+.header h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #d1fae5;
+    font-size: 1rem;
+}
+
+/* Contenu */
+.content {
+    padding: 2rem;
+}
+
+/* États de chargement et d'erreur */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error {
+    text-align: center;
+    padding: 3rem 0;
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Section total */
+.total-section {
+    margin-bottom: 2rem;
+}
+
+.total-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+}
+
+.remaining-info {
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.remaining-text {
+    font-size: 0.875rem;
+    color: #475569;
+    font-style: italic;
+}
+
+.remaining-text strong {
+    color: #dc2626;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.total-label {
+    color: #475569;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.total-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.goal-reached {
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, #10b981 0%, #0d9488 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Barre de progression */
+.progress-bar {
+    position: relative;
+    height: 1.5rem;
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #0d9488 100%);
+    transition: width 0.7s ease-out;
+    width: 0%;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.goal-label {
+    font-weight: 500;
+}
+
+/* Grille des cartes */
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .cards-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .header {
+        padding: 2rem;
+    }
+    
+    .header h1 {
+        font-size: 1.875rem;
+    }
+    
+    .total-amount {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .wallet-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+/* Cartes individuelles */
+.card-item {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid;
+}
+
+.leetchi-card {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-color: #93c5fd;
+}
+
+.banque-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-color: #fbbf24;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.leetchi-icon {
+    background-color: #3b82f6;
+}
+
+.banque-icon {
+    background-color: #f59e0b;
+}
+
+.card-header h3 {
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+}
+
+.card-amount {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.leetchi-card .card-amount {
+    color: #1d4ed8;
+}
+
+.banque-card .card-amount {
+    color: #d97706;
+}
+
+.card-date {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Info de rafraîchissement */
+.refresh-info {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.refresh-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.refresh-icon {
+    color: #64748b;
+}
+
+.refresh-text {
+    font-size: 0.875rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.refresh-description {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 639px) {
+    .header {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .header-content {
+        justify-content: center;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .content {
+        padding: 1.5rem;
+    }
+    
+    .total-amount {
+        font-size: 2rem;
+    }
+    
+    .card-amount {
+        font-size: 1.5rem;
+    }
+    
+    .card-header {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .card-item {
+        text-align: center;
+    }
+    
+    .remaining-info {
+        margin-bottom: 0.5rem;
+    }
+    
+    .remaining-text {
+        font-size: 0.8rem;
+    }
+    
+    .progress-text {
+        font-size: 0.8rem;
+        font-weight: 900;
+        color: #ffffff;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+    
+    .wallet-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}

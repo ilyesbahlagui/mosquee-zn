@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion Montants - Mosquée Tarascon</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">Mosquée Tarascon</h1>
+        <ul class="nav-menu">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#montants">Montants</a></li>
+          <li><a href="#mise-a-jour">Mise à jour</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Section compteur total -->
+      <section class="total-counter-section">
+        <div class="total-counter">
+          <h2 id="objective-title">🎯 Objectif de collecte</h2>
+          <div class="total-amount">
+            <span id="total-current">0</span> € / <span class="total-target">500 000</span> €
+          </div>
+          <div id="status-message" class="status-message"></div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="progress-percentage">
+              <span id="progress-percent">0</span>%
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="montants" class="amounts-section">
+        <h2>💰 Montants actuels</h2>
+        <div id="amounts-display" class="amounts-grid">
+          <div class="loading">Chargement des montants...</div>
+        </div>
+        <div id="amounts-error" class="error-message" style="display: none;"></div>
+      </section>
+
+      <section id="mise-a-jour" class="update-section">
+        <h2>Mise à jour des montants</h2>
+
+        <div class="forms-container">
+          <div class="form-card">
+            <h3>🏦 Banque</h3>
+            <form id="form-banque">
+              <div class="form-group">
+                <label for="montant-banque">Montant (€)</label>
+                <input
+                  type="number"
+                  id="montant-banque"
+                  name="montant"
+                  step="0.01"
+                  min="0"
+                  required
+                  placeholder="Entrez le montant"
+                >
+              </div>
+              <div class="form-group">
+                <label for="code-banque">Code d'accès</label>
+                <input
+                  type="password"
+                  id="code-banque"
+                  name="code"
+                  required
+                  placeholder="Entrez le code"
+                >
+              </div>
+              <button type="submit" class="btn-primary">Mettre à jour</button>
+            </form>
+            <div id="message-banque" class="message-container"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

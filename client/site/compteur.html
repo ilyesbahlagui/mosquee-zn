@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de Dons - Mosquée Tarascon</title>
+    <link rel="stylesheet" href="./src/css/pages-compteur.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- En-tête -->
+            <div class="header">
+                <div class="header-content">
+                    <svg class="wallet-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/>
+                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>
+                    </svg>
+                    <h1>Compteur de Dons</h1>
+                </div>
+                <p class="subtitle">Suivi transparent des contributions</p>
+            </div>
+
+            <!-- Contenu principal -->
+            <div class="content">
+                <!-- Loading spinner -->
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                </div>
+
+                <!-- Erreur -->
+                <div id="error" class="error hidden">
+                    <p id="error-message"></p>
+                </div>
+
+                <!-- Données -->
+                <div id="data-container" class="hidden">
+                    <!-- Total et barre de progression -->
+                    <div class="total-section">
+                        <div class="total-header">
+                            <span class="total-label">Total collecté</span>
+                            <span id="total-amount" class="total-amount">0,00 €</span>
+                        </div>
+
+                        <div class="remaining-info">
+                            <span id="remaining-amount-display" class="remaining-text">
+                                Il reste <strong id="remaining-amount">500 000,00 €</strong> à collecter
+                            </span>
+                        </div>
+
+                        <div id="goal-reached" class="goal-reached hidden">
+                            Objectif atteint ! <span id="progress-percentage">0</span>%
+                        </div>
+
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                            <span id="progress-percentage-value" class="progress-text">0%</span>
+                        </div>
+
+                        <div class="progress-labels">
+                            <span id="current-amount">0 €</span>
+                            <span class="goal-label">Objectif : 500 000 €</span>
+                        </div>
+                    </div>
+
+                    <!-- Cards Leetchi et Banque -->
+                    <div class="cards-grid">
+                        <div class="card-item leetchi-card">
+                            <div class="card-header">
+                                <div class="card-icon leetchi-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18"/>
+                                        <path d="m19 9-5 5-4-4-3 3"/>
+                                    </svg>
+                                </div>
+                                <h3>leetchi</h3>
+                            </div>
+                            <p id="leetchi-amount" class="card-amount">0,00 €</p>
+                            <p id="leetchi-date" class="card-date"></p>
+                        </div>
+
+                        <div class="card-item banque-card">
+                            <div class="card-header">
+                                <div class="card-icon banque-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/>
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/>
+                                    </svg>
+                                </div>
+                                <h3>banque</h3>
+                            </div>
+                            <p id="banque-amount" class="card-amount">0,00 €</p>
+                            <p id="banque-date" class="card-date"></p>
+                        </div>
+                    </div>
+
+                    <!-- Info de rafraîchissement -->
+                    <div class="refresh-info">
+                        <div class="refresh-header">
+                            <svg class="refresh-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v6h-6"/>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                            <p class="refresh-text">
+                                Actualisation dans <span id="countdown">60</span>s
+                            </p>
+                        </div>
+                        <p class="refresh-description">
+                            Les montants sont actualisés automatiquement toutes les minutes pour garantir une transparence totale.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/js/pages-compteur.js"></script>
+</body>
+</html>

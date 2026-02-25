@@ -1,0 +1,133 @@
+/* Styles spécifiques pour les compteurs de financement */
+
+/* Conteneur des compteurs */
+.funding-counters {
+    margin-top: var(--space-xl);
+}
+
+.counters-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+/* Cartes de compteurs */
+.counter-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-md) var(--space-lg);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    max-width: 240px;
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.counter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* En-têtes des cartes */
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    color: white;
+}
+
+.leetchi-icon {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
+}
+
+.banque-icon {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.card-header h3 {
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Montants des cartes */
+.card-amount-wrapper {
+    margin-bottom: var(--space-sm);
+}
+
+.card-amount {
+    font-size: var(--font-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    font-family: var(--font-mono);
+}
+
+.card-date {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin: 0;
+    font-style: italic;
+}
+
+
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .counters-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    
+    .counter-card {
+        padding: var(--space-md);
+        min-width: unset;
+        max-width: none;
+        width: 100%;
+    }
+    
+    .card-amount {
+        font-size: var(--font-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-card {
+        padding: var(--space-sm);
+    }
+    
+    .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .card-amount {
+        font-size: var(--font-md);
+    }
+    
+    .card-header h3 {
+        font-size: var(--font-sm);
+    }
+}
+

@@ -1,0 +1,10 @@
+services:
+  gestion-mosquee-tarascon:
+    image: nginx:alpine
+    container_name: gestion-mosquee-tarascon
+    volumes:
+      - ~/workspace/gestion-mosquee-tarascon:/usr/share/nginx/html:ro
+      - ~/workspace/gestion-mosquee-tarascon/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8082:80"
+    restart: unless-stopped
