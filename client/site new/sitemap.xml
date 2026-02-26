@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  SITEMAP.XML - Plan du site pour les moteurs de recherche
+  
+  ⚠️ IMPORTANT : À mettre à jour régulièrement
+  - Modifier les URLs avec votre vrai nom de domaine
+  - Ajouter de nouvelles pages si le site évolue
+  - Mettre à jour les dates de dernière modification
+  - Priorité : de 0.0 à 1.0 (1.0 = page la plus importante)
+  - Changefreq : always, hourly, daily, weekly, monthly, yearly, never
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- PAGE D'ACCUEIL -->
+  <!-- ⚠️ MODIFIER : remplacer par votre vrai nom de domaine -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- SECTION DONS -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/#dons</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SECTION PROJET PARKING -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/#projet</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SECTION HORAIRES DE PRIÈRE -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/#horaires</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SECTION ACTUALITÉS -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/#actualites</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SECTION CONTACT -->
+  <url>
+    <loc>https://mosquee-lumiere-piete-nimes.fr/#contact</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 
+    ⚠️ AJOUTER ICI LES NOUVELLES PAGES si le site évolue
+    
+    Exemple :
+    <url>
+      <loc>https://mosquee-lumiere-piete-nimes.fr/nouvelle-page</loc>
+      <lastmod>2026-XX-XX</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  -->
+
+</urlset>

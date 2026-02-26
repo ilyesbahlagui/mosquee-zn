@@ -1,0 +1,149 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   📋 TODO LIST — Mosquée Lumière et Piété Nîmes                             ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+🔴 URGENT — À faire AVANT la mise en ligne
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 1. CRÉER LES IMAGES MANQUANTES
+    ├── [ ] favicon-16x16.png (16x16 px)
+    ├── [ ] favicon-32x32.png (32x32 px)
+    ├── [ ] apple-touch-icon.png (180x180 px)
+    ├── [ ] og-image.jpg (1200x630 px) — Aperçu Facebook/WhatsApp
+    ├── [ ] twitter-card.jpg (1200x630 px) — Aperçu Twitter
+    ├── [ ] icon-192x192.png (192x192 px) — PWA
+    ├── [ ] icon-512x512.png (512x512 px) — PWA
+    ├── [ ] logo.png — Logo principal de la mosquée
+    └── [ ] header.avif (1920x1080 px) — Image de fond hero
+    
+    📌 Outils : https://realfavicongenerator.net/ (favicons)
+                https://canva.com/ (OG images)
+                https://squoosh.app/ (compression)
+
+
+[ ] 2. CRÉER LES FICHIERS MANQUANTS
+    ├── [ ] rib.pdf — RIB de la mosquée (à télécharger)
+    ├── [ ] video-parking.mp4 — Vidéo du terrain (30-60 sec)
+    └── [ ] poster-parking.jpg (1280x720 px) — Miniature vidéo
+    
+    📌 Outil : HandBrake (compression vidéo)
+
+
+[ ] 3. MODIFIER LES COORDONNÉES DANS index.html
+    ├── [ ] Ligne ~51 : og:url (mettre le vrai nom de domaine)
+    ├── [ ] Ligne ~53 : og:image (mettre la vraie URL de l'image)
+    ├── [ ] Ligne ~88-92 : Adresse complète de la mosquée
+    ├── [ ] Ligne ~97 : Coordonnées GPS exactes
+    ├── [ ] Ligne ~173 : Téléphone (+33...)
+    ├── [ ] Ligne ~174 : Email réel
+    └── [ ] Ligne ~175-179 : Liens réseaux sociaux (Facebook, Instagram, Snapchat)
+
+
+[ ] 4. MODIFIER LE NOM DE DOMAINE (Remplacer partout "mosquee-lumiere-piete-nimes.fr")
+    ├── [ ] index.html (toutes les occurrences)
+    ├── [ ] sitemap.xml (toutes les <loc>)
+    ├── [ ] robots.txt (ligne Sitemap:)
+    └── [ ] .htaccess (lignes RewriteRule)
+
+
+[ ] 5. TESTER LE SITE EN LOCAL
+    ├── [ ] Tester tous les liens (menu, boutons)
+    ├── [ ] Tester sur mobile (responsive)
+    ├── [ ] Tester la copie des coordonnées bancaires
+    ├── [ ] Tester le carrousel photos
+    └── [ ] Tester la modale (clic sur image)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🟡 IMPORTANT — À faire APRÈS la mise en ligne
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 6. CONFIGURER LE CERTIFICAT SSL (HTTPS)
+    📌 Chez votre hébergeur : activer Let's Encrypt (gratuit)
+    📌 Puis décommenter les lignes SSL dans .htaccess
+
+
+[ ] 7. CRÉER LES COMPTES SEO
+    ├── [ ] Google Search Console → https://search.google.com/search-console
+    │   └── [ ] Soumettre le sitemap.xml
+    ├── [ ] Bing Webmaster Tools → https://www.bing.com/webmasters
+    │   └── [ ] Soumettre le sitemap.xml
+    ├── [ ] Google My Business (référencement local)
+    │   └── [ ] Ajouter les horaires, photos, services
+    └── [ ] Google Analytics (statistiques visiteurs)
+
+
+[ ] 8. TESTER LE RÉFÉRENCEMENT
+    ├── [ ] PageSpeed Insights → https://pagespeed.web.dev/
+    ├── [ ] Rich Results Test → https://search.google.com/test/rich-results
+    ├── [ ] Facebook Sharing Debugger → https://developers.facebook.com/tools/debug/
+    └── [ ] Mobile-Friendly Test → https://search.google.com/test/mobile-friendly
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🟢 OPTIONNEL — Améliorations futures
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] 9. OPTIMISATIONS PERFORMANCE
+    ├── [ ] Convertir images en AVIF/WebP (80% plus léger)
+    ├── [ ] Ajouter lazy loading sur les images
+    ├── [ ] Minifier CSS et JS pour production
+    └── [ ] Activer la compression Brotli (si serveur compatible)
+
+
+[ ] 10. FONCTIONNALITÉS SUPPLÉMENTAIRES
+    ├── [ ] Ajouter un système de newsletter
+    ├── [ ] Ajouter un espace "Cours et Conférences"
+    ├── [ ] Ajouter une page "Qui sommes-nous ?"
+    ├── [ ] Créer une version multilingue (arabe, anglais)
+    └── [ ] Ajouter un chatbot (ex: Tawk.to)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📅 MAINTENANCE RÉGULIÈRE
+═══════════════════════════════════════════════════════════════════════════════
+
+[ ] CHAQUE MOIS :
+    ├── [ ] Mettre à jour les horaires de prière (Mawaqit le fait auto)
+    ├── [ ] Vérifier les montants de dons (API)
+    └── [ ] Publier une actualité sur les réseaux sociaux
+
+[ ] CHAQUE SAISON (Ramadan, Aïd...) :
+    ├── [ ] Modifier le titre SEO (index.html)
+    ├── [ ] Modifier la description SEO
+    ├── [ ] Ajouter les mots-clés saisonniers
+    └── [ ] Mettre à jour l'événement Schema.org
+
+[ ] CHAQUE ANNÉE :
+    ├── [ ] Renouveler le certificat SSL (auto si Let's Encrypt)
+    ├── [ ] Vérifier les performances (PageSpeed)
+    └── [ ] Sauvegarder le site complet
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📚 AIDE & DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════════
+
+📖 SEO-GUIDE.md        → Guide complet du référencement
+📖 STRUCTURE.md        → Structure du projet + checklist
+📖 index.html          → Commentaires dans le code
+📖 assets/css/style.css → Commentaires CSS
+📖 assets/js/main.js   → Commentaires JavaScript
+
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ PROGRESSION
+═══════════════════════════════════════════════════════════════════════════════
+
+Total : 0/10 tâches complétées
+
+🔴 Urgent : 0/5
+🟡 Important : 0/3
+🟢 Optionnel : 0/2
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Dernière mise à jour : 26 février 2026
