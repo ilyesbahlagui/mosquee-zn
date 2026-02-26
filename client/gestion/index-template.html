@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Montants - Mosquée Tarascon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ── Reset local ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9F8F6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Variables (Thème Mosquée) ── */
+        :root {
+            --m-white: #ffffff;
+            --m-beige: #F9F8F6;
+            --m-beige-darker: #F0EBE1;
+            --m-peps: #E06D3D;
+            --m-peps-hover: #C2572B;
+            --m-text: #2C3E50;
+            --m-text-light: #64748B;
+            --m-glass-nav: rgba(255, 255, 255, 0.95);
+            --m-blur: blur(20px);
+            --m-transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --m-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --m-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+
+            /* Couleurs pour les alertes */
+            --m-success: #27ae60;
+            --m-success-bg: #eafaf1;
+            --m-error: #e74c3c;
+            --m-error-bg: #fdedec;
+        }
+
+        /* ── Navbar ── */
+        .fixed-mosquee-nav {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 1000px;
+            z-index: 1005;
+            height: 70px;
+            background: var(--m-glass-nav);
+            backdrop-filter: var(--m-blur);
+            -webkit-backdrop-filter: var(--m-blur);
+            border-radius: 40px;
+            box-shadow: var(--m-shadow);
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .fixed-mosquee-container {
+            width: 100%;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .fixed-mosquee-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .fixed-mosquee-logo-icon {
+            font-size: 2rem;
+            color: var(--m-peps);
+        }
+
+        .fixed-mosquee-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .fixed-mosquee-logo-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--m-text);
+        }
+
+        .fixed-mosquee-logo-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--m-text-light);
+            text-transform: uppercase;
+        }
+
+        .fixed-mosquee-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .fixed-mosquee-menu-link {
+            text-decoration: none;
+            color: var(--m-text);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .fixed-mosquee-menu-link:hover {
+            color: var(--m-peps);
+            background: var(--m-beige-darker);
+        }
+
+        /* ── Layout & Sections ── */
+        main {
+            flex: 1;
+            padding-top: 100px;
+        }
+
+        .section-wrapper {
+            padding: 40px 20px;
+        }
+
+        .section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--m-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .section-line {
+            width: 50px;
+            height: 4px;
+            background: var(--m-peps);
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .mosquee-card {
+            background: var(--m-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--m-card-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        /* ── Compteur & Jauge ── */
+        .don-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .don-header p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--m-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .don-total {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--m-peps);
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .gauge-wrapper {
+            margin: 30px 0;
+        }
+
+        .gauge-container {
+            background: #EAEAEA;
+            border-radius: 20px;
+            height: 16px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .gauge-fill {
+            background: var(--m-peps);
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease-out, background-color 0.5s ease;
+            border-radius: 20px;
+        }
+
+        /* ── Sources (Banque / Leetchi) ── */
+        .don-sources {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .source-card {
+            background: var(--m-beige);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .source-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .source-card span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--m-text-light);
+            text-transform: uppercase;
+        }
+
+        .source-card strong {
+            font-size: 1.6rem;
+            color: var(--m-text);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .source-date {
+            font-size: 0.75rem;
+            color: var(--m-text-light);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* ── Formulaire de mise à jour ── */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--m-text-light);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group {
+            display: flex;
+            background: #F5F2EB;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .input-group:focus-within {
+            border: 2px solid var(--m-peps);
+        }
+
+        .input-group input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--m-text);
+            outline: none;
+            width: 100%;
+        }
+
+        .btn-primary {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: var(--m-peps);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--m-peps-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 109, 61, 0.3);
+        }
+
+        /* ── Messages Alertes ── */
+        .message-container {
+            margin-top: 15px;
+            min-height: 20px;
+        }
+
+        .alert-message {
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message {
+            background-color: var(--m-success-bg);
+            color: var(--m-success);
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+
+        .error-message {
+            background-color: var(--m-error-bg);
+            color: var(--m-error);
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--m-text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .fixed-mosquee-menu {
+                display: none;
+                /* Simplification pour le backoffice */
+            }
+
+            .don-total {
+                font-size: 2.5rem;
+            }
+
+            .don-sources {
+                grid-template-columns: 1fr;
+            }
+
+            .mosquee-card {
+                padding: 25px 20px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .fixed-mosquee-nav {
+                width: 92%;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="fixed-mosquee-nav">
+            <div class="fixed-mosquee-container">
+                <a href="#" class="fixed-mosquee-logo">
+                    <i class="fa-solid fa-mosque fixed-mosquee-logo-icon"></i>
+                    <div class="fixed-mosquee-logo-text">
+                        <span class="fixed-mosquee-logo-name">Gestion Dons</span>
+                        <span class="fixed-mosquee-logo-sub">Mosquée Tarascon</span>
+                    </div>
+                </a>
+                <ul class="fixed-mosquee-menu">
+                    <li><a href="#vue-ensemble" class="fixed-mosquee-menu-link">Vue d'ensemble</a></li>
+                    <li><a href="#mise-a-jour" class="fixed-mosquee-menu-link">Mise à jour</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="vue-ensemble" class="section-wrapper">
+            <div class="section-inner">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title"><i class="fa-solid fa-chart-pie"></i> Vue d'ensemble</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="mosquee-card">
+                    <div class="don-header">
+                        <p>Total Récolté</p>
+                        <div class="don-total"><span id="total-current">0,00</span> €</div>
+                        <p id="status-message">Calcul en cours...</p>
+                    </div>
+
+                    <div class="gauge-wrapper">
+                        <div class="gauge-container">
+                            <div class="gauge-fill" id="progress-fill"></div>
+                        </div>
+                        <div style="text-align: right; font-weight: 800; color: var(--m-peps); font-size: 1.1rem;">
+                            <span id="progress-percent">0</span>% / 500 000 €
+                        </div>
+                    </div>
+
+                    <div class="don-sources">
+                        <div class="source-card">
+                            <span>Banque</span>
+                            <strong>
+                                <i class="fa-solid fa-building-columns" style="color:var(--m-peps)"></i>
+                                <span id="val-banque">-</span>
+                            </strong>
+                            <div class="source-date" id="date-banque">Chargement...</div>
+                        </div>
+                        <div class="source-card">
+                            <span>Leetchi</span>
+                            <strong>
+                                <i class="fa-solid fa-wallet" style="color:var(--m-peps)"></i>
+                                <span id="val-leetchi">-</span>
+                            </strong>
+                            <div class="source-date" id="date-leetchi">Chargement...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mise-a-jour" class="section-wrapper" style="background: var(--m-white);">
+            <div class="section-inner">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title"><i class="fa-solid fa-pen-to-square"></i> Mise à jour Banque</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="mosquee-card" style="max-width: 500px; margin: 0 auto; background: var(--m-beige);">
+                    <form id="form-banque">
+                        <div class="form-group">
+                            <label for="montant-banque"><i class="fa-solid fa-euro-sign"></i> Nouveau Montant
+                                Total</label>
+                            <div class="input-group">
+                                <input type="number" id="montant-banque" name="montant" step="0.01" min="0" required
+                                    placeholder="Ex: 25000.50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="code-banque"><i class="fa-solid fa-lock"></i> Code d'accès (Admin)</label>
+                            <div class="input-group">
+                                <input type="password" id="code-banque" name="code" required
+                                    placeholder="Votre code secret">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Mettre à jour le montant
+                        </button>
+                    </form>
+                    <div id="message-banque" class="message-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Admin Mosquée de Tarascon. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3000';
+        const TARGET_AMOUNT = 500000;
+
+        // Fonction pour formater les devises
+        const formatEuro = (amount) => {
+            return new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount) + ' €';
+        };
+
+        // ── Récupération des données ──
+        async function fetchAmounts() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/amount`);
+                if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+
+                const data = await response.json();
+                if (data.ok === false) throw new Error(data.error || 'Erreur API');
+
+                updateDashboardDOM(data);
+            } catch (error) {
+                console.error('Erreur de récupération:', error);
+                document.getElementById('status-message').textContent = 'Erreur lors de la récupération des données.';
+                document.getElementById('status-message').style.color = 'var(--m-error)';
+            }
+        }
+
+        // ── Mise à jour du DOM ──
+        function updateDashboardDOM(data) {
+            let totalAmount = 0;
+
+            // Update Banque
+            if (data.banque && data.banque.ok) {
+                document.getElementById('val-banque').textContent = formatEuro(data.banque.amount);
+                document.getElementById('date-banque').textContent = `Mis à jour le ${data.banque.updatedAt}`;
+                totalAmount += data.banque.amount;
+            } else {
+                document.getElementById('val-banque').textContent = 'Erreur';
+                document.getElementById('date-banque').textContent = 'Données non disponibles';
+            }
+
+            // Update Leetchi
+            if (data.leetchi && data.leetchi.ok) {
+                document.getElementById('val-leetchi').textContent = formatEuro(data.leetchi.amount);
+                document.getElementById('date-leetchi').textContent = `Mis à jour le ${data.leetchi.updatedAt}`;
+                totalAmount += data.leetchi.amount;
+            } else {
+                document.getElementById('val-leetchi').textContent = 'Erreur';
+                document.getElementById('date-leetchi').textContent = 'Données non disponibles';
+            }
+
+            // Update Total & Jauge
+            const actualPercentage = (totalAmount / TARGET_AMOUNT) * 100;
+            const displayPercentage = Math.min(actualPercentage, 100);
+
+            document.getElementById('total-current').textContent = totalAmount.toLocaleString('fr-FR', {
+                minimumFractionDigits: 2, maximumFractionDigits: 2
+            });
+            document.getElementById('progress-percent').textContent = actualPercentage.toFixed(1);
+
+            const fillElement = document.getElementById('progress-fill');
+            fillElement.style.width = `${displayPercentage}%`;
+            fillElement.style.backgroundColor = actualPercentage >= 100 ? 'var(--m-success)' : 'var(--m-peps)';
+
+            // Message de statut
+            const statusMsg = document.getElementById('status-message');
+            if (actualPercentage >= 100) {
+                statusMsg.innerHTML = `🎉 <span style="color:var(--m-success); font-weight:bold;">OBJECTIF DÉPASSÉ !</span> (+${(actualPercentage - 100).toFixed(1)}%)`;
+            } else {
+                const rest = TARGET_AMOUNT - totalAmount;
+                statusMsg.textContent = `Il reste ${rest.toLocaleString('fr-FR', { maximumFractionDigits: 0 })} € à collecter pour atteindre l'objectif.`;
+                statusMsg.style.color = 'var(--m-text-light)';
+            }
+        }
+
+        // ── Gestion des Formulaires ──
+        function showMessage(containerId, type, text) {
+            const container = document.getElementById(containerId);
+            const icon = type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-solid fa-circle-exclamation"></i>';
+            const messageClass = type === 'success' ? 'success-message' : 'error-message';
+
+            container.innerHTML = `<div class="alert-message ${messageClass}">${icon} ${text}</div>`;
+            setTimeout(() => { container.innerHTML = ''; }, 4000);
+        }
+
+        async function updateAmount(type) {
+            const form = document.getElementById(`form-${type}`);
+            const formData = new FormData(form);
+            const montant = formData.get('montant');
+            const code = formData.get('code');
+            const messageContainerId = `message-${type}`;
+            const btn = form.querySelector('button');
+
+            try {
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mise à jour...';
+                btn.disabled = true;
+
+                const url = `${API_BASE_URL}/${type}?montant=${encodeURIComponent(montant)}&code=${encodeURIComponent(code)}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (response.ok && response.status === 200) {
+                    showMessage(messageContainerId, 'success', data.message || 'Montant mis à jour avec succès !');
+                    form.reset();
+                    await fetchAmounts(); // Rafraîchir les stats
+                } else {
+                    showMessage(messageContainerId, 'error', data.error || 'Identifiants incorrects ou erreur serveur.');
+                }
+            } catch (error) {
+                console.error(`Erreur MAJ ${type}:`, error);
+                showMessage(messageContainerId, 'error', 'Erreur de connexion au serveur.');
+            } finally {
+                btn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> Mettre à jour le montant';
+                btn.disabled = false;
+            }
+        }
+
+        // ── Initialisation ──
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAmounts();
+
+            // Rafraîchissement automatique toutes les minutes
+            setInterval(fetchAmounts, 60000);
+
+            // Soumission du formulaire Banque
+            document.getElementById('form-banque').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await updateAmount('banque');
+            });
+        });
+    </script>
+</body>
+
+</html>
