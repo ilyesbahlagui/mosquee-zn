@@ -31,6 +31,12 @@ echo "✅ Site déployé avec succès"
 
 # ─────────────────────────────────────────────────────────────
 # 2. DÉPLOIEMENT DE LA GESTION
+# ─────────────────────────────────────────────────────────────
+echo ""
+echo "📦 Déploiement de la gestion..."
+cd ../gestion || exit 1
+
+# Arrêter les conteneurs existants
 if ! docker compose down 2>&1; then
     echo "❌ Erreur lors de l'arrêt de la gestion"
     exit 1
@@ -42,16 +48,16 @@ if ! docker compose up -d 2>&1; then
     exit 1
 fi
 
-# Arrêter les conteneurs existants
-docker compose down || { echo "❌ Erreur lors de l'arrêt de la gestion"; exit 1; }
-
-# Démarrer les nouveaux conteneurs
-docker compose up -d || { echo "❌ Erreur lors du démarrage de la gestion"; exit 1; }
-
 echo "✅ Gestion déployée avec succès"
 
 # ─────────────────────────────────────────────────────────────
 # 3. REDÉMARRAGE DU SERVEUR (PM2)
+# ─────────────────────────────────────────────────────────────
+echo ""
+echo "🔄 Redémarrage du serveur..."
+cd ../../serveur || exit 1
+
+# Redémarrer le processus PM2 (ID: 1)
 if ! pm2 restart 1 2>&1; then
     echo "❌ Erreur lors du redémarrage du serveur"
     exit 1
@@ -64,12 +70,6 @@ if ! pm2 show 1 2>&1 | grep "status" | grep "online" > /dev/null; then
     pm2 logs 1 --lines 10 --nostream
     exit 1
 fi
-# Redémarrer le processus PM2 (ID: 1)
-pm2 restart 1 || { echo "❌ Erreur lors du redémarrage du serveur"; exit 1; }
-
-# Vérifier que le processus est bien démarré
-sleep 2
-pm2 show 1 | grep "status" | grep "online" > /dev/null || { echo "⚠️  Le serveur n'est pas en ligne"; exit 1; }
 
 echo "✅ Serveur redémarré avec succès"
 
@@ -78,6 +78,12 @@ echo "✅ Serveur redémarré avec succès"
 # ─────────────────────────────────────────────────────────────
 echo ""
 echo "════════════════════════════════════════════════════════════"
+echo "✨ Déploiement terminé avec succès !"
+echo "════════════════════════════════════════════════════════════"
+echo ""
+
+exit 0
+
 echo "✨ Déploiement terminé avec succès !"
 echo "════════════════════════════════════════════════════════════"
 echo ""
