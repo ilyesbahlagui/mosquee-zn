@@ -256,7 +256,7 @@ async function updateData() {
 
     try {
         // Appel API pour récupérer les montants réels
-        const res = await fetch('http://localhost:3000/amount');
+        const res = await fetch('http://mosquee-zn-api.ib-app.fr/amount');
         
         // Données de fallback (test) si l'API est indisponible
         const data = res.ok ? await res.json() : { 

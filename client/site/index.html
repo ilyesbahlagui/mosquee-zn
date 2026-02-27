@@ -234,10 +234,10 @@
                 </a>
                 <!-- Menu de navigation (liens ancres) -->
                 <ul class="fixed-mosquee-menu" id="nav-menu">
+                    <li><a href="#horaires" class="fixed-mosquee-menu-link">Horaires</a></li>
                     <li><a href="#dons" class="fixed-mosquee-menu-link">Dons</a></li>
                     <li><a href="#projet" class="fixed-mosquee-menu-link">Projet</a></li>
-                    <li><a href="#banque" class="fixed-mosquee-menu-link">Banque</a></li>
-                    <li><a href="#horaires" class="fixed-mosquee-menu-link">Horaires</a></li>
+                    <li><a href="#banque" class="fixed-mosquee-menu-link">RIB</a></li>
                     <li><a href="#actualites" class="fixed-mosquee-menu-link">Actualités</a></li>
                     <li><a href="#a-propos" class="fixed-mosquee-menu-link">La Mosquée</a></li>
                     <li><a href="#contact" class="fixed-mosquee-menu-link">Contact</a></li>
@@ -282,6 +282,45 @@
     ════════════════════════════════════════ -->
     <main>
 
+        <!-- ── SECTION HORAIRES : prières du vendredi & quotidiennes (Mawaqit) ── -->
+        <section id="horaires" class="section-wrapper bg-white">
+            <div class="section-inner">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title"><i class="fa-regular fa-clock"></i> Horaires de Prière</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="mosquee-card">
+
+                    <!-- Carte Vendredi : heure été / hiver -->
+                    <div class="vendredi-section">
+                        <h3 class="vendredi-title">Prière du Vendredi</h3>
+                        <div class="vendredi-grid">
+                            <div class="v-card">
+                                <div class="v-icon v-ete"><i class="fa-solid fa-sun"></i></div>
+                                <div class="v-info"><strong>Heure d'été</strong><span>13:30</span></div>
+                            </div>
+                            <div class="v-card">
+                                <div class="v-icon v-hiver"><i class="fa-solid fa-snowflake"></i></div>
+                                <div class="v-info"><strong>Heure d'hiver</strong><span>12:40</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget Mawaqit : prières quotidiennes en direct -->
+                    <div class="mawaqit-section">
+                        <h3 class="vendredi-title mt-10">Prières Quotidiennes</h3>
+
+                        <div class="iframe-wrapper">
+                            <iframe src="https://mawaqit.net/fr/w/nour-nimes?showEmbed=true" width="100%" height="450"
+                                class="iframe-no-border"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <!-- ── SECTION DONS : objectif de collecte & jauge ── -->
         <section id="dons" class="section-wrapper bg-beige">
             <div class="section-inner" class="section-inner-narrow">
@@ -294,9 +333,9 @@
                 <div class="mosquee-card">
                     <!-- Boutons de paiement (carte / cagnotte) -->
                     <div class="don-action-btns">
-                        <a href="#" class="btn-outline-peps">
+                        <!-- <a href="#" class="btn-outline-peps">
                             <i class="fa-solid fa-credit-card"></i> Carte Bancaire
-                        </a>
+                        </a> -->
                         <a href="https://www.cotizup.com/parkingmosquee" class="btn-outline-peps">
                             <i class="fa-solid fa-hand-holding-heart"></i> Cagnotte Cotizup
                         </a>
@@ -455,48 +494,9 @@
                         </div>
                     </div>
 
-                    <a href="assets/fichiers/rib.pdf" download class="btn-dl">
+                    <a href="assets/fichiers/rib-mosquee-lumiere-et-piete.pdf" download class="btn-dl">
                         <i class="fa-solid fa-file-pdf"></i> Télécharger le RIB complet
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── SECTION HORAIRES : prières du vendredi & quotidiennes (Mawaqit) ── -->
-        <section id="horaires" class="section-wrapper bg-white">
-            <div class="section-inner">
-                <div class="section-title-wrapper">
-                    <h2 class="section-title"><i class="fa-regular fa-clock"></i> Horaires de Prière</h2>
-                    <div class="section-line"></div>
-                </div>
-
-                <div class="mosquee-card">
-
-                    <!-- Carte Vendredi : heure été / hiver -->
-                    <div class="vendredi-section">
-                        <h3 class="vendredi-title">Prière du Vendredi</h3>
-                        <div class="vendredi-grid">
-                            <div class="v-card">
-                                <div class="v-icon v-ete"><i class="fa-solid fa-sun"></i></div>
-                                <div class="v-info"><strong>Heure d'été</strong><span>13:30/span></div>
-                            </div>
-                            <div class="v-card">
-                                <div class="v-icon v-hiver"><i class="fa-solid fa-snowflake"></i></div>
-                                <div class="v-info"><strong>Heure d'hiver</strong><span>12:40</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Widget Mawaqit : prières quotidiennes en direct -->
-                    <div class="mawaqit-section">
-                        <h3 class="vendredi-title mt-10">Prières Quotidiennes</h3>
-
-                        <div class="iframe-wrapper">
-                            <iframe src="https://mawaqit.net/fr/w/nour-nimes?showEmbed=true" width="100%" height="450"
-                                class="iframe-no-border"></iframe>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -526,18 +526,19 @@
 
                     <!-- Grille de liens vers les réseaux sociaux -->
                     <div class="social-grid">
-                        <a href="#" class="social-card">
+                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card">
                             <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
                             <span>Facebook</span>
                         </a>
-                        <a href="#" class="social-card">
+                        <!-- Instagram et Snapchat temporairement désactivés -->
+                        <!-- <a href="#" class="social-card">
                             <div class="social-icon-wrapper instagram-icon"><i class="fa-brands fa-instagram"></i></div>
                             <span>Instagram</span>
                         </a>
                         <a href="#" class="social-card">
                             <div class="social-icon-wrapper snapchat-icon"><i class="fa-brands fa-snapchat"></i></div>
                             <span>Snapchat</span>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
