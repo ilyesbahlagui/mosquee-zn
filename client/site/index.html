@@ -244,7 +244,7 @@
                 </ul>
                 <!-- Actions navbar : bouton don + hamburger mobile -->
                 <div class="fixed-mosquee-actions">
-                    <a href="#" class="fixed-mosquee-btn-don">
+                    <a href="https://www.cotizup.com/parkingmosquee" class="fixed-mosquee-btn-don">
                         <i class="fa-solid fa-heart"></i> Faire un don
                     </a>
                     <button class="fixed-mosquee-hamburger"
@@ -266,11 +266,10 @@
 
                 <!-- Boutons CTA du hero -->
                 <div class="fixed-mosquee-hero-btns">
-                    <a href="#dons" class="fixed-mosquee-btn-don" style="padding:15px 40px; font-size:1.1rem">
+                    <a href="#dons" class="fixed-mosquee-btn-don hero-btn-primary">
                         <i class="fa-solid fa-hand-holding-heart"></i> Financer 1 m² (100€)
                     </a>
-                    <a href="#horaires" class="fixed-mosquee-btn-don"
-                        style="padding:15px 40px; font-size:1.1rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.6); box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <a href="#horaires" class="fixed-mosquee-btn-don hero-btn-secondary">
                         <i class="fa-solid fa-clock"></i> Horaires de prière
                     </a>
                 </div>
@@ -298,7 +297,7 @@
                         <a href="#" class="btn-outline-peps">
                             <i class="fa-solid fa-credit-card"></i> Carte Bancaire
                         </a>
-                        <a href="#" class="btn-outline-peps">
+                        <a href="https://www.cotizup.com/parkingmosquee" class="btn-outline-peps">
                             <i class="fa-solid fa-hand-holding-heart"></i> Cagnotte Cotizup
                         </a>
                     </div>
@@ -307,7 +306,7 @@
                     <div class="don-header">
                         <p>Montant Récolté</p>
                         <div class="don-total" id="ui-total">0 €</div>
-                        <p><span id="ui-pourcentage" style="color:var(--m-peps)">0%</span> de l'objectif (150 000 €)</p>
+                        <p><span id="ui-pourcentage" class="text-peps">0%</span> de l'objectif (150 000 €)</p>
                     </div>
                     <!-- Barre de progression de la jauge -->
                     <div class="gauge-wrapper">
@@ -319,12 +318,11 @@
                     <div class="don-sources">
                         <div class="source-card">
                             <span>Banque</span>
-                            <strong id="ui-banque"><i class="fa-solid fa-building-columns"
-                                    style="color:var(--m-peps)"></i> 0 €</strong>
+                            <strong id="ui-banque"><i class="fa-solid fa-building-columns text-peps"></i> 0 €</strong>
                         </div>
                         <div class="source-card">
                             <span>Cotizup</span>
-                            <strong id="ui-cotizup"><i class="fa-solid fa-wallet" style="color:var(--m-peps)"></i> 0
+                            <strong id="ui-cotizup"><i class="fa-solid fa-wallet text-peps"></i> 0
                                 €</strong>
                         </div>
                     </div>
@@ -367,7 +365,7 @@
                                     <span>À sécuriser</span>
                                 </div>
                                 <div class="p-stat">
-                                    <strong style="color:var(--m-peps)">100 €</strong>
+                                    <strong class="text-peps">100 €</strong>
                                     <span>Le m²</span>
                                 </div>
                             </div>
@@ -378,7 +376,7 @@
                                 <source src="assets/video/aid.mp4" type="video/mp4">
                                 Votre navigateur ne supporte pas la lecture de la vidéo.
                             </video>
-                            <p style="text-align:center; font-size:0.8rem; color:var(--m-text-light); margin-top:10px;">
+                            <p class="video-caption">
                                 <i class="fa-solid fa-camera"></i> Vue drone : l'importance de cet espace pour nos
                                 rassemblements
                             </p>
@@ -424,7 +422,7 @@
                         <label>Bénéficiaire</label>
                         <div class="copy-group">
                             <input type="text" value="UNION IMANOPAIX NIMOISE" readonly id="bene">
-                            <button class="btn-copy" onclick="copy('bene', this)">
+                            <button class="btn-copy" data-copy-id="bene">
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
                             </button>
                         </div>
@@ -432,8 +430,8 @@
                     <div class="bank-field">
                         <label>IBAN</label>
                         <div class="copy-group">
-                            <input type="text" value="FR76 3000 2000 5000 1234 5678 901" readonly id="iban">
-                            <button class="btn-copy" onclick="copy('iban', this)">
+                            <input type="text" value="FR76 1027 8089 6500 0210 2920 165" readonly id="iban">
+                            <button class="btn-copy" data-copy-id="iban">
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
                             </button>
                         </div>
@@ -441,8 +439,8 @@
                     <div class="bank-field">
                         <label>BIC (SWIFT)</label>
                         <div class="copy-group">
-                            <input type="text" value="BNPAFRRP" readonly id="bic">
-                            <button class="btn-copy" onclick="copy('bic', this)">
+                            <input type="text" value="CMCIFR2A" readonly id="bic">
+                            <button class="btn-copy" data-copy-id="bic">
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
                             </button>
                         </div>
@@ -450,8 +448,8 @@
                     <div class="bank-field">
                         <label>Référence</label>
                         <div class="copy-group">
-                            <input type="text" value="DON-NIMES-2026" readonly id="ref">
-                            <button class="btn-copy" onclick="copy('ref', this)">
+                            <input type="text" value="DON UNION IMANOPAIX NIMOISE" readonly id="ref">
+                            <button class="btn-copy" data-copy-id="ref">
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
                             </button>
                         </div>
@@ -491,11 +489,11 @@
 
                     <!-- Widget Mawaqit : prières quotidiennes en direct -->
                     <div class="mawaqit-section">
-                        <h3 class="vendredi-title" style="margin-top: 10px;">Prières Quotidiennes</h3>
+                        <h3 class="vendredi-title mt-10">Prières Quotidiennes</h3>
 
                         <div class="iframe-wrapper">
                             <iframe src="https://mawaqit.net/fr/w/nour-nimes?showEmbed=true" width="100%" height="450"
-                                frameborder="0"></iframe>
+                                class="iframe-no-border"></iframe>
                         </div>
                     </div>
 
@@ -512,7 +510,7 @@
                 </div>
 
                 <div class="mosquee-card">
-                    <p class="social-desc" style="margin-bottom: 20px;">Pour rester à jour sur tous les événements de la
+                    <p class="social-desc mb-20">Pour rester à jour sur tous les événements de la
                         <strong>Mosquée Lumière et Piété à Nîmes</strong>, rejoignez-nous sur nos réseaux sociaux
                         officiels :
                     </p>
@@ -554,28 +552,26 @@
                 </div>
 
                 <div class="mosquee-card">
-                    <p class="social-desc" style="text-align: center; margin-bottom: 30px;">
+                    <p class="social-desc text-center mb-30">
                         La <strong>Mosquée Lumière et Piété</strong>, un lieu de prière, d'apprentissage et de
                         fraternité ouvert
                         à tous.
                     </p>
 
                     <div class="social-grid">
-                        <div class="social-card"
-                            onclick="openModalFromSrc('assets/images/entree-principal.jpg', 'Entrée pour les hommes')"
-                            style="cursor:pointer;">
+                        <div class="social-card mosquee-galerie-item cursor-pointer"
+                            data-modal-src="assets/images/entree-principal.jpg" data-modal-desc="Entrée pour les hommes">
                             <img src="assets/images/entree-principal.jpg"
-                                style="width:100%; border-radius:12px; margin-bottom: 15px;"
+                                class="img-mosquee"
                                 alt="Entrée pour les hommes">
-                            <span style="font-size: 1.05rem;">Entrée pour les hommes</span>
+                            <span class="fs-105">Entrée pour les hommes</span>
                         </div>
-                        <div class="social-card"
-                            onclick="openModalFromSrc('assets/images/entree-femme.jpg', 'Entrée pour les femmes')"
-                            style="cursor:pointer;">
+                        <div class="social-card mosquee-galerie-item cursor-pointer"
+                            data-modal-src="assets/images/entree-femme.jpg" data-modal-desc="Entrée pour les femmes">
                             <img src="assets/images/entree-femme.jpg"
-                                style="width:100%; border-radius:12px; margin-bottom: 15px;"
+                                class="img-mosquee"
                                 alt="Entrée pour les femmes">
-                            <span style="font-size: 1.05rem;">Entrée pour les femmes</span>
+                            <span class="fs-105">Entrée pour les femmes</span>
                         </div>
                     </div>
                 </div>
@@ -596,9 +592,12 @@
                                 <div class="c-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                                 <div class="c-info">
                                     <strong>Adresse</strong>
-                                    <p><a href="https://www.google.com/maps/search/?api=1&query=43.8436,4.3644"
-                                            target="_blank" rel="noopener noreferrer" class="contact-link">Rue de la
-                                            cavalerie, 30000 Nîmes</a></p>
+                            <p>
+                                <a href="https://maps.google.com/?q=1+rue+Jacques+Monod,+30900+Nîmes" target="_blank" rel="noopener noreferrer"
+                                    class="contact-link">
+                                    1 rue Jacques Monod, 30900 Nîmes
+                                </a>
+                            </p>
                                 </div>
                             </div>
                             <div class="c-card">
@@ -620,7 +619,7 @@
                         <div class="map-container">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2877.625390978809!2d4.3644!3d43.8436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDUwJzM3LjAiTiA0wrAyMSc1MS44IkU!5e0!3m2!1sfr!2sfr!4v1614000000000!5m2!1sfr!2sfr"
-                                width="100%" height="100%" style="border:0;" loading="lazy"
+                                width="100%" height="100%" class="iframe-no-border" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
@@ -634,15 +633,7 @@
     ════════════════════════════════════════ -->
     <footer class="main-footer">
         <p>© <span id="currentYear"></span> Mosquée Lumière et Piété à Nîmes. Tous droits réservés.</p>
-
-        <!-- <p>©<span id="currentYear"></span> Mosquée Lumière et Piété à Nîmes. Tous droits réservés. | <a href="mentions-legales.html" -->
-
     </footer>
-
-    <script>
-        // année dynamique
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
 
     <!-- ── Bouton scroll to top (s'affiche après défilement) ── -->
     <a href="#accueil" class="scroll-to-top" id="scrollTopBtn">

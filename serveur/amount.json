@@ -1,12 +1,12 @@
 {
-  "leetchi": {
+  "cotizup": {
     "ok": true,
     "amount": 4259,
     "updatedAt": "26-02-2026 12:09:24"
   },
   "banque": {
     "ok": true,
-    "amount": 155888,
-    "updatedAt": "26-02-2026 12:35:17"
+    "amount": 150,
+    "updatedAt": "27-02-2026 15:16:16"
   }
 }

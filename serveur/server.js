@@ -18,7 +18,7 @@ app.use(cors());
 
 const OUT_FILE = path.join(__dirname, 'amount.json');
 // Code requis pour modifier les montants (stocké dans .env pour plus de sécurité)
-const SECURITY_CODE = process.env.SECURITY_CODE || '613245356';
+const SECURITY_CODE = process.env.SECURITY_CODE
 
 // Format date : jj-mm-aaaa hh:mm:ss (Fuseau horaire Paris)
 function formatDate() {
@@ -64,7 +64,7 @@ function updateAmount(type, montant, code) {
   
   // Créer structure par défaut
   const defaultData = {
-    leetchi: { ok: true, amount: 0, updatedAt: formatDate() },
+    cotizup: { ok: true, amount: 0, updatedAt: formatDate() },
     banque: { ok: true, amount: 0, updatedAt: formatDate() }
   };
   

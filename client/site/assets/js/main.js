@@ -212,33 +212,36 @@ modalNextBtn.addEventListener('click', () => {
 window.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
-
 // ════════════════════════════════════════════════════════════════
-// 6. MODAL POUR IMAGES HORS CARROUSEL (Section Notre Mosquée)
+// 6. GALERIE FIXE (Section Notre Mosquée)
 // ════════════════════════════════════════════════════════════════
 
-/**
- * Ouvre la modale pour une image spécifique en dehors du carrousel principal
- * @param {string} src - Chemin de l'image
- * @param {string} desc - Description de l'image
- */
-function openModalFromSrc(src, desc) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalDesc = document.getElementById('modalDesc');
+// On récupère toutes les cartes de la section mosquée
+const galerieItems = document.querySelectorAll('.mosquee-galerie-item');
 
-    // On met à jour la source de l'image et le texte
-    modalImg.src = src;
-    modalDesc.innerText = desc;
+galerieItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // On récupère la source et le texte depuis ton HTML
+        const src = item.getAttribute('data-modal-src');
+        const desc = item.getAttribute('data-modal-desc');
 
-    // On affiche la modale
-    modal.classList.add('show');
+        // On met à jour la modale
+        modalImg.src = src;
+        modalDesc.innerText = desc;
 
-    // Petite sécurité : on met en pause le carrousel du haut pour pas qu'il tourne en fond
-    if (typeof carouselInterval !== 'undefined') {
-        clearInterval(carouselInterval);
-    }
-}
+        // NOUVEAU : On CACHE les flèches pour ne pas mélanger avec le parking !
+        modalPrevBtn.style.display = 'none';
+        modalNextBtn.style.display = 'none';
+
+        // On affiche la modale
+        modal.classList.add('show');
+
+        // On met en pause le carrousel du parking s'il tourne
+        if (typeof carouselInterval !== 'undefined') {
+            clearInterval(carouselInterval);
+        }
+    });
+});
 // ════════════════════════════════════════════════════════════════
 // 5. API DONS (Récupération montants + Jauge de progression)
 // ════════════════════════════════════════════════════════════════
@@ -274,8 +277,8 @@ async function updateData() {
 
         // Mise à jour de l'affichage dans le DOM
         document.getElementById('ui-total').innerText = format(total);
-        document.getElementById('ui-banque').innerHTML = `<i class="fa-solid fa-building-columns" style="color:var(--m-peps)"></i> ` + format(data.banque.amount);
-        document.getElementById('ui-cotizup').innerHTML = `<i class="fa-solid fa-wallet" style="color:var(--m-peps)"></i> ` + format(data.cotizup.amount);
+        document.getElementById('ui-banque').innerHTML = `<i class="fa-solid fa-building-columns text-peps"></i> ` + format(data.banque.amount);
+        document.getElementById('ui-cotizup').innerHTML = `<i class="fa-solid fa-wallet text-peps"></i> ` + format(data.cotizup.amount);
         document.getElementById('ui-pourcentage').innerText = perc.toFixed(1) + '%';
 
         // Animation de la jauge de progression (délai de 500ms pour effet visuel)
@@ -290,3 +293,38 @@ async function updateData() {
 
 // ── Lancement de la mise à jour des données au chargement de la page ──
 updateData();
+
+// ════════════════════════════════════════════════════════════════
+// 7. UTILITIES (Extracted from index.html)
+// ════════════════════════════════════════════════════════════════
+
+// ── Dynamisation de l'année du pied de page ──
+const currentYearEl = document.getElementById('currentYear');
+if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
+}
+
+/**
+ * Gestion des événements pour les boutons de copie bancaire
+ */
+document.querySelectorAll('.btn-copy').forEach(button => {
+    button.addEventListener('click', function() {
+        const inputId = this.getAttribute('data-copy-id');
+        if (inputId) {
+            copy(inputId, this);
+        }
+    });
+});
+
+/**
+ * Gestion des images de la section "Notre Mosquée"
+ */
+document.querySelectorAll('.mosquee-galerie-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const imgSrc = this.getAttribute('data-modal-src');
+        const imgDesc = this.getAttribute('data-modal-desc');
+        if (imgSrc && imgDesc) {
+            openModalFromSrc(imgSrc, imgDesc);
+        }
+    });
+});

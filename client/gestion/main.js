@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://compteur-mosquee-tarascon.ib-app.fr';
+const API_BASE_URL = 'http://localhost:3000';
 
 async function fetchAmounts() {
   const amountsDisplay = document.getElementById('amounts-display');
@@ -31,7 +31,7 @@ function displayAmounts(data) {
   const amountsDisplay = document.getElementById('amounts-display');
 
   const amountTypes = [
-    { key: 'leetchi', label: 'Leetchi' },
+    { key: 'cotizup', label: 'CotizUp' },
     { key: 'banque', label: 'Banque' }
   ];
 
@@ -61,11 +61,11 @@ function displayAmounts(data) {
 }
 
 function updateTotalCounter(data) {
-  const targetAmount = 500000; // Objectif de 500 000 euros
+  const targetAmount = 150000; // Objectif de 150 000 euros
   let totalAmount = 0;
 
   // Calculer la somme de tous les montants disponibles
-  const amountTypes = ['leetchi', 'banque'];
+  const amountTypes = ['cotizup', 'banque'];
   amountTypes.forEach(type => {
     const amount = data[type];
     if (amount && amount.ok && amount.amount) {

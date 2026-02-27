@@ -81,7 +81,7 @@ async function update() {
       } catch { }
     }
 
-    data.leetchi = { ok: !!amount, amount: amount || 0, updatedAt: formatDate() };
+    data.cotizup = { ok: !!amount, amount: amount || 0, updatedAt: formatDate() };
     data.banque ||= { ok: true, amount: 0, updatedAt: formatDate() };
 
     fs.writeFileSync(OUT_FILE, JSON.stringify(data, null, 2));

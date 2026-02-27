@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --m-white: #ffffff;
+    --m-beige: #F9F8F6;
+    --m-peps: #E06D3D;
+    --m-text: #2C3E50;
+    --m-text-light: #64748B;
+    --m-success-light: #D1FAE5;
+    --m-card-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--m-beige);
+    color: var(--m-text);
+    overflow: hidden;
+}
+
+.ecran-tv {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.compteur-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.compteur-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.compteur-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--m-text);
+    line-height: 1.1;
+}
+
+.compteur-subtitle {
+    display: block;
+    font-size: 0.35em;
+    color: var(--m-peps);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+}
+
+/* Bandeau compte à rebours */
+.tv-countdown-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: var(--m-peps);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(224, 109, 61, 0.2);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tv-countdown-label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tv-countdown-timer {
+    font-size: 2.2rem;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: baseline;
+}
+
+.tv-countdown-timer small {
+    font-size: 1.1rem;
+    margin-right: 12px;
+    opacity: 0.8;
+    font-weight: 700;
+}
+
+/* Card principale */
+.compteur-card {
+    background: var(--m-white);
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: var(--m-card-shadow);
+}
+
+.montant-principal {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.montant-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--m-text-light);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.montant-value {
+    font-size: 6.5rem;
+    font-weight: 900;
+    color: var(--m-peps);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.montant-objectif {
+    font-size: 1.4rem;
+    color: var(--m-text-light);
+    font-weight: 600;
+}
+
+.montant-objectif span {
+    color: var(--m-text);
+    font-weight: 800;
+}
+
+/* Jauge centrée */
+.jauge-container {
+    margin-bottom: 40px;
+}
+
+.jauge-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.jauge-pourcentage {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--m-peps);
+}
+
+.jauge-barre {
+    height: 45px;
+    background: var(--m-beige);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.jauge-progression {
+    height: 100%;
+    background: linear-gradient(90deg, var(--m-peps), #F59E0B);
+    border-radius: 30px;
+    transition: width 1s ease-out;
+}
+
+/* Blocs secondaires Banque / Cotizup */
+.details-sources {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.source-card {
+    background: var(--m-beige);
+    border-radius: 15px;
+    padding: 20px 40px;
+    text-align: center;
+    min-width: 250px;
+}
+
+.source-label {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--m-text-light);
+    margin-bottom: 5px;
+}
+
+.source-montant {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--m-text);
+}
+
+/* Écran de succès */
+.compteur-success {
+    text-align: center;
+    padding: 60px 30px;
+    background: linear-gradient(135deg, var(--m-success-light) 0%, #FEF3C7 100%);
+    border-radius: 20px;
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: #F59E0B;
+    margin-bottom: 20px;
+}
+
+.success-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--m-text);
+    margin-bottom: 15px;
+}
+
+.success-montant {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--m-peps);
+}

@@ -1312,3 +1312,65 @@
                 font-size: 2.5rem;
             }
         }
+
+/* ════════════════════════════════════════
+   UTILITIES (Extracted from index.html)
+   ════════════════════════════════════════ */
+.hero-btn-primary {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+.hero-btn-secondary {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-peps {
+    color: var(--m-peps) !important;
+}
+
+.video-caption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--m-text-light);
+    margin-top: 10px;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mb-20 {
+    margin-bottom: 20px !important;
+}
+
+.mb-30 {
+    margin-bottom: 30px !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.img-mosquee {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.fs-105 {
+    font-size: 1.05rem;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.iframe-no-border {
+    border: 0 !important;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Compteur TV | Mosquée Lumière et Piété</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/compteur.css">
+</head>
+<body>
+    <main class="ecran-tv">
+        <div class="compteur-container">
+            
+            <div class="compteur-header">
+                <h1 class="compteur-title">
+                    <span class="compteur-subtitle">Projet Parking</span>
+                    Mosquée Lumière et Piété
+                </h1>
+            </div>
+
+            <div class="tv-countdown-banner">
+                <div class="tv-countdown-label">
+                    <i class="fa-solid fa-hourglass-half"></i> Fin dans :
+                </div>
+                <div class="tv-countdown-timer">
+                    <span id="cd-j">00</span><small>j</small>
+                    <span id="cd-h">00</span><small>h</small>
+                    <span id="cd-m">00</span><small>m</small>
+                    <span id="cd-s">00</span><small>s</small>
+                </div>
+            </div>
+
+            <div class="compteur-card" id="main-card">
+                
+                <div class="montant-principal">
+                    <div class="montant-label">TOTAL COLLECTÉ</div>
+                    <div class="montant-value" id="montant-total">0 €</div>
+                    <div class="montant-objectif">Objectif : <span id="objectif">150 000 €</span></div>
+                </div>
+
+                <div class="jauge-container">
+                    <div class="jauge-header">
+                        <span class="jauge-pourcentage" id="pourcentage">0%</span>
+                    </div>
+                    <div class="jauge-barre">
+                        <div class="jauge-progression" id="jauge-progression"></div>
+                    </div>
+                </div>
+
+                <div class="details-sources">
+                    <div class="source-card">
+                        <div class="source-label">Banque</div>
+                        <div class="source-montant" id="montant-banque">0 €</div>
+                    </div>
+                    <div class="source-card">
+                        <div class="source-label">Cotizup</div>
+                        <div class="source-montant" id="montant-cotizup">0 €</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="compteur-success" id="compteur-success" style="display: none;">
+                <div class="success-icon"><i class="fa-solid fa-trophy"></i></div>
+                <h2 class="success-title">Objectif Atteint ! 🎉</h2>
+                <div class="success-montant" id="success-montant-final">0 €</div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <script src="assets/js/compteur.js"></script>
+</body>
+</html>

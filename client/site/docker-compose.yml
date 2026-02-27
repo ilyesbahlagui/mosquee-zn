@@ -1,0 +1,10 @@
+services:
+  mosquee-zn:
+    image: nginx:alpine
+    container_name: mosquee-zn
+    volumes:
+      - ~/workspace/mosquee-zn:/usr/share/nginx/html:ro
+      - ~/workspace/mosquee-zn/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8084:80"
+    restart: unless-stopped
