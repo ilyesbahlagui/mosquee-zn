@@ -14,7 +14,13 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 30903;
 
-app.use(cors());
+// Configuration CORS pour autoriser toutes les origines
+app.use(cors({
+  origin: '*', // Autorise toutes les origines
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false
+}));
 
 const OUT_FILE = path.join(__dirname, 'amount.json');
 // Code requis pour modifier les montants (stocké dans .env pour plus de sécurité)
