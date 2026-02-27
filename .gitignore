@@ -42,3 +42,6 @@ Thumbs.db
 
 # optional npm cache
 .npm
+
+# données de collecte
+serveur/amount.json
