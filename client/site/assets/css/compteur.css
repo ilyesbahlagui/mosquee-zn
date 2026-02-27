@@ -222,3 +222,155 @@ body {
     font-weight: 900;
     color: var(--m-peps);
 }
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablette */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+
+    .ecran-tv {
+        height: auto;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .compteur-container {
+        padding: 15px 0;
+    }
+
+    .compteur-header {
+        margin-bottom: 15px;
+    }
+
+    .compteur-title {
+        font-size: 2.2rem;
+    }
+
+    .tv-countdown-banner {
+        flex-direction: column;
+        gap: 5px;
+        padding: 12px 20px;
+        margin-bottom: 20px;
+    }
+
+    .tv-countdown-label {
+        font-size: 1rem;
+    }
+
+    .tv-countdown-timer {
+        font-size: 1.8rem;
+    }
+
+    .compteur-card {
+        padding: 30px 25px;
+        border-radius: 20px;
+    }
+
+    .montant-value {
+        font-size: 4rem;
+    }
+
+    .montant-objectif {
+        font-size: 1.1rem;
+    }
+
+    .jauge-container {
+        margin-bottom: 25px;
+    }
+
+    .jauge-pourcentage {
+        font-size: 2rem;
+    }
+
+    .jauge-barre {
+        height: 35px;
+    }
+
+    .details-sources {
+        gap: 15px;
+    }
+
+    .source-card {
+        min-width: 0;
+        flex: 1;
+        padding: 15px 20px;
+    }
+
+    .source-montant {
+        font-size: 1.6rem;
+    }
+
+    .success-title {
+        font-size: 2rem;
+    }
+
+    .success-montant {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .compteur-title {
+        font-size: 1.6rem;
+    }
+
+    .tv-countdown-timer {
+        font-size: 1.4rem;
+    }
+
+    .tv-countdown-timer small {
+        font-size: 0.85rem;
+        margin-right: 8px;
+    }
+
+    .compteur-card {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .montant-label {
+        font-size: 0.9rem;
+    }
+
+    .montant-value {
+        font-size: 2.8rem;
+    }
+
+    .montant-objectif {
+        font-size: 1rem;
+    }
+
+    .jauge-barre {
+        height: 28px;
+    }
+
+    .details-sources {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .source-card {
+        padding: 12px 15px;
+    }
+
+    .source-montant {
+        font-size: 1.4rem;
+    }
+
+    .success-icon {
+        font-size: 3.5rem;
+    }
+
+    .success-title {
+        font-size: 1.6rem;
+    }
+
+    .success-montant {
+        font-size: 2rem;
+    }
+}
