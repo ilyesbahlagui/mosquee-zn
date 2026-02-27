@@ -32,7 +32,7 @@ function displayAmounts(data) {
 
   const amountTypes = [
     { key: 'cotizup', label: 'CotizUp' },
-    { key: 'banque', label: 'Banque' }
+    { key: 'banque', label: 'Récolté' }
   ];
 
   amountsDisplay.innerHTML = amountTypes.map(({ key, label }) => {
