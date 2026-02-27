@@ -39,7 +39,7 @@ mettreAJourCountdown();
 // 2. COMPTEUR DE DONS (Actualisation auto)
 // ══════════════════════════════════════════════════════════════
 
-const API_URL = 'http://localhost:3000/amount';
+const API_URL = 'https://mosquee-zn-api.ib-app.fr/amount';
 const OBJECTIF = 150000; 
 const UPDATE_INTERVAL = 60000; 
 

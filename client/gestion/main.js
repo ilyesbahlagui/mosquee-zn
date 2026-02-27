@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://mosquee-zn-api.ib-app.fr'; // URL de l'API
 
 async function fetchAmounts() {
   const amountsDisplay = document.getElementById('amounts-display');
