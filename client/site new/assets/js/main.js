@@ -213,7 +213,32 @@ window.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
 });
 
+// ════════════════════════════════════════════════════════════════
+// 6. MODAL POUR IMAGES HORS CARROUSEL (Section Notre Mosquée)
+// ════════════════════════════════════════════════════════════════
 
+/**
+ * Ouvre la modale pour une image spécifique en dehors du carrousel principal
+ * @param {string} src - Chemin de l'image
+ * @param {string} desc - Description de l'image
+ */
+function openModalFromSrc(src, desc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalDesc = document.getElementById('modalDesc');
+
+    // On met à jour la source de l'image et le texte
+    modalImg.src = src;
+    modalDesc.innerText = desc;
+
+    // On affiche la modale
+    modal.classList.add('show');
+
+    // Petite sécurité : on met en pause le carrousel du haut pour pas qu'il tourne en fond
+    if (typeof carouselInterval !== 'undefined') {
+        clearInterval(carouselInterval);
+    }
+}
 // ════════════════════════════════════════════════════════════════
 // 5. API DONS (Récupération montants + Jauge de progression)
 // ════════════════════════════════════════════════════════════════

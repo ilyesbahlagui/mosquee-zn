@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Compteur à Rebours | Mosquée Lumière et Piété Nîmes</title>
+    <meta name="description" content="Compteur à rebours pour le projet de la Mosquée Lumière et Piété à Nîmes.">
+    <meta name="theme-color" content="#E06D3D">
+    
+    <!-- Google Fonts : Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="assets/css/compteur.css">
+</head>
+
+<body>
+    <!-- ══════════════════════════════════════
+         HORLOGE ET DATE EN TEMPS RÉEL
+    ══════════════════════════════════════ -->
+    <div class="horloge-container">
+        <div class="horloge-date" id="horloge-date">--</div>
+        <div class="horloge-time" id="horloge-time">--:--:--</div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION COMPTEUR DONS
+    ══════════════════════════════════════ -->
+    <main>
+        <section class="compteur-section">
+            <div class="compteur-container">
+                <!-- Titre -->
+                <div class="compteur-header">
+                    <h1 class="compteur-title">
+                        <span class="compteur-subtitle">Suivi en Direct</span>
+                        Compteur de Dons
+                    </h1>
+                    <p class="compteur-description">
+                        Suivez en temps réel les dons collectés pour le projet parking de la mosquée
+                    </p>
+                </div>
+
+                <!-- Card Compteur Principal -->
+                <div class="compteur-card">
+                    <!-- Montant Total Collecté -->
+                    <div class="montant-principal">
+                        <div class="montant-label">Montant Total Collecté</div>
+                        <div class="montant-value" id="montant-total">0 €</div>
+                        <div class="montant-objectif">Objectif : <span id="objectif">150 000 €</span></div>
+                    </div>
+
+                    <!-- Jauge de Progression -->
+                    <div class="jauge-container">
+                        <div class="jauge-header">
+                            <span class="jauge-pourcentage" id="pourcentage">0%</span>
+                            <span class="jauge-montant-restant">Reste <span id="montant-restant">150 000 €</span></span>
+                        </div>
+                        <div class="jauge-barre">
+                            <div class="jauge-progression" id="jauge-progression"></div>
+                            <div class="jauge-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Détails par Source -->
+                    <div class="details-sources">
+                        <div class="source-card">
+                            <div class="source-icon">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div class="source-content">
+                                <div class="source-label">Dons Banque</div>
+                                <div class="source-montant" id="montant-banque">0 €</div>
+                                <div class="source-date">Mis à jour : <span id="date-banque">--</span></div>
+                            </div>
+                        </div>
+
+                        <div class="source-card">
+                            <div class="source-icon cotizup">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div class="source-content">
+                                <div class="source-label">Dons Cotizup</div>
+                                <div class="source-montant" id="montant-cotizup">0 €</div>
+                                <div class="source-date">Mis à jour : <span id="date-cotizup">--</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statut de chargement -->
+                    <div class="compteur-status" id="compteur-status">
+                        <i class="fa-solid fa-sync fa-spin"></i>
+                        <span>Chargement des données...</span>
+                    </div>
+                </div>
+
+                <!-- Message de Réussite (objectif atteint) -->
+                <div class="compteur-success" id="compteur-success">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h2 class="success-title">Objectif Atteint ! 🎉</h2>
+                    <p class="success-message">
+                        Al hamdulillah ! Grâce à votre générosité, nous avons atteint notre objectif de financement !
+                    </p>
+                    <div class="success-montant" id="success-montant-final">0 €</div>
+                </div>
+
+                <!-- Informations -->
+                <div class="compteur-info-box">
+                    <div class="info-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="info-text">
+                        <strong>Actualisation automatique</strong>
+                        <span>Les montants sont mis à jour toutes les minutes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════════════════════════════════
+         SCRIPTS
+    ══════════════════════════════════════ -->
+    <script src="assets/js/compteur.js"></script>
+</body>
+
+</html>
