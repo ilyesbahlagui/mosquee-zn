@@ -6,5 +6,5 @@ services:
       - ~/workspace/mosquee-zn-gestion:/usr/share/nginx/html:ro
       - ~/workspace/mosquee-zn-gestion/default.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
-      - "30903:80"
+      - "30901:80"
     restart: unless-stopped
