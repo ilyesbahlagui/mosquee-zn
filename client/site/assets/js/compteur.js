@@ -2,7 +2,7 @@
 // 1. COMPTE À REBOURS (Temps restant TV)
 // ══════════════════════════════════════════════════════════════
 
-const DATE_LIMITE = new Date('2026-03-31T23:59:59');
+const DATE_LIMITE = new Date('2026-03-19T23:59:59');
 
 const cdJours = document.getElementById('cd-j');
 const cdHeures = document.getElementById('cd-h');
