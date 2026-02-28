@@ -88,7 +88,6 @@ const slides = Array.from(document.querySelectorAll('.carousel-slide'));
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 let currentSlideIndex = 0;
-let carouselInterval;
 
 // ── Sélection des éléments DOM de la modale ──
 const modal = document.getElementById('imageModal');
@@ -129,34 +128,17 @@ function moveSlider(index) {
     track.style.transition = 'none';
     // re-enable transition after a short timeout for manual moves
     setTimeout(() => { track.style.transition = ''; }, 50);
-    resetCarouselInterval();
 }
 
 // ── Navigation carrousel (boutons précédent / suivant) ──
 nextBtn.addEventListener('click', () => moveSlider(currentSlideIndex + 1));
 prevBtn.addEventListener('click', () => moveSlider(currentSlideIndex - 1));
 
-/**
- * Démarre le défilement automatique du carrousel (3.5s par slide)
- */
-function startCarousel() {
-    carouselInterval = setInterval(() => moveSlider(currentSlideIndex + 1), 3500);
-}
-
-/**
- * Redémarre l'intervalle du carrousel (après interaction manuelle)
- */
-function resetCarouselInterval() {
-    clearInterval(carouselInterval);
-    startCarousel();
-}
-
 // ── Réajustement du carrousel lors du redimensionnement de la fenêtre ──
 window.addEventListener('resize', () => moveSlider(currentSlideIndex));
 
-// ── Initialisation : affiche la première slide et lance l'auto-scroll ──
+// ── Initialisation : affiche la première slide ──
 moveSlider(0);
-startCarousel();
 
 
 // ════════════════════════════════════════════════════════════════
@@ -171,7 +153,6 @@ function openModal(index) {
     currentSlideIndex = index;
     updateModalContent();
     modal.classList.add('show');
-    clearInterval(carouselInterval); // Pause le carrousel pendant la modale
 }
 
 /**
@@ -190,7 +171,6 @@ function updateModalContent() {
  */
 function closeModal() {
     modal.classList.remove('show');
-    startCarousel();
 }
 
 // ── Clic sur une slide pour ouvrir la modale ──
@@ -240,11 +220,6 @@ galerieItems.forEach(item => {
 
         // On affiche la modale
         modal.classList.add('show');
-
-        // On met en pause le carrousel du parking s'il tourne
-        if (typeof carouselInterval !== 'undefined') {
-            clearInterval(carouselInterval);
-        }
     });
 });
 // ════════════════════════════════════════════════════════════════

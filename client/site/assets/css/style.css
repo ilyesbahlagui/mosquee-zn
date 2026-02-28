@@ -666,7 +666,6 @@
         .carousel-slide.active .slide-desc {
             font-weight: 800;
             color: var(--m-peps);
-            font-size: 1.1rem;
         }
 
         .carousel-btn {
@@ -1512,12 +1511,11 @@
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .spiritual-dot.active {
     background: var(--m-peps);
-    transform: scale(1.3);
 }
 
 /* Responsive pour petits écrans */
