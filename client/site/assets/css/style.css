@@ -629,7 +629,7 @@
         .carousel-track {
             display: flex;
             list-style: none;
-            transition: transform 0.5s ease-in-out;
+            /* no transition to avoid micro décalages lors du déplacement */
             margin: 0;
             padding: 0;
         }
@@ -1385,4 +1385,140 @@
 
 .iframe-no-border {
     border: 0 !important;
+}
+/* ════════════════════════════════════════
+   SPIRITUAL SLIDER - Rappels spirituels
+════════════════════════════════════════ */
+.spiritual-slider {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px 30px;
+    margin-bottom: 45px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--m-card-shadow);
+}
+
+.spiritual-arrow {
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+.spiritual-prev { left: 10px; }
+.spiritual-next { right: 10px; }
+.spiritual-arrow:hover { background: rgba(0,0,0,0.1); }
+
+.spiritual-slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    /* background: var(--m-peps); */
+    opacity: 0.8;
+}
+
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.spiritual-slides-container {
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.spiritual-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.spiritual-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.spiritual-icon {
+    font-size: 2.5rem;
+    color: var(--m-peps);
+    margin-bottom: 5px;
+    /* animation removed to avoid visual jumpiness */
+}
+
+
+.spiritual-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--m-text);
+    font-weight: 500;
+    max-width: 850px;
+    margin: 0 auto;
+    font-style: italic;
+    letter-spacing: 0.2px;
+}
+
+.spiritual-source {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--m-peps);
+    font-weight: 600;
+    padding: 6px 20px;
+    background: rgba(224, 109, 61, 0.1);
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    .spiritual-slider {
+        padding: 30px 20px 25px;
+        margin-bottom: 25px;
+    }
+    
+    .spiritual-slides-container {
+        min-height: 220px;
+    }
+    
+    .spiritual-icon {
+        font-size: 2rem;
+    }
+    
+    .spiritual-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .spiritual-source {
+        font-size: 0.85rem;
+        padding: 5px 16px;
+    }
 }

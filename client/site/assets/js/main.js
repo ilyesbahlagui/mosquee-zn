@@ -123,7 +123,12 @@ function moveSlider(index) {
     if (scrollPosition < 0) scrollPosition = 0;
     if (scrollPosition > maxScroll) scrollPosition = maxScroll;
 
-    track.style.transform = `translateX(-${scrollPosition}px)`;
+    // apply transform using 3d to avoid subpixel rendering jitter
+    track.style.transform = `translate3d(-${scrollPosition}px, 0, 0)`;
+    // remove any transition to jump directly
+    track.style.transition = 'none';
+    // re-enable transition after a short timeout for manual moves
+    setTimeout(() => { track.style.transition = ''; }, 50);
     resetCarouselInterval();
 }
 
@@ -328,3 +333,42 @@ document.querySelectorAll('.mosquee-galerie-item').forEach(item => {
         }
     });
 });
+// ════════════════════════════════════════════════════════════════
+// SPIRITUAL SLIDER - Carrousel de rappels spirituels
+// ════════════════════════════════════════════════════════════════
+
+/**
+ * Gère le slider de citations spirituelles dans la section bancaire
+ * Défilement automatique toutes les 5 secondes avec navigation manuelle par points
+ */
+(function initSpiritualSlider() {
+    const slides = document.querySelectorAll('.spiritual-slide');
+    const prevBtn = document.querySelector('.spiritual-prev');
+    const nextBtn = document.querySelector('.spiritual-next');
+    
+    if (slides.length === 0 || !prevBtn || !nextBtn) return;
+    
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index].classList.add('active');
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+
+    function prevSlide() {
+        const prev = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prev);
+    }
+
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // initial display
+    showSlide(0);
+})();
