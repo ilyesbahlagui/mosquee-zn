@@ -350,7 +350,6 @@ document.querySelectorAll('.mosquee-galerie-item').forEach(item => {
     if (slides.length === 0 || !prevBtn || !nextBtn) return;
 
     let currentSlide = 0;
-    let autoPlayTimer;
 
     function showSlide(index) {
         slides.forEach(s => s.classList.remove('active'));
@@ -369,21 +368,15 @@ document.querySelectorAll('.mosquee-galerie-item').forEach(item => {
         showSlide((currentSlide - 1 + slides.length) % slides.length);
     }
 
-    function startAutoPlay() {
-        clearInterval(autoPlayTimer);
-        autoPlayTimer = setInterval(nextSlide, 5000);
-    }
-
-    // Clic sur les flèches : reset de l'auto-play
-    prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
-    nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+    // Clic sur les flèches
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
 
     // Clic sur les dots
     dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => { showSlide(i); startAutoPlay(); });
+        dot.addEventListener('click', () => showSlide(i));
     });
 
     // Initialisation
     showSlide(0);
-    startAutoPlay();
 })();
