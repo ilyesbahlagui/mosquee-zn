@@ -978,11 +978,6 @@
             color: #000;
         }
 
-        .social-card span {
-            font-weight: 800;
-            font-size: 1.1rem;
-        }
-
         /* ── SECTION CONTACT: layout (infos + carte Google Maps) ── */
         .contact-layout {
             display: grid;
@@ -1313,20 +1308,6 @@
             }
 
 
-
-            .modal-prev {
-                left: 2%;
-            }
-
-            .modal-next {
-                right: 2%;
-            }
-
-            .modal-close {
-                top: 10px;
-                right: 20px;
-                font-size: 2.5rem;
-            }
         }
 
 /* ════════════════════════════════════════
@@ -1343,6 +1324,10 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+.values-discrete-block {
+    margin-top: 30px;
 }
 
 /* Bloc de valeurs discret */
