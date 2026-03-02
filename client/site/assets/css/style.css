@@ -43,6 +43,11 @@
             --m-transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             --m-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --m-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            /* nombre de vignettes visibles dans le carrousel du projet (desktop)
+               modifier cette valeur ici ou via la variable JS DESKTOP_SLIDES si
+               vous souhaitez afficher 1, 2, 3… images en même temps. Le script
+               s'adapte automatiquement et défile par « pages » entières. */
+            --carousel-slides-per-view: 2;
         }
 
         /* ════════════════════════════════════════
@@ -612,192 +617,148 @@
             background: var(--m-peps-hover);
         }
 
-        /* ── SECTION CARROUSEL: défilement des photos du terrain ── */
-        .carousel-container {
+        /* ── SIMPLE CAROUSEL: one image at a time, responsive ── */
+        .simple-carousel {
             position: relative;
-            padding: 0 45px;
             width: 100%;
-            margin-top: 20px;
-        }
-
-        .carousel-track-wrapper {
+            max-width: 800px; /* limite la largeur totale du carrousel */
+            margin: 20px auto 40px; /* espace en haut et en bas */
             overflow: hidden;
-            border-radius: 16px;
+        }
+        /* pagination dots */
+        .simple-carousel .sc-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .simple-carousel .sc-dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .simple-carousel .sc-dot.active {
+            background: rgba(0,0,0,0.6);
+        }
+        .simple-carousel .sc-track-wrapper {
+            overflow: hidden;
             width: 100%;
         }
-
-        .carousel-track {
+        .simple-carousel .sc-track {
             display: flex;
+            transition: transform 0.4s ease;
             list-style: none;
-            /* no transition to avoid micro décalages lors du déplacement */
             margin: 0;
             padding: 0;
         }
-
-        .carousel-slide {
-            flex: 0 0 33.3333%;
-            padding: 0 10px;
-            cursor: pointer;
+        .simple-carousel .sc-slide {
+            flex: 0 0 100%;
             text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
         }
-
-        .carousel-slide img {
+        .simple-carousel .sc-slide img {
             width: 100%;
-            height: 220px;
+            height: auto;
+            max-height: 300px; /* limite la taille des visuels */
             object-fit: contain;
-            background-color: var(--m-white);
             border-radius: 12px;
-            transition: transform 0.3s, border 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
-
-        .carousel-slide:hover img {
-            transform: scale(1.02);
-        }
-
-        .slide-desc {
-            margin-top: 15px;
+        .simple-carousel .sc-desc {
+            margin-top: 10px;
             font-size: 1rem;
             color: var(--m-text-light);
-            transition: all 0.3s;
-            font-weight: 500;
         }
-
-        .carousel-slide.active .slide-desc {
-            font-weight: 800;
-            color: var(--m-peps);
-        }
-
-        .carousel-btn {
+        .simple-carousel .sc-prev,
+        .simple-carousel .sc-next {
             position: absolute;
-            top: 40%;
+            top: 50%;
             transform: translateY(-50%);
             background: var(--m-white);
             border: none;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             cursor: pointer;
             color: var(--m-text);
             font-size: 1.2rem;
-            z-index: 20;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 10;
         }
-
-        .carousel-btn:hover {
+        .simple-carousel .sc-prev { left: 10px; }
+        .simple-carousel .sc-next { right: 10px; }
+        .simple-carousel .sc-prev:hover,
+        .simple-carousel .sc-next:hover {
             background: var(--m-peps);
-            color: white;
+            color: #fff;
         }
 
-        .prev-btn {
-            left: 0;
-        }
-
-        .next-btn {
-            right: 0;
-        }
-
-        /* ── MODALE IMAGE: plein écran sur clic photo carrousel ── */
-        .image-modal {
+        /* ── SIMPLE CAROUSEL MODAL ── */
+        .sc-modal {
             display: none;
             position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
             align-items: center;
             justify-content: center;
         }
-
-        .image-modal.show {
-            display: flex;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
+        .sc-modal.show { display: flex; animation: fadeIn 0.3s; }
+        .sc-modal .sc-modal-content {
             max-width: 80%;
             max-height: 85vh;
             text-align: center;
             position: relative;
-            z-index: 2002;
         }
-
-        .modal-img {
+        .sc-modal .sc-modal-img {
             max-width: 100%;
             max-height: 75vh;
             border-radius: 12px;
             object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-
-        .modal-desc {
-            color: var(--m-white);
-            font-size: 1.2rem;
-            margin-top: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 3rem;
-            cursor: pointer;
-            z-index: 2005;
-            transition: 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--m-peps);
-        }
-
-        .modal-nav {
+        /* flèches dans la modale */
+        .sc-modal-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.2);
             border: none;
-            color: white;
-            width: 60px;
-            height: 60px;
+            color: #fff;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             font-size: 1.8rem;
             cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2005;
+            z-index: 3005;
+            transition: background 0.3s;
         }
-
-        .modal-nav:hover {
-            background: var(--m-peps);
+        .sc-modal-nav:hover { background: rgba(255,255,255,0.4); }
+        .sc-modal-nav:active { background: rgba(255,255,255,0.6); }
+        .sc-modal-prev { left: 5%; }
+        .sc-modal-next { right: 5%; }
+        .sc-modal .sc-modal-desc {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: 600;
         }
-
-        .modal-prev {
-            left: 3%;
+        .sc-modal .sc-extra-content {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #ddd;
         }
-
-        .modal-next {
-            right: 3%;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* ── SECTION HORAIRES: cartes Vendredi + iframe Mawaqit ── */
@@ -903,24 +864,36 @@
             gap: 20px;
         }
 
+        /* force the link itself to behave like a fixed-size circle */
         .social-grid .social-card {
-            max-width: 250px;
-            flex: 0 1 250px;
+            /* make each card a circle with a smaller fixed diameter */
+            flex: 0 0 80px;
+            width: 80px;
+            height: 80px;
+            padding: 0;          /* we handle spacing inside */
+            border-radius: 50%;  /* full rounding -> circle */
         }
 
         .social-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            padding: 30px 20px;
-            border-radius: 16px;
+            justify-content: center; /* center icon/text vertically */
+            gap: 8px;
+            /* padding removed above for circular shape */
+            /* border-radius now comes from selector above */
             background: var(--m-white);
             text-decoration: none;
             color: var(--m-text);
             transition: 0.3s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
             border: 1px solid #EAEAEA;
+            text-align: center;     /* ensure icon/text centered */
+        }
+
+        /* hide the label inside the circle – if you prefer to keep it, remove this rule */
+        .social-card span {
+            display: none;
         }
 
         .social-card:hover {
@@ -930,13 +903,14 @@
         }
 
         .social-icon-wrapper {
+            /* fill most of the circular card now that labels are hidden */
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -974,6 +948,25 @@
 
         .facebook-icon {
             background: #1877F2;
+        }
+
+        /* make facebook link itself blue so only one circle is visible */
+        .social-card.social-facebook {
+            background: #1877F2;
+            border: none;
+        }
+        .social-card.social-facebook .social-icon-wrapper {
+            /* fill entire card so inner white circle disappears */
+            background: transparent;
+            box-shadow: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-card.social-facebook .social-icon-wrapper i {
+            color: white;
         }
 
         .instagram-icon {
@@ -1115,6 +1108,13 @@
            RESPONSIVE ET MENU MOBILE
         ════════════════════════════════════════ */
         @media (max-width: 992px) {
+            .fixed-mosquee-hero {
+                height: auto;
+                min-height: 550px;
+                padding-top: 130px;
+                padding-bottom: 60px;
+            }
+
             .fixed-mosquee-menu {
                 position: fixed;
                 top: 100px;
@@ -1172,43 +1172,60 @@
                 grid-template-columns: 1fr;
             }
 
-            .carousel-slide {
-                flex: 0 0 50%;
-            }
 
-            .modal-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 600px) {
 
+            .fixed-mosquee-hero {
+                height: auto;
+                min-height: 480px;
+                padding-top: 110px;
+                padding-bottom: 50px;
+            }
+
             .fixed-mosquee-nav,
             .fixed-mosquee-nav.scrolled {
-                top: 15px;
+                top: 10px;
                 width: 92%;
                 border-radius: 40px;
-                height: 75px;
+                height: 60px;
                 background: rgba(255, 255, 255, 0.98);
                 border: 1px solid rgba(0, 0, 0, 0.05);
             }
 
             .fixed-mosquee-container {
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
             .fixed-mosquee-logo-icon {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
 
             .fixed-mosquee-logo-name {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .fixed-mosquee-logo-sub {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
+            }
+
+            .fixed-mosquee-hamburger {
+                width: 35px;
+                height: 35px;
+            }
+
+            .fixed-mosquee-hamburger span {
+                width: 16px;
+                margin: 3px auto;
+            }
+
+            .fixed-mosquee-hamburger.open span:nth-child(1) {
+                transform: rotate(45deg) translate(2px, 2px);
+            }
+
+            .fixed-mosquee-hamburger.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(2px, -2px);
             }
 
             .fixed-mosquee-hero-content {
@@ -1295,19 +1312,7 @@
                 font-size: 1rem;
             }
 
-            .carousel-slide {
-                flex: 0 0 100%;
-            }
 
-            .carousel-container {
-                padding: 0 35px;
-            }
-
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
 
             .modal-prev {
                 left: 2%;
@@ -1327,6 +1332,69 @@
 /* ════════════════════════════════════════
    UTILITIES (Extracted from index.html)
    ════════════════════════════════════════ */
+
+/* Utilitaires SEO et accessibilité */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Bloc de valeurs discret */
+.values-minimal-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.values-minimal-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 18px;
+    background: var(--m-beige);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    transition: background-color 0.3s;
+}
+
+.values-minimal-list li:hover {
+    background: var(--m-beige-darker);
+}
+
+.values-minimal-list strong {
+    font-size: 0.95rem;
+    color: var(--m-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+.values-minimal-list span {
+    font-size: 0.8rem;
+    color: var(--m-text-light);
+}
+
+@media (max-width: 600px) {
+    .values-minimal-list {
+        flex-direction: column;
+    }
+    .values-minimal-list li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .hero-btn-primary {
     padding: 15px 40px;
     font-size: 1.1rem;
@@ -1543,3 +1611,9 @@
         padding: 5px 16px;
     }
 }
+
+
+
+
+
+.p-0 { padding: 0 !important; }

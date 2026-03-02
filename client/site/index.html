@@ -4,34 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mosquée Lumière et Piété Nîmes ZUP Nord</title>
+    <title>Mosquée Lumière et Piété Nîmes | Soutenez votre mosquée</title>
     <meta name="description"
-        content="Mosquée ZN Nîmes ZUP Nord Valdegour. Lumière et Piété quartier populaire : horaires prière, dons parking Ramadan 2026 communauté ZUP.">
-
-    <meta name="keywords"
-        content="mosquée ZN Nîmes, mosquée ZUP Nord Nîmes, mosquée zup nord, zupnord nîmes, mosquée Valdegour ZUP, Lumière et Piété ZN, mosquée quartier ZUP Nîmes, horaires ZUP nord, don mosquée ZN, parking ZUP Valdegour">
-
-    <meta name="author" content="Mosquée Lumière et Piété ZN Nîmes ZUP Nord">
-    <meta name="robots" content="index, follow">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Mosque",
-        "name": "Mosquée ZN Nîmes ZUP Nord Valdegour Lumière et Piété",
-        "description": "Mosquée quartier ZUP Nord Nîmes zupnord pour communauté locale.",
-        "address": {"@type": "PostalAddress", "streetAddress": "1 rue Jacques Monod", "addressLocality": "Nîmes ZUP Nord Valdegour", "postalCode": "30900", "addressCountry": "FR"},
-        "geo": {"@type": "GeoCoordinates", "latitude": 43.8436, "longitude": 4.3644},
-        "telephone": "+33466676869"
-    }
-    </script>
-    <!-- METTRE VRAIE NOM DE DOMAINE -->
-    <link rel="canonical" href="https://mosquee-lumiere-piete-nimes.fr/">
+        content="Soutenez la Mosquée Lumière et Piété, quartier Valdegour ZUP Nord Nîmes. Dons pour entretien et communauté. Horaires prières, RIB. 1 rue Jacques Monod, 30900 Nîmes.">
+    <meta name="author" content="Union Imanopaix Nimoise">
+    <!-- OG -->
+    <meta property="og:title" content="Soutenez Mosquée Valdegour Nîmes | Dons communauté">
+    <meta property="og:description"
+        content="Aidez votre mosquée ZUP Nord Nîmes : dons sécurisés pour le culte et l'entretien. Rejoignez-nous !">
+    <meta property="og:image" content="https://mosquee-zn.ib-app.fr/assets/images/entree-principal.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
+
+
 
 <body>
 
@@ -58,7 +47,7 @@
                     <li><a href="#projet" class="fixed-mosquee-menu-link">Projet</a></li>
                     <li><a href="#banque" class="fixed-mosquee-menu-link">RIB</a></li>
                     <li><a href="#actualites" class="fixed-mosquee-menu-link">Actualités</a></li>
-                    <li><a href="#a-propos" class="fixed-mosquee-menu-link">La Mosquée</a></li>
+                    <li><a href="#a-propos" class="fixed-mosquee-menu-link">Notre Mosquée</a></li>
                     <li><a href="#contact" class="fixed-mosquee-menu-link">Contact</a></li>
                 </ul>
                 <!-- Actions navbar : bouton don + hamburger mobile -->
@@ -175,7 +164,7 @@
                     <!-- Sources de dons par canal (Banque & Cotizup) -->
                     <div class="don-sources">
                         <div class="source-card">
-                            <span>Banque</span>
+                            <span>Récolté</span>
                             <strong id="ui-banque"><i class="fa-solid fa-building-columns text-peps"></i> 0 €</strong>
                         </div>
                         <div class="source-card">
@@ -242,27 +231,30 @@
                         </div>
                     </div>
 
-                    <div class="carousel-container">
-                        <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
-
-                        <div class="carousel-track-wrapper">
-                            <ul class="carousel-track">
-                                <li class="carousel-slide" data-index="0">
-                                    <img src="assets/images/plan-3D-parking.jpg" alt="Plan 3D">
-                                    <div class="slide-desc">Projection 3D du parking</div>
+                    <!-- ancien carrousel :
+                         plan-3D-parking.jpg  – Projection 3D du parking
+                         aid-vu-du-ciel-4.jpg – Affluence lors de l'Aïd
+                         parking-satellite.png – Vue satellite du terrain
+                    -->
+                    <div class="simple-carousel" data-autoplay="4000">
+                        <button class="sc-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="sc-track-wrapper">
+                            <ul class="sc-track">
+                                <li class="sc-slide">
+                                    <img src="assets/images/plan-3D-parking.jpg" alt="Projection 3D du parking">
+                                    <div class="sc-desc">Projection 3D du parking</div>
                                 </li>
-                                <li class="carousel-slide" data-index="1">
-                                    <img src="assets/images/aid-vu-du-ciel-4.jpg" alt="Affluence Aïd">
-                                    <div class="slide-desc">Affluence lors de l'Aïd</div>
+                                <li class="sc-slide">
+                                    <img src="assets/images/aid-vu-du-ciel-4.jpg" alt="Affluence lors de l'Aïd">
+                                    <div class="sc-desc">Affluence lors de l'Aïd</div>
                                 </li>
-                                <li class="carousel-slide" data-index="2">
-                                    <img src="assets/images/parking-satellite.png" alt="Vue Satellite">
-                                    <div class="slide-desc">Vue satellite du terrain</div>
+                                <li class="sc-slide">
+                                    <img src="assets/images/parking-satellite.png" alt="Vue satellite du terrain">
+                                    <div class="sc-desc">Vue satellite du terrain</div>
                                 </li>
                             </ul>
                         </div>
-
-                        <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        <button class="sc-next"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -393,7 +385,7 @@
 
                     <!-- Grille de liens vers les réseaux sociaux -->
                     <div class="social-grid">
-                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card">
+                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card social-facebook">
                             <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
                             <span>Facebook</span>
                         </a>
@@ -421,27 +413,55 @@
 
                 <div class="mosquee-card">
                     <p class="social-desc text-center mb-30">
-                        La <strong>Mosquée Lumière et Piété</strong>, un lieu de prière, d'apprentissage et de
-                        fraternité ouvert
-                        à tous.
+                        La <strong>Mosquée Lumière et Piété</strong>, située au quartier de Valdegour, est un lieu de
+                        prière, d'apprentissage et
+                        de fraternité.
+                        Elle accueille toute la communauté, hommes, femmes et enfants, dans le respect des valeurs de
+                        l'islam et de la
+                        cohésion sociale.
                     </p>
+                    <div class="values-discrete-block mt-30">
+                        <!-- Titre H3 masqué visuellement mais très utile pour le SEO -->
+                        <h3 class="sr-only">Associer prière, savoir, entraide et fraternité à Nîmes</h3>
+                        <ul class="values-minimal-list">
+                            <li>
+                                <strong><i class="fa-solid fa-pray text-peps"></i> Prière et spiritualité</strong>
+                                <span>Un espace de recueillement</span>
+                            </li>
+                            <li>
+                                <strong><i class="fa-solid fa-book-open text-peps"></i> Apprentissage</strong>
+                                <span>Transmission du savoir</span>
+                            </li>
+                            <li>
+                                <strong><i class="fa-solid fa-hands-helping text-peps"></i> Solidarité</strong>
+                                <span>Entraide envers les plus fragiles</span>
+                            </li>
+                            <li>
+                                <strong><i class="fa-solid fa-heart text-peps"></i> Fraternité & respect</strong>
+                                <span>Le ciment de notre communauté</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <div class="social-grid">
-                        <div class="social-card mosquee-galerie-item cursor-pointer"
-                            data-modal-src="assets/images/entree-principal.jpg"
-                            data-modal-desc="Entrée pour les hommes">
-                            <img src="assets/images/entree-principal.jpg" class="img-mosquee"
-                                alt="Entrée pour les hommes">
-                            <span class="fs-105">Entrée pour les hommes</span>
+                    <!-- ancien slider "Notre Mosquée" réimplémenté avec la nouvelle
+                         simple-carousel pour assurer l'indépendance et la réactivité -->
+                    <div class="simple-carousel" data-autoplay="4000">
+                        <button class="sc-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="sc-track-wrapper">
+                            <ul class="sc-track">
+                                <li class="sc-slide">
+                                    <img src="assets/images/entree-principal.jpg" alt="Entrée principale pour les hommes">
+                                    <div class="sc-desc">Entrée principale – Espace hommes</div>
+                                </li>
+                                <li class="sc-slide">
+                                    <img src="assets/images/entree-femme.jpg" alt="Entrée dédiée pour les femmes">
+                                    <div class="sc-desc">Entrée dédiée – Espace femmes</div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="social-card mosquee-galerie-item cursor-pointer"
-                            data-modal-src="assets/images/entree-femme.jpg" data-modal-desc="Entrée pour les femmes">
-                            <img src="assets/images/entree-femme.jpg" class="img-mosquee" alt="Entrée pour les femmes">
-                            <span class="fs-105">Entrée pour les femmes</span>
-                        </div>
+                        <button class="sc-next"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- ── SECTION CONTACT : adresse, téléphone, email & carte Google Maps ── -->
         <section id="contact" class="section-wrapper bg-white">
@@ -506,15 +526,15 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
-    <!-- ── MODALE : affichage image du carrousel en plein écran ── -->
-    <div id="imageModal" class="image-modal">
-        <span class="modal-close" id="closeModal">×</span>
-        <button class="modal-nav modal-prev" id="modalPrevBtn"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="modal-content">
-            <img id="modalImg" class="modal-img" src="" alt="Image plein écran">
-            <div id="modalDesc" class="modal-desc"></div>
+    <!-- ── MODALE GENERIQUE POUR SIMPLE CAROUSEL ── -->
+    <div id="scModal" class="sc-modal">
+        <span class="sc-modal-close">×</span>
+        <button class="sc-modal-prev sc-modal-nav"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="sc-modal-content">
+            <img class="sc-modal-img" src="" alt="">
+            <div class="sc-modal-desc"></div>
         </div>
-        <button class="modal-nav modal-next" id="modalNextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="sc-modal-next sc-modal-nav"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <!-- ── Script JS principal (navigation, carrousel, dons, modale) ── -->

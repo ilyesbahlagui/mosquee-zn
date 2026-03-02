@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- partage le même style que le site secondaire -->
+    <link rel="stylesheet" href="client/site/assets/css/style.css">
 
     <style>
         /* ── Reset local ── */
@@ -599,194 +601,6 @@
             background: var(--m-peps-hover);
         }
 
-        /* ── SECTION CARROUSEL ── */
-        .carousel-container {
-            position: relative;
-            padding: 0 45px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .carousel-track-wrapper {
-            overflow: hidden;
-            border-radius: 16px;
-            width: 100%;
-        }
-
-        .carousel-track {
-            display: flex;
-            list-style: none;
-            transition: transform 0.5s ease-in-out;
-            margin: 0;
-            padding: 0;
-        }
-
-        .carousel-slide {
-            flex: 0 0 33.3333%;
-            padding: 0 10px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            background-color: var(--m-white);
-            border-radius: 12px;
-            transition: transform 0.3s, border 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .carousel-slide:hover img {
-            transform: scale(1.02);
-        }
-
-        .slide-desc {
-            margin-top: 15px;
-            font-size: 1rem;
-            color: var(--m-text-light);
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .carousel-slide.active .slide-desc {
-            font-weight: 800;
-            color: var(--m-peps);
-            font-size: 1.1rem;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            background: var(--m-white);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            color: var(--m-text);
-            font-size: 1.2rem;
-            z-index: 20;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-btn:hover {
-            background: var(--m-peps);
-            color: white;
-        }
-
-        .prev-btn {
-            left: 0;
-        }
-
-        .next-btn {
-            right: 0;
-        }
-
-        /* ── MODALE IMAGE ── */
-        .image-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-modal.show {
-            display: flex;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            max-width: 80%;
-            max-height: 85vh;
-            text-align: center;
-            position: relative;
-            z-index: 2002;
-        }
-
-        .modal-img {
-            max-width: 100%;
-            max-height: 75vh;
-            border-radius: 12px;
-            object-fit: contain;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-desc {
-            color: var(--m-white);
-            font-size: 1.2rem;
-            margin-top: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 3rem;
-            cursor: pointer;
-            z-index: 2005;
-            transition: 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--m-peps);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2005;
-        }
-
-        .modal-nav:hover {
-            background: var(--m-peps);
-        }
-
-        .modal-prev {
-            left: 3%;
-        }
-
-        .modal-next {
-            right: 3%;
-        }
 
         /* ── SECTION HORAIRES ── */
         .vendredi-title {
@@ -1153,15 +967,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .carousel-slide {
-                flex: 0 0 50%;
-            }
 
-            .modal-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
 
             /* Affiche et centre le bouton dans le menu mobile */
             .mobile-don-li {
@@ -1292,19 +1098,7 @@
                 font-size: 1rem;
             }
 
-            .carousel-slide {
-                flex: 0 0 100%;
-            }
 
-            .carousel-container {
-                padding: 0 35px;
-            }
-
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
 
             .modal-prev {
                 left: 2%;
@@ -1461,35 +1255,35 @@
                         </div>
                     </div>
 
-                    <div class="carousel-container">
-                        <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
-
-                        <div class="carousel-track-wrapper">
-                            <ul class="carousel-track">
-                                <li class="carousel-slide" data-index="0">
-                                    <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=600"
-                                        alt="Vue du terrain">
-                                    <div class="slide-desc">Le terrain prévu</div>
+                    <!-- ancien carrousel :
+                         unsplash photo-1564769625905 : Vue du terrain
+                         unsplash photo-1542816417 : Plan du futur parking
+                         unsplash photo-1585036156171 : L'état actuel
+                         unsplash photo-1519818178129 : Accès Mosquée
+                    -->
+                    <div class="simple-carousel" data-autoplay="3500">
+                        <button class="sc-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="sc-track-wrapper">
+                            <ul class="sc-track">
+                                <li class="sc-slide">
+                                    <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&q=80&w=600" alt="Vue du terrain">
+                                    <div class="sc-desc">Le terrain prévu</div>
                                 </li>
-                                <li class="carousel-slide" data-index="1">
-                                    <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&q=80&w=600"
-                                        alt="Plan du parking">
-                                    <div class="slide-desc">Plan du futur parking</div>
+                                <li class="sc-slide">
+                                    <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&q=80&w=600" alt="Plan du parking">
+                                    <div class="sc-desc">Plan du futur parking</div>
                                 </li>
-                                <li class="carousel-slide" data-index="2">
-                                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600"
-                                        alt="Avancement">
-                                    <div class="slide-desc">L'état actuel</div>
+                                <li class="sc-slide">
+                                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=600" alt="Avancement">
+                                    <div class="sc-desc">L'état actuel</div>
                                 </li>
-                                <li class="carousel-slide" data-index="3">
-                                    <img src="https://images.unsplash.com/photo-1519818178129-9e2d3bbcb4ba?auto=format&fit=crop&q=80&w=600"
-                                        alt="Accès Mosquée">
-                                    <div class="slide-desc">Accès Mosquée</div>
+                                <li class="sc-slide">
+                                    <img src="https://images.unsplash.com/photo-1519818178129-9e2d3bbcb4ba?auto=format&fit=crop&q=80&w=600" alt="Accès Mosquée">
+                                    <div class="sc-desc">Accès Mosquée</div>
                                 </li>
                             </ul>
                         </div>
-
-                        <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        <button class="sc-next"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -1674,178 +1468,19 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
-    <div id="imageModal" class="image-modal">
-        <span class="modal-close" id="closeModal">×</span>
-        <button class="modal-nav modal-prev" id="modalPrevBtn"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="modal-content">
-            <img id="modalImg" class="modal-img" src="" alt="Image plein écran">
-            <div id="modalDesc" class="modal-desc"></div>
+    <!-- modal générique appliqué aux carrousels -->
+    <div id="scModal" class="sc-modal">
+        <span class="sc-modal-close">×</span>
+        <button class="sc-modal-prev sc-modal-nav"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="sc-modal-content">
+            <img class="sc-modal-img" src="" alt="">
+            <div class="sc-modal-desc"></div>
         </div>
-        <button class="modal-nav modal-next" id="modalNextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="sc-modal-next sc-modal-nav"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <script>
-        // ── Menu Burger et Scroll ──
-        const nav = document.getElementById('main-nav');
-        const hamburger = document.getElementById('hamburger-btn');
-        const menu = document.getElementById('nav-menu');
-        const menuLinks = document.querySelectorAll('.fixed-mosquee-menu-link');
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-
-            if (window.scrollY > 300) scrollTopBtn.classList.add('show');
-            else scrollTopBtn.classList.remove('show');
-        });
-
-        const toggleMenu = () => {
-            hamburger.classList.toggle('open');
-            menu.classList.toggle('open');
-        };
-
-        hamburger.addEventListener('click', toggleMenu);
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (menu.classList.contains('open')) toggleMenu();
-            });
-        });
-
-        // ── Fonction Copier avec adaptation Mobile ──
-        function copy(id, btn) {
-            const el = document.getElementById(id);
-            el.select();
-            navigator.clipboard.writeText(el.value);
-
-            const isMobile = window.innerWidth <= 600;
-            const iconHTML = "<i class='fa-solid fa-check'></i>";
-
-            btn.innerHTML = isMobile ? iconHTML : iconHTML + " <span class='txt-copy'>Copié !</span>";
-
-            setTimeout(() => {
-                btn.innerHTML = isMobile ? "<i class='fa-regular fa-copy'></i>" : "<i class='fa-regular fa-copy'></i> <span class='txt-copy'>Copier</span>";
-            }, 2000);
-        }
-
-        // ── Carrousel Galerie & Modal Lightbox (Boucle parfaite) ──
-        const track = document.querySelector('.carousel-track');
-        const trackContainer = document.querySelector('.carousel-track-wrapper');
-        const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-        const nextBtn = document.querySelector('.next-btn');
-        const prevBtn = document.querySelector('.prev-btn');
-        let currentSlideIndex = 0;
-        let carouselInterval;
-
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        const modalDesc = document.getElementById('modalDesc');
-        const closeBtn = document.getElementById('closeModal');
-        const modalPrevBtn = document.getElementById('modalPrevBtn');
-        const modalNextBtn = document.getElementById('modalNextBtn');
-
-        function moveSlider(index) {
-            if (index < 0) index = slides.length - 1;
-            if (index >= slides.length) index = 0;
-            currentSlideIndex = index;
-
-            slides.forEach(s => s.classList.remove('active'));
-            slides[currentSlideIndex].classList.add('active');
-
-            const slide = slides[currentSlideIndex];
-            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-            const containerCenter = trackContainer.offsetWidth / 2;
-            let scrollPosition = slideCenter - containerCenter;
-
-            const maxScroll = track.scrollWidth - trackContainer.offsetWidth;
-            if (scrollPosition < 0) scrollPosition = 0;
-            if (scrollPosition > maxScroll) scrollPosition = maxScroll;
-
-            track.style.transform = `translateX(-${scrollPosition}px)`;
-            resetCarouselInterval();
-        }
-
-        nextBtn.addEventListener('click', () => moveSlider(currentSlideIndex + 1));
-        prevBtn.addEventListener('click', () => moveSlider(currentSlideIndex - 1));
-
-        function startCarousel() {
-            carouselInterval = setInterval(() => moveSlider(currentSlideIndex + 1), 3500);
-        }
-        function resetCarouselInterval() {
-            clearInterval(carouselInterval);
-            startCarousel();
-        }
-
-        window.addEventListener('resize', () => moveSlider(currentSlideIndex));
-        moveSlider(0);
-        startCarousel();
-
-        function openModal(index) {
-            currentSlideIndex = index;
-            updateModalContent();
-            modal.classList.add('show');
-            clearInterval(carouselInterval);
-        }
-
-        function updateModalContent() {
-            const slide = slides[currentSlideIndex];
-            const img = slide.querySelector('img');
-            const desc = slide.querySelector('.slide-desc').innerText;
-            modalImg.src = img.src;
-            modalDesc.innerText = desc;
-        }
-
-        function closeModal() {
-            modal.classList.remove('show');
-            startCarousel();
-        }
-
-        slides.forEach((slide, index) => {
-            slide.addEventListener('click', () => openModal(index));
-        });
-
-        closeBtn.addEventListener('click', closeModal);
-
-        modalPrevBtn.addEventListener('click', () => {
-            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-            updateModalContent();
-            moveSlider(currentSlideIndex);
-        });
-        modalNextBtn.addEventListener('click', () => {
-            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-            updateModalContent();
-            moveSlider(currentSlideIndex);
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        // ── API & Jauge (150 000€) ──
-        async function updateData() {
-            const GOAL = 150000;
-            try {
-                const res = await fetch('http://localhost:3000/amount');
-                // Données de test modifiées avec "cotizup"
-                const data = res.ok ? await res.json() : { cotizup: { amount: 3427 }, banque: { amount: 15000.52 } };
-
-                const total = data.cotizup.amount + data.banque.amount;
-                const perc = (total / GOAL) * 100;
-                const format = n => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
-
-                document.getElementById('ui-total').innerText = format(total);
-                document.getElementById('ui-banque').innerHTML = `<i class="fa-solid fa-building-columns" style="color:var(--m-peps)"></i> ` + format(data.banque.amount);
-                document.getElementById('ui-cotizup').innerHTML = `<i class="fa-solid fa-wallet" style="color:var(--m-peps)"></i> ` + format(data.cotizup.amount);
-                document.getElementById('ui-pourcentage').innerText = perc.toFixed(1) + '%';
-
-                setTimeout(() => {
-                    document.getElementById('ui-gauge').style.width = Math.min(perc, 100) + '%';
-                }, 500);
-            } catch (e) { console.error("API Error"); }
-        }
-        updateData();
-    </script>
+    <!-- Le JavaScript communal est chargé depuis le fichier principal : -->
+    <script src="client/site/assets/js/main.js"></script>
 </body>
 
 </html>

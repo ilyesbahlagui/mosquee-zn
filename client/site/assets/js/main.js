@@ -78,150 +78,113 @@ function copy(id, btn) {
 
 
 // ════════════════════════════════════════════════════════════════
-// 3. CARROUSEL GALERIE (Photos projet parking)
+// 3. SIMPLE CAROUSEL COMPONENT
 // ════════════════════════════════════════════════════════════════
 
-// ── Sélection des éléments DOM du carrousel ──
-const track = document.querySelector('.carousel-track');
-const trackContainer = document.querySelector('.carousel-track-wrapper');
-const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-let currentSlideIndex = 0;
+// Fonction utilitaire qui initialise chaque carrousel présent sur la page.
+(function initSimpleCarousels() {
+    const carousels = document.querySelectorAll('.simple-carousel');
+    if (carousels.length === 0) return;
 
-// ── Sélection des éléments DOM de la modale ──
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
-const modalDesc = document.getElementById('modalDesc');
-const closeBtn = document.getElementById('closeModal');
-const modalPrevBtn = document.getElementById('modalPrevBtn');
-const modalNextBtn = document.getElementById('modalNextBtn');
+    // modal global réutilisable
+    const modal = document.getElementById('scModal');
+    const modalImg = modal.querySelector('.sc-modal-img');
+    const modalDesc = modal.querySelector('.sc-modal-desc');
+    const modalClose = modal.querySelector('.sc-modal-close');
+    const modalPrev = modal.querySelector('.sc-modal-prev');
+    const modalNext = modal.querySelector('.sc-modal-next');
 
-/**
- * Déplace le carrousel vers une slide spécifique
- * @param {number} index - Index de la slide à afficher (boucle infinie)
- */
-function moveSlider(index) {
-    // Gestion de la boucle infinie (avant → fin / fin → début)
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
-    currentSlideIndex = index;
+    let currentCarousel = null;
+    let currentIndex = 0;
 
-    // Mise à jour de la classe active
-    slides.forEach(s => s.classList.remove('active'));
-    slides[currentSlideIndex].classList.add('active');
-
-    // Calcul du défilement pour centrer la slide active
-    const slide = slides[currentSlideIndex];
-    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-    const containerCenter = trackContainer.offsetWidth / 2;
-    let scrollPosition = slideCenter - containerCenter;
-
-    // Limitation du scroll aux bornes du track
-    const maxScroll = track.scrollWidth - trackContainer.offsetWidth;
-    if (scrollPosition < 0) scrollPosition = 0;
-    if (scrollPosition > maxScroll) scrollPosition = maxScroll;
-
-    // apply transform using 3d to avoid subpixel rendering jitter
-    track.style.transform = `translate3d(-${scrollPosition}px, 0, 0)`;
-    // remove any transition to jump directly
-    track.style.transition = 'none';
-    // re-enable transition after a short timeout for manual moves
-    setTimeout(() => { track.style.transition = ''; }, 50);
-}
-
-// ── Navigation carrousel (boutons précédent / suivant) ──
-nextBtn.addEventListener('click', () => moveSlider(currentSlideIndex + 1));
-prevBtn.addEventListener('click', () => moveSlider(currentSlideIndex - 1));
-
-// ── Réajustement du carrousel lors du redimensionnement de la fenêtre ──
-window.addEventListener('resize', () => moveSlider(currentSlideIndex));
-
-// ── Initialisation : affiche la première slide ──
-moveSlider(0);
-
-
-// ════════════════════════════════════════════════════════════════
-// 4. MODAL LIGHTBOX (Affichage plein écran des images)
-// ════════════════════════════════════════════════════════════════
-
-/**
- * Ouvre la modale avec l'image et la description de la slide cliquée
- * @param {number} index - Index de la slide à afficher en plein écran
- */
-function openModal(index) {
-    currentSlideIndex = index;
-    updateModalContent();
-    modal.classList.add('show');
-}
-
-/**
- * Met à jour le contenu de la modale (image + description)
- */
-function updateModalContent() {
-    const slide = slides[currentSlideIndex];
-    const img = slide.querySelector('img');
-    const desc = slide.querySelector('.slide-desc').innerText;
-    modalImg.src = img.src;
-    modalDesc.innerText = desc;
-}
-
-/**
- * Ferme la modale et relance le carrousel
- */
-function closeModal() {
-    modal.classList.remove('show');
-}
-
-// ── Clic sur une slide pour ouvrir la modale ──
-slides.forEach((slide, index) => {
-    slide.addEventListener('click', () => openModal(index));
-});
-
-// ── Fermeture de la modale : bouton × ──
-closeBtn.addEventListener('click', closeModal);
-
-// ── Navigation modale : boutons précédent / suivant ──
-modalPrevBtn.addEventListener('click', () => {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    updateModalContent();
-    moveSlider(currentSlideIndex);
-});
-modalNextBtn.addEventListener('click', () => {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    updateModalContent();
-    moveSlider(currentSlideIndex);
-});
-
-// ── Fermeture de la modale : clic en dehors de l'image ──
-window.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-// ════════════════════════════════════════════════════════════════
-// 6. GALERIE FIXE (Section Notre Mosquée)
-// ════════════════════════════════════════════════════════════════
-
-// On récupère toutes les cartes de la section mosquée
-const galerieItems = document.querySelectorAll('.mosquee-galerie-item');
-
-galerieItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // On récupère la source et le texte depuis ton HTML
-        const src = item.getAttribute('data-modal-src');
-        const desc = item.getAttribute('data-modal-desc');
-
-        // On met à jour la modale
-        modalImg.src = src;
-        modalDesc.innerText = desc;
-
-        // NOUVEAU : On CACHE les flèches pour ne pas mélanger avec le parking !
-        modalPrevBtn.style.display = 'none';
-        modalNextBtn.style.display = 'none';
-
-        // On affiche la modale
+    function updateModal() {
+        const slides = Array.from(currentCarousel.querySelectorAll('.sc-slide'));
+        const slide = slides[currentIndex];
+        const imgEl = slide.querySelector('img');
+        const descEl = slide.querySelector('.sc-desc');
+        // possibilité de contenu additionnel : soit via élément .sc-extra,
+        // soit via attribut data-extra.
+        const extraEl = slide.querySelector('.sc-extra');
+        const extraData = slide.dataset.extra;
+        modalImg.src = imgEl.src;
+        modalImg.alt = imgEl.alt;
+        modalDesc.innerHTML = descEl ? descEl.innerHTML : '';
+        if (extraEl) {
+            modalDesc.innerHTML += '<div class="sc-extra-content">' + extraEl.innerHTML + '</div>';
+        } else if (extraData) {
+            modalDesc.innerHTML += '<div class="sc-extra-content">' + extraData + '</div>';
+        }
+    }
+    function openModal(carousel, idx) {
+        currentCarousel = carousel;
+        currentIndex = idx;
+        updateModal();
         modal.classList.add('show');
+    }
+    function navigate(delta) {
+        const slides = Array.from(currentCarousel.querySelectorAll('.sc-slide'));
+        currentIndex = (currentIndex + delta + slides.length) % slides.length;
+        updateModal();
+    }
+
+    modalClose.addEventListener('click', () => modal.classList.remove('show')); 
+    modalPrev.addEventListener('click', () => navigate(-1));
+    modalNext.addEventListener('click', () => navigate(1));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('show'); });
+
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.sc-track');
+        const slides = Array.from(carousel.querySelectorAll('.sc-slide'));
+        const prev = carousel.querySelector('.sc-prev');
+        const next = carousel.querySelector('.sc-next');
+        let index = 0;
+        let timer;
+
+        // pagination dots setup
+        const dotsWrapper = document.createElement('div');
+        dotsWrapper.className = 'sc-dots';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'sc-dot';
+            dot.addEventListener('click', () => {
+                index = i;
+                updateView();
+                resetTimer();
+            });
+            dotsWrapper.appendChild(dot);
+        });
+        carousel.appendChild(dotsWrapper);
+
+        function updateView() {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+            track.style.transform = `translateX(-${index*100}%)`;
+            const dots = dotsWrapper.querySelectorAll('.sc-dot');
+            dots.forEach(d => d.classList.remove('active'));
+            if (dots[index]) dots[index].classList.add('active');
+        }
+        function go(delta) {
+            index = (index + delta + slides.length) % slides.length;
+            updateView();
+        }
+        prev.addEventListener('click', () => { go(-1); resetTimer(); });
+        next.addEventListener('click', () => { go(1); resetTimer(); });
+        slides.forEach((s,i)=> s.addEventListener('click', () => openModal(carousel,i)));
+        const autoplayInterval = parseInt(carousel.dataset.autoplay) || 0;
+        function resetTimer() {
+            if (autoplayInterval > 0) {
+                clearInterval(timer);
+                timer = setInterval(() => go(1), autoplayInterval);
+            }
+        }
+        if (autoplayInterval > 0) {
+            timer = setInterval(() => go(1), autoplayInterval);
+            carousel.addEventListener('mouseenter', () => clearInterval(timer));
+            carousel.addEventListener('mouseleave', resetTimer);
+        }
+        updateView();
     });
-});
+})();
 // ════════════════════════════════════════════════════════════════
 // 5. API DONS (Récupération montants + Jauge de progression)
 // ════════════════════════════════════════════════════════════════
@@ -297,17 +260,9 @@ document.querySelectorAll('.btn-copy').forEach(button => {
 });
 
 /**
- * Gestion des images de la section "Notre Mosquée"
+ * Gestion des images de la section "Notre Mosquée" (Ancienne galerie supprimée)
  */
-document.querySelectorAll('.mosquee-galerie-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const imgSrc = this.getAttribute('data-modal-src');
-        const imgDesc = this.getAttribute('data-modal-desc');
-        if (imgSrc && imgDesc) {
-            openModalFromSrc(imgSrc, imgDesc);
-        }
-    });
-});
+
 // ════════════════════════════════════════════════════════════════
 // SPIRITUAL SLIDER - Carrousel de rappels spirituels
 // ════════════════════════════════════════════════════════════════
