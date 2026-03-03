@@ -242,7 +242,7 @@ main {
 .fixed-mosquee-hero-img {
     position: absolute;
     inset: 0;
-    background: url('../images/header.avif') center/cover no-repeat;
+    background: url('../images/header.png') center/cover no-repeat;
     opacity: 0.5;
 }
 
@@ -890,8 +890,7 @@ main {
 }
 
 .mawaqit-section {
-    margin-top: 40px;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .iframe-wrapper {
