@@ -2,339 +2,82 @@
 <html lang="fr">
 
 <head>
-    <!-- ════════════════════════════════════════════════════════════
-         META TAGS — Encodage & Configuration de base
-    ════════════════════════════════════════════════════════════ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- ════════════════════════════════════════════════════════════
-         SEO PRINCIPAL — Titre & Description
-    ════════════════════════════════════════════════════════════ -->
-    <title>Mentions Légales | Mosquée Lumière et Piété Nîmes</title>
-    <meta name="description" content="Mentions légales du site de la Mosquée Lumière et Piété à Nîmes. Informations sur l'éditeur, l'hébergeur et les conditions d'utilisation.">
-    <meta name="robots" content="noindex, follow">
-
-    <!-- ════════════════════════════════════════════════════════════
-         POLICES & ICÔNES — Google Fonts + Font Awesome
-    ════════════════════════════════════════════════════════════ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- ════════════════════════════════════════════════════════════
-         FEUILLE DE STYLE PRINCIPALE
-    ════════════════════════════════════════════════════════════ -->
+    <title>Mentions Légales | Mosquée Lumière et Piété</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
     <style>
-        /* Styles spécifiques page mentions légales */
-        .legal-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .legal-header {
-            background: var(--m-text);
-            color: var(--m-white);
-            padding: 100px 20px 60px;
-            text-align: center;
-        }
-
-        .legal-header h1 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .legal-header p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
         .legal-content {
-            flex: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            width: 100%;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
         }
 
         .legal-section {
-            margin-bottom: 40px;
-        }
-
-        .legal-section h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--m-text);
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--m-peps);
-        }
-
-        .legal-section h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--m-text);
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .legal-section p {
-            line-height: 1.8;
-            color: var(--m-text);
-            margin-bottom: 15px;
-        }
-
-        .legal-section ul {
-            margin-left: 30px;
-            margin-bottom: 15px;
-        }
-
-        .legal-section li {
-            line-height: 1.8;
-            color: var(--m-text);
-            margin-bottom: 8px;
-        }
-
-        .legal-section strong {
-            color: var(--m-peps);
-            font-weight: 700;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: var(--m-peps);
-            color: var(--m-white);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 30px;
-            transition: 0.3s;
             margin-bottom: 30px;
         }
 
-        .back-btn:hover {
-            background: var(--m-peps-hover);
-            transform: translateX(-3px);
+        h2 {
+            border-bottom: 2px solid var(--m-peps);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 600px) {
-            .legal-header {
-                padding: 80px 20px 40px;
-            }
-
-            .legal-content {
-                padding: 40px 20px;
-            }
-
-            .legal-section h2 {
-                font-size: 1.3rem;
-            }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: var(--m-peps);
+            font-weight: bold;
         }
     </style>
 </head>
 
-<body class="legal-page">
+<body>
 
-    <!-- En-tête de la page -->
-    <div class="legal-header">
-        <h1><i class="fa-solid fa-scale-balanced"></i> Mentions Légales</h1>
-        <p>Informations légales relatives au site de la Mosquée Lumière et Piété à Nîmes</p>
-    </div>
-
-    <!-- Contenu principal -->
     <div class="legal-content">
-        <a href="index.html" class="back-btn">
-            <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
-        </a>
+        <a href="index.html" class="back-btn">← Retour à l'accueil</a>
 
-        <!-- ⚠️ MODIFIER : Adapter ces informations à votre association -->
+        <h1>Mentions Légales</h1>
 
-        <!-- Section 1 : Éditeur du site -->
         <div class="legal-section">
             <h2>1. Éditeur du site</h2>
             <p>
-                Le présent site web est édité par :<br>
-                <strong>Association Mosquée Lumière et Piété</strong><br>
-                (ou Nom officiel de l'association)<br>
-                <br>
-                Siège social : <strong><a href="https://www.google.com/maps/search/?api=1&query=43.8436,4.3644" target="_blank" rel="noopener noreferrer" style="color: var(--m-peps); text-decoration: none;">Rue de la cavalerie, 30000 Nîmes, France</a></strong><br>
-                <br>
-                Numéro SIRET : <strong>[À COMPLÉTER]</strong><br>
-                N° RNA (Répertoire National des Associations) : <strong>[À COMPLÉTER]</strong><br>
-                <br>
-                Téléphone : <strong><a href="tel:+33466676869" style="color: var(--m-peps); text-decoration: none;">04 66 67 68 69</a></strong><br>
-                Email : <strong><a href="mailto:contact@mosquee-nimes.fr" style="color: var(--m-peps); text-decoration: none;">contact@mosquee-nimes.fr</a></strong>
+                <strong>Association UNION IMANOPAIX NIMOISE</strong><br>
+                Siège social : 1 rue Jacques Monod, 30900 Nîmes, France<br>
+                SIRET : 43427809900016<br>
+                RNA : W302001908<br>
+                Email : contact@mosquee-lumiere-piete.fr
             </p>
         </div>
 
-        <!-- Section 2 : Directeur de publication -->
         <div class="legal-section">
-            <h2>2. Directeur de publication</h2>
-            <p>
-                Le directeur de la publication du site est :<br>
-                <strong>[Nom du Président de l'association ou du Responsable]</strong><br>
-                En qualité de : <strong>Président de l'association</strong>
-            </p>
+            <h2>2. Directeur de la publication</h2>
+            <p>Abdeltif Bouquanetar, en qualité de Président de l'association.</p>
         </div>
 
-        <!-- Section 3 : Hébergeur -->
         <div class="legal-section">
-            <h2>3. Hébergement du site</h2>
+            <h2>3. Hébergement</h2>
             <p>
-                Le site est hébergé par :<br>
-                <strong>[Nom de l'hébergeur]</strong><br>
-                Adresse : <strong>[Adresse de l'hébergeur]</strong><br>
-                Téléphone : <strong>[Téléphone de l'hébergeur]</strong><br>
-                Site web : <strong>[URL de l'hébergeur]</strong>
-            </p>
-            <p>
-                <em>Exemples d'hébergeurs courants : OVH, O2Switch, Hostinger, Ionos, etc.</em>
+                Ce site est hébergé par :<br>
+                <strong>OVH SAS</strong><br>
+                2 rue Kellermann - 59100 Roubaix - France<br>
+                Site web : www.ovhcloud.com
             </p>
         </div>
 
-        <!-- Section 4 : Propriété intellectuelle -->
         <div class="legal-section">
-            <h2>4. Propriété intellectuelle</h2>
+            <h2>4. Données personnelles et Cookies</h2>
             <p>
-                L'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, mise en page, etc.) est la propriété exclusive de l'<strong>Association Mosquée Lumière et Piété</strong>, sauf mention contraire.
-            </p>
-            <p>
-                Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l'association.
-            </p>
-            <p>
-                Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.
+                Ce site est purement informatif. Il ne collecte aucune donnée personnelle (pas de formulaire) et
+                n'utilise aucun cookie de suivi ou de publicité.
             </p>
         </div>
 
-        <!-- Section 5 : Protection des données personnelles (RGPD) -->
-        <div class="legal-section">
-            <h2>5. Protection des données personnelles (RGPD)</h2>
-            
-            <h3>5.1. Responsable du traitement des données</h3>
-            <p>
-                Le responsable du traitement des données personnelles collectées sur ce site est :<br>
-                <strong>Association Mosquée Lumière et Piété</strong><br>
-                Contact : <strong><a href="mailto:contact@mosquee-nimes.fr" style="color: var(--m-peps); text-decoration: none;">contact@mosquee-nimes.fr</a></strong>
-            </p>
-
-            <h3>5.2. Données collectées</h3>
-            <p>
-                Ce site ne collecte <strong>aucune donnée personnelle</strong> de façon automatique (pas de formulaire de contact, pas de cookies de suivi, pas de système d'inscription).
-            </p>
-            <p>
-                Si vous contactez la mosquée par email ou téléphone, vos données (nom, prénom, adresse email, message) seront traitées uniquement dans le but de répondre à votre demande et ne seront jamais transmises à des tiers.
-            </p>
-
-            <h3>5.3. Vos droits (RGPD)</h3>
-            <p>
-                Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
-            </p>
-            <ul>
-                <li><strong>Droit d'accès</strong> : vous pouvez demander à accéder à vos données personnelles.</li>
-                <li><strong>Droit de rectification</strong> : vous pouvez demander la correction de vos données inexactes.</li>
-                <li><strong>Droit à l'effacement</strong> : vous pouvez demander la suppression de vos données.</li>
-                <li><strong>Droit d'opposition</strong> : vous pouvez vous opposer au traitement de vos données.</li>
-                <li><strong>Droit à la portabilité</strong> : vous pouvez demander une copie de vos données dans un format structuré.</li>
-            </ul>
-            <p>
-                Pour exercer ces droits, contactez-nous à : <strong><a href="mailto:contact@mosquee-nimes.fr" style="color: var(--m-peps); text-decoration: none;">contact@mosquee-nimes.fr</a></strong>
-            </p>
-        </div>
-
-        <!-- Section 6 : Cookies -->
-        <div class="legal-section">
-            <h2>6. Cookies</h2>
-            <p>
-                Ce site <strong>n'utilise pas de cookies</strong> de suivi ou de publicité.
-            </p>
-            <p>
-                Les seuls cookies potentiellement utilisés sont des cookies techniques strictement nécessaires au bon fonctionnement du site (exemple : cookie de langue, cookie de session). Ces cookies ne nécessitent pas votre consentement selon la réglementation en vigueur.
-            </p>
-        </div>
-
-        <!-- Section 7 : Limitation de responsabilité -->
-        <div class="legal-section">
-            <h2>7. Limitation de responsabilité</h2>
-            <p>
-                L'association <strong>Mosquée Lumière et Piété</strong> met tout en œuvre pour offrir aux utilisateurs des informations fiables et actualisées sur ce site.
-            </p>
-            <p>
-                Toutefois, l'association ne pourra être tenue responsable :
-            </p>
-            <ul>
-                <li>Des erreurs, omissions ou résultats qui pourraient être obtenus par l'utilisation de ces informations.</li>
-                <li>Des dommages directs ou indirects causés par l'utilisation du site.</li>
-                <li>De l'indisponibilité temporaire du site pour des raisons de maintenance ou des problèmes techniques.</li>
-                <li>Du contenu des sites externes vers lesquels pointent des liens hypertextes présents sur ce site.</li>
-            </ul>
-        </div>
-
-        <!-- Section 8 : Liens hypertextes -->
-        <div class="legal-section">
-            <h2>8. Liens hypertextes</h2>
-            <p>
-                Ce site peut contenir des liens vers des sites externes (réseaux sociaux, sites partenaires, etc.). L'association <strong>Mosquée Lumière et Piété</strong> n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
-            </p>
-            <p>
-                La création de liens hypertextes vers ce site est autorisée, sous réserve qu'ils ne portent pas atteinte à l'image ou à la réputation de l'association.
-            </p>
-        </div>
-
-        <!-- Section 9 : Droit applicable et juridiction -->
-        <div class="legal-section">
-            <h2>9. Droit applicable et juridiction</h2>
-            <p>
-                Les présentes mentions légales sont régies par le droit français.
-            </p>
-            <p>
-                En cas de litige, et à défaut d'accord amiable, les tribunaux français seront seuls compétents.
-            </p>
-        </div>
-
-        <!-- Section 10 : Contact -->
-        <div class="legal-section">
-            <h2>10. Contact</h2>
-            <p>
-                Pour toute question relative aux présentes mentions légales ou à l'utilisation du site, vous pouvez nous contacter :
-            </p>
-            <p>
-                <strong>Par courrier :</strong><br>
-                Association Mosquée Lumière et Piété<br>
-                <a href="https://www.google.com/maps/search/?api=1&query=43.8436,4.3644" target="_blank" rel="noopener noreferrer" style="color: var(--m-peps); text-decoration: none;">Rue de la cavalerie<br>
-                30000 Nîmes<br>
-                France</a>
-            </p>
-            <p>
-                <strong>Par téléphone :</strong> <a href="tel:+33466676869" style="color: var(--m-peps); text-decoration: none;">04 66 67 68 69</a><br>
-                <strong>Par email :</strong> <a href="mailto:contact@mosquee-nimes.fr" style="color: var(--m-peps); text-decoration: none;">contact@mosquee-nimes.fr</a>
-            </p>
-        </div>
-
-        <hr style="margin: 40px 0; border: none; border-top: 1px solid #EAEAEA;">
-
-        <p style="text-align: center; color: var(--m-text-light); font-size: 0.9rem;">
-            <em>Dernière mise à jour : 26 février 2026</em>
-        </p>
-
-        <a href="index.html" class="back-btn" style="margin-top: 30px;">
-            <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
-        </a>
+       
     </div>
-
-    <!-- ═══════════════════════════════════════
-         FOOTER — Pied de page
-    ════════════════════════════════════════ -->
-    <footer class="main-footer">
-        <p>© 2026 Mosquée Lumière et Piété à Nîmes. Tous droits réservés. | <a href="mentions-legales.html" style="color: var(--m-white); text-decoration: underline;">Mentions légales</a></p>
-    </footer>
 
 </body>
 
