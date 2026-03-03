@@ -264,7 +264,7 @@ main {
 }
 
 .fixed-mosquee-hero-content h1 span {
-    color: var(--m-peps);
+    color: var(--m-white);
     display: block;
     font-weight: 500;
     font-size: 0.35em;

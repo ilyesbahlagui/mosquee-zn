@@ -24,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Preload Hero Image -->
+    <link rel="preload" as="image" href="assets/images/header.png">
+
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -233,7 +236,7 @@
                         </div>
 
                         <div class="project-video">
-                            <video controls preload="metadata" poster="assets/images/aid-poster.jpg">
+                            <video controls preload="none" poster="assets/images/aid-poster.jpg">
                                 <source src="assets/video/aid.mp4" type="video/mp4">
                                 Votre navigateur ne supporte pas la lecture de la vidéo.
                             </video>
@@ -250,15 +253,15 @@
                         <div class="sc-track-wrapper">
                             <ul class="sc-track">
                                 <li class="sc-slide">
-                                    <img src="assets/images/plan-3D-parking.jpg" alt="Projection 3D du parking">
+                                    <img src="assets/images/plan-3D-parking.jpg" alt="Projection 3D du parking" loading="lazy">
                                     <div class="sc-desc">Projection 3D du parking</div>
                                 </li>
                                 <li class="sc-slide">
-                                    <img src="assets/images/aid-vu-du-ciel-4.jpg" alt="Affluence lors de l'Aïd">
+                                    <img src="assets/images/aid-vu-du-ciel-4.jpg" alt="Affluence lors de l'Aïd" loading="lazy">
                                     <div class="sc-desc">Affluence lors de l'Aïd</div>
                                 </li>
                                 <li class="sc-slide">
-                                    <img src="assets/images/parking-satellite.png" alt="Vue satellite du terrain">
+                                    <img src="assets/images/parking-satellite.png" alt="Vue satellite du terrain" loading="lazy">
                                     <div class="sc-desc">Vue satellite du terrain</div>
                                 </li>
                             </ul>
@@ -464,11 +467,11 @@
                         <div class="sc-track-wrapper">
                             <ul class="sc-track">
                                 <li class="sc-slide">
-                                    <img src="assets/images/entree-principal.jpg" alt="Entrée principale pour les hommes">
+                                    <img src="assets/images/entree-principal.jpg" alt="Entrée principale pour les hommes" loading="lazy">
                                     <div class="sc-desc">Entrée principale – Espace hommes</div>
                                 </li>
                                 <li class="sc-slide">
-                                    <img src="assets/images/entree-femme.jpg" alt="Entrée dédiée pour les femmes">
+                                    <img src="assets/images/entree-femme.jpg" alt="Entrée dédiée pour les femmes" loading="lazy">
                                     <div class="sc-desc">Entrée dédiée – Espace femmes</div>
                                 </li>
                             </ul>
