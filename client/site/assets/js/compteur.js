@@ -97,7 +97,6 @@ async function recupererDonnees() {
         animerValeur(montantBanqueEl, montantBanque);
         animerValeur(montantCotizupEl, montantCotizup);
         
-        // C'est ici qu'on corrige le bug du pourcentage avec le + "%"
         pourcentageEl.textContent = Math.round(pourcentage) + "%";
         jaugeProgressionEl.style.width = Math.round(pourcentage) + "%";
         objectifEl.textContent = formaterMontant(OBJECTIF);

@@ -1,4 +1,7 @@
-﻿/* ── Reset : marges, paddings, box-sizing ── */
+﻿/* ════════════════════════════════════════
+           RESET & BASE
+        ════════════════════════════════════════ */
+/* ── Reset : marges, paddings, box-sizing ── */
 * {
     margin: 0;
     padding: 0;
@@ -43,11 +46,6 @@ main {
     --m-transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --m-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     --m-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    /* nombre de vignettes visibles dans le carrousel du projet (desktop)
-               modifier cette valeur ici ou via la variable JS DESKTOP_SLIDES si
-               vous souhaitez afficher 1, 2, 3… images en même temps. Le script
-               s'adapte automatiquement et défile par « pages » entières. */
-    --carousel-slides-per-view: 2;
 }
 
 /* ════════════════════════════════════════
@@ -361,7 +359,10 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* ── SECTION DONS: boutons de paiement (carte / cotizup) ── */
+/* ════════════════════════════════════════
+           SECTION DONS
+        ════════════════════════════════════════ */
+/* ── Boutons de paiement (carte / cotizup) ── */
 .don-action-btns {
     display: flex;
     justify-content: center;
@@ -533,7 +534,10 @@ main {
     background: #000;
 }
 
-/* ── SECTION BANQUE ── */
+/* ════════════════════════════════════════
+           SECTION BANQUE
+        ════════════════════════════════════════ */
+/* ── Champs IBAN / BIC / RIB avec copie ── */
 .bank-field {
     margin-bottom: 20px;
 }
@@ -617,14 +621,15 @@ main {
     background: var(--m-peps-hover);
 }
 
-/* ── SIMPLE CAROUSEL: one image at a time, responsive ── */
+/* ════════════════════════════════════════
+           SIMPLE CAROUSEL
+        ════════════════════════════════════════ */
+/* ── Une image à la fois, responsive ── */
 .simple-carousel {
     position: relative;
     width: 100%;
     max-width: 800px;
-    /* limite la largeur totale du carrousel */
     margin: 20px auto 40px;
-    /* espace en haut et en bas */
     overflow: hidden;
 }
 
@@ -673,7 +678,6 @@ main {
     width: 100%;
     height: auto;
     max-height: 300px;
-    /* limite la taille des visuels */
     object-fit: contain;
     border-radius: 12px;
 }
@@ -718,7 +722,10 @@ main {
     color: #fff;
 }
 
-/* ── SIMPLE CAROUSEL MODAL ── */
+/* ════════════════════════════════════════
+           CARROUSEL MODAL
+        ════════════════════════════════════════ */
+/* ── Modale plein écran (affichage image agrandie) ── */
 .sc-modal {
     display: none;
     position: fixed;
@@ -807,7 +814,10 @@ main {
     }
 }
 
-/* ── SECTION HORAIRES: cartes Vendredi + iframe Mawaqit ── */
+/* ════════════════════════════════════════
+           SECTION HORAIRES
+        ════════════════════════════════════════ */
+/* ── Cartes Vendredi + iframe Mawaqit ── */
 .vendredi-title {
     font-size: 1.2rem;
     font-weight: 800;
@@ -882,7 +892,6 @@ main {
 .mawaqit-section {
     margin-top: 40px;
     padding-top: 30px;
-    border-top: 1px dashed #EAEAEA;
 }
 
 .iframe-wrapper {
@@ -898,7 +907,10 @@ main {
     display: block;
 }
 
-/* ── SECTION ACTUALITÉS: réseaux sociaux Facebook, Instagram, Snapchat ── */
+/* ════════════════════════════════════════
+           SECTION ACTUALITÉS
+        ════════════════════════════════════════ */
+/* ── Réseaux sociaux & événements ── */
 .social-desc {
     font-size: 1.05rem;
     line-height: 1.7;
@@ -917,16 +929,13 @@ main {
     gap: 20px;
 }
 
-/* force the link itself to behave like a fixed-size circle */
+/* Carte réseau social : cercle fixe */
 .social-grid .social-card {
-    /* make each card a circle with a smaller fixed diameter */
     flex: 0 0 80px;
     width: 80px;
     height: 80px;
     padding: 0;
-    /* we handle spacing inside */
     border-radius: 50%;
-    /* full rounding -> circle */
 }
 
 .social-card {
@@ -948,7 +957,7 @@ main {
     /* ensure icon/text centered */
 }
 
-/* hide the label inside the circle – if you prefer to keep it, remove this rule */
+/* Masque le libellé texte */
 .social-card span {
     display: none;
 }
@@ -960,7 +969,6 @@ main {
 }
 
 .social-icon-wrapper {
-    /* fill most of the circular card now that labels are hidden */
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -983,9 +991,7 @@ main {
 
 .event-tag {
     background: rgba(224, 109, 61, 0.1);
-    /* Fond légèrement orangé */
     color: var(--m-peps);
-    /* Texte orange peps */
     padding: 10px 20px;
     border-radius: 30px;
     font-weight: 800;
@@ -1007,14 +1013,12 @@ main {
     background: #1877F2;
 }
 
-/* make facebook link itself blue so only one circle is visible */
 .social-card.social-facebook {
     background: #1877F2;
     border: none;
 }
 
 .social-card.social-facebook .social-icon-wrapper {
-    /* fill entire card so inner white circle disappears */
     background: transparent;
     box-shadow: none;
     width: 100%;
@@ -1028,16 +1032,10 @@ main {
     color: white;
 }
 
-.instagram-icon {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-}
-
-.snapchat-icon {
-    background: #FFFC00;
-    color: #000;
-}
-
-/* ── SECTION CONTACT: layout (infos + carte Google Maps) ── */
+/* ════════════════════════════════════════
+           SECTION CONTACT
+        ════════════════════════════════════════ */
+/* ── Layout : informations + carte Google Maps ── */
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -1112,7 +1110,10 @@ main {
     border: 1px solid #EAEAEA;
 }
 
-/* ── FOOTER & SCROLL TO TOP: pied de page + bouton retour haut ── */
+/* ════════════════════════════════════════
+           FOOTER & SCROLL TO TOP
+        ════════════════════════════════════════ */
+/* ── Pied de page + bouton retour haut ── */
 .main-footer {
     background: var(--m-text);
     color: var(--m-white);
@@ -1398,7 +1399,7 @@ main {
 }
 
 /* ════════════════════════════════════════
-   UTILITIES (Extracted from index.html)
+   UTILITAIRES
    ════════════════════════════════════════ */
 
 /* Utilitaires SEO et accessibilité */
@@ -1486,6 +1487,19 @@ main {
     color: var(--m-peps) !important;
 }
 
+.footer-link {
+    color: var(--m-white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    opacity: 0.8;
+}
+
+.footer-link:hover {
+    color: var(--m-peps);
+    opacity: 1;
+}
+
 .video-caption {
     text-align: center;
     font-size: 0.8rem;
@@ -1509,27 +1523,14 @@ main {
     text-align: center !important;
 }
 
-.img-mosquee {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-.fs-105 {
-    font-size: 1.05rem;
-}
-
-.cursor-pointer {
-    cursor: pointer !important;
-}
-
 .iframe-no-border {
     border: 0 !important;
 }
 
 /* ════════════════════════════════════════
-   SPIRITUAL SLIDER - Rappels spirituels
-════════════════════════════════════════ */
+           SPIRITUAL SLIDER
+           Rappels spirituels islamiques
+        ════════════════════════════════════════ */
 .spiritual-slider {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -1571,30 +1572,6 @@ main {
 
 .spiritual-arrow:hover {
     background: rgba(0, 0, 0, 0.1);
-}
-
-.spiritual-slider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    /* background: var(--m-peps); */
-    opacity: 0.8;
-}
-
-
-@keyframes shimmer {
-
-    0%,
-    100% {
-        opacity: 0.3;
-    }
-
-    50% {
-        opacity: 0.8;
-    }
 }
 
 .spiritual-slides-container {
@@ -1709,6 +1686,3 @@ main {
 
 
 
-.p-0 {
-    padding: 0 !important;
-}
