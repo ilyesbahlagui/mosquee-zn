@@ -45,7 +45,7 @@ function copy(id, btn) {
     navigator.clipboard.writeText(el.value);
 
     // Adaptation mobile : affiche uniquement l'icône sur petit écran
-    const isMobile = window.innerWidth <= 600;
+    const isMobile = window.innerWidth <= 768;
     const iconHTML = "<i class='fa-solid fa-check'></i>";
 
     btn.innerHTML = isMobile ? iconHTML : iconHTML + " <span class='txt-copy'>Copié !</span>";
