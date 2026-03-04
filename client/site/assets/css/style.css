@@ -1534,6 +1534,15 @@ main {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* prevent orange hover/active state on calendrier/prayer button */
+.hero-btn-secondary,
+.hero-btn-secondary:hover,
+.hero-btn-secondary:focus,
+.hero-btn-secondary:active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: var(--m-white) !important; /* keep text readable */
+}
+
 .text-peps {
     color: var(--m-peps) !important;
 }
