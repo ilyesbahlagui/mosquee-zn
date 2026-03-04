@@ -1,29 +1,12 @@
-/* ════════════════════════════════════════════════════════════════
-   MAIN.JS — Scripts principaux du site Mosquée Lumière et Piété
-   ════════════════════════════════════════════════════════════════
-   
-   Contenu :
-   1. Navigation & Menu Mobile (hamburger)
-   2. Scroll Effects (navbar sticky, bouton scroll-to-top)
-   3. Fonction Copier (coordonnées bancaires)
-   4. Carrousel Photos (galerie projet parking)
-   5. Modal Lightbox (affichage plein écran images)
-   6. API Dons (récupération montants + jauge de progression)
-   
-================================================================ */
-
 // ════════════════════════════════════════════════════════════════
-// 1. NAVIGATION & MENU MOBILE
+// 1. NAVBAR & SCROLL (Comportement de navigation + retour haut)
 // ════════════════════════════════════════════════════════════════
-
-// ── Sélection des éléments DOM ──
 const nav = document.getElementById('main-nav');
 const hamburger = document.getElementById('hamburger-btn');
 const menu = document.getElementById('nav-menu');
 const menuLinks = document.querySelectorAll('.fixed-mosquee-menu-link');
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-// ── Scroll Effects : navbar sticky + bouton scroll-to-top ──
 window.addEventListener('scroll', () => {
     // Ajoute classe "scrolled" à la navbar après 50px de défilement
     if (window.scrollY > 50) nav.classList.add('scrolled');
@@ -34,7 +17,6 @@ window.addEventListener('scroll', () => {
     else scrollTopBtn.classList.remove('show');
 });
 
-// ── Toggle Menu Mobile (hamburger) ──
 const toggleMenu = () => {
     hamburger.classList.toggle('open');
     menu.classList.toggle('open');
@@ -42,16 +24,14 @@ const toggleMenu = () => {
 
 hamburger.addEventListener('click', toggleMenu);
 
-// ── Ferme le menu mobile après clic sur un lien ──
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (menu.classList.contains('open')) toggleMenu();
     });
 });
 
-
 // ════════════════════════════════════════════════════════════════
-// 2. FONCTION COPIER (Coordonnées bancaires)
+// 2. COPIE PRESSE-PAPIERS (Coordonnées bancaires)
 // ════════════════════════════════════════════════════════════════
 
 /**
@@ -65,7 +45,7 @@ function copy(id, btn) {
     navigator.clipboard.writeText(el.value);
 
     // Adaptation mobile : affiche uniquement l'icône sur petit écran
-    const isMobile = window.innerWidth <= 600;
+    const isMobile = window.innerWidth <= 768;
     const iconHTML = "<i class='fa-solid fa-check'></i>";
 
     btn.innerHTML = isMobile ? iconHTML : iconHTML + " <span class='txt-copy'>Copié !</span>";
@@ -76,12 +56,9 @@ function copy(id, btn) {
     }, 2000);
 }
 
-
 // ════════════════════════════════════════════════════════════════
-// 3. SIMPLE CAROUSEL COMPONENT
+// 3. CARROUSEL SIMPLE (Galerie photos avec modale plein écran)
 // ════════════════════════════════════════════════════════════════
-
-// Fonction utilitaire qui initialise chaque carrousel présent sur la page.
 (function initSimpleCarousels() {
     const carousels = document.querySelectorAll('.simple-carousel');
     if (carousels.length === 0) return;
@@ -102,8 +79,6 @@ function copy(id, btn) {
         const slide = slides[currentIndex];
         const imgEl = slide.querySelector('img');
         const descEl = slide.querySelector('.sc-desc');
-        // possibilité de contenu additionnel : soit via élément .sc-extra,
-        // soit via attribut data-extra.
         const extraEl = slide.querySelector('.sc-extra');
         const extraData = slide.dataset.extra;
         modalImg.src = imgEl.src;
@@ -185,8 +160,9 @@ function copy(id, btn) {
         updateView();
     });
 })();
+
 // ════════════════════════════════════════════════════════════════
-// 5. API DONS (Récupération montants + Jauge de progression)
+// 4. API DONS (Récupération montants + Jauge de progression)
 // ════════════════════════════════════════════════════════════════
 
 /**
@@ -201,7 +177,7 @@ async function updateData() {
         // Appel API pour récupérer les montants réels
         const res = await fetch('https://mosquee-zn-api.ib-app.fr/amount');
         
-        // Données de fallback (test) si l'API est indisponible
+        // Fallback si l'API est indisponible
         const data = res.ok ? await res.json() : { 
             cotizup: { amount: 3427 }, 
             banque: { amount: 15000.52 } 
@@ -234,22 +210,17 @@ async function updateData() {
     }
 }
 
-// ── Lancement de la mise à jour des données au chargement de la page ──
 updateData();
 
 // ════════════════════════════════════════════════════════════════
-// 7. UTILITIES (Extracted from index.html)
+// 5. PIED DE PAGE & UTILITAIRES (Année courante + boutons copie)
 // ════════════════════════════════════════════════════════════════
-
-// ── Dynamisation de l'année du pied de page ──
 const currentYearEl = document.getElementById('currentYear');
 if (currentYearEl) {
     currentYearEl.textContent = new Date().getFullYear();
 }
 
-/**
- * Gestion des événements pour les boutons de copie bancaire
- */
+// Gestion des clics sur les boutons de copie bancaire
 document.querySelectorAll('.btn-copy').forEach(button => {
     button.addEventListener('click', function() {
         const inputId = this.getAttribute('data-copy-id');
@@ -259,18 +230,9 @@ document.querySelectorAll('.btn-copy').forEach(button => {
     });
 });
 
-/**
- * Gestion des images de la section "Notre Mosquée" (Ancienne galerie supprimée)
- */
-
 // ════════════════════════════════════════════════════════════════
-// SPIRITUAL SLIDER - Carrousel de rappels spirituels
+// 6. SLIDER SPIRITUEL (Citations & rappels islamiques)
 // ════════════════════════════════════════════════════════════════
-
-/**
- * Gère le slider de citations spirituelles dans la section bancaire
- * Défilement automatique toutes les 5 secondes avec navigation manuelle par points
- */
 (function initSpiritualSlider() {
     const slides = document.querySelectorAll('.spiritual-slide');
     const prevBtn = document.querySelector('.spiritual-prev');
