@@ -307,7 +307,21 @@ main {
 
 /* ── Espace vertical autour des sections ── */
 .section-wrapper {
-    padding: 80px 20px;
+    padding: 60px 20px;
+}
+
+/* réduire encore l'espace entre sections partout et sur petits écrans */
+@media (max-width: 768px) {
+    .section-wrapper {
+        padding: 40px 10px;
+    }
+}
+
+/* espacement réduit entre Actualités et Notre Mosquée */
+#actualites,
+#a-propos {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 /* ── Conteneur centré des sections (largeur max) ── */
