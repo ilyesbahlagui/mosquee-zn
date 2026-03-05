@@ -14,9 +14,23 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 30903;
 
-// Configuration CORS pour autoriser toutes les origines
+// Domaines autorisés pour le CORS
+const allowedOrigins = [
+  'https://mosquee-lumiere-piete.fr',
+  'https://mosquee-zn.ib-app.fr',
+  'https://mosquee-zn-gestion.ib-app.fr'
+];
+
+// Configuration CORS pour autoriser uniquement les domaines spécifiés
 app.use(cors({
-  origin: '*', // Autorise toutes les origines
+  origin: function (origin, callback) {
+    // Autorise si l'origine est dans la liste ou si la requête n'a pas d'origine (comme curl ou tests locaux)
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false
