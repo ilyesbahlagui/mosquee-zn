@@ -415,10 +415,7 @@ main {
     font-size: 1.05rem;
 }
 
-.btn-outline-peps:hover {
-    background: var(--m-peps);
-    color: var(--m-white);
-}
+
 
 .btn-rib-style {
     border-color: #1E293B !important;
@@ -426,6 +423,16 @@ main {
 }
 
 .btn-rib-style:hover {
+    background: none !important;
+}
+
+/* Style pour le bouton Carte Bancaire (Bleu) */
+.btn-cb-style {
+    border-color: #0066cc !important;
+    color: #0066cc !important;
+}
+
+.btn-cb-style:hover {
     background: none !important;
 }
 
@@ -1648,6 +1655,7 @@ main {
     transition: background 0.2s ease;
     z-index: 10;
     color: var(--m-text, #333333);
+    appearance: none; 
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
 }
