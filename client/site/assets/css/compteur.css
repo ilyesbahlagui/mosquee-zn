@@ -173,7 +173,7 @@ body {
 
 .jauge-barre {
     height: 45px;
-    background: var(--m-beige);
+    background: #8080804f;
     border-radius: 30px;
     overflow: hidden;
 }
