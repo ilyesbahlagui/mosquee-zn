@@ -255,13 +255,23 @@ main {
 }
 
 .fixed-mosquee-hero-content h1 {
-    font-size: clamp(2rem, 6vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 25px;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
     color: var(--m-white);
-    text-transform: uppercase;
+    text-transform: none;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.hero-top-text {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--m-peps);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .fixed-mosquee-hero-content h1 span {
@@ -418,8 +428,8 @@ main {
 
 
 .btn-rib-style {
-    border-color: #1E293B !important;
-    color: #1E293B !important;
+    border-color: var(--m-peps) !important;
+    color: var(--m-peps) !important;
 }
 
 .btn-rib-style:hover {
@@ -679,27 +689,6 @@ main {
     overflow: hidden;
 }
 
-/* pagination dots */
-.simple-carousel .sc-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.simple-carousel .sc-dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.simple-carousel .sc-dot.active {
-    background: rgba(0, 0, 0, 0.6);
-}
-
 .simple-carousel .sc-track-wrapper {
     overflow: hidden;
     width: 100%;
@@ -741,13 +730,13 @@ main {
     transform: translateY(-50%);
     background: var(--m-white);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     color: var(--m-text);
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -801,6 +790,30 @@ main {
     object-fit: contain;
 }
 
+/* croix de fermeture en haut à droite */
+.sc-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3010;
+    transition: background 0.3s ease;
+}
+
+.sc-modal-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
 /* flèches dans la modale */
 .sc-modal-nav {
     position: absolute;
@@ -809,10 +822,10 @@ main {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: #fff;
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.35rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -842,12 +855,6 @@ main {
     font-size: 1.2rem;
     margin-top: 15px;
     font-weight: 600;
-}
-
-.sc-modal .sc-extra-content {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #ddd;
 }
 
 @keyframes fadeIn {
