@@ -133,8 +133,8 @@ const catImages = {
 let annoncesStore = [];
 
 function getAnnoncesContainers() {
-	const list = document.getElementById("annonces-list") || document.getElementById("annoncesGrid");
-	const filters = document.getElementById("filter-container") || document.getElementById("annoncesFilters");
+	const list = document.getElementById("annonces-list");
+	const filters = document.getElementById("filter-container");
 	const modal = document.getElementById("modal-annonce");
 	return { list, filters, modal };
 }
@@ -152,7 +152,7 @@ function updateMenuBadge(total) {
 function setNoAnnoncesMessage(message = "Pas d'actualités pour le moment.") {
 	const { list, filters } = getAnnoncesContainers();
 	if (filters) {
-		filters.innerHTML = '<span class="event-tag active" data-cat="all">Tout voir</span>';
+		filters.innerHTML = "";
 	}
 	if (list) {
 		list.innerHTML = `<p style="grid-column:1/-1; text-align:center;">${escapeHtml(message)}</p>`;
@@ -235,9 +235,11 @@ function buildAnnoncesFilters(categories) {
 
 	filters.innerHTML = "";
 	
+	if (!categories || categories.length === 0) return;
+
 	const allBtn = document.createElement("span");
 	allBtn.className = "event-tag active";
-	allBtn.textContent = "Tout voir";
+	allBtn.textContent = "Toutes";
 	allBtn.addEventListener("click", () => {
 		$$(".event-tag", filters).forEach((t) => t.classList.remove("active"));
 		allBtn.classList.add("active");
@@ -245,15 +247,14 @@ function buildAnnoncesFilters(categories) {
 	});
 	filters.appendChild(allBtn);
 
-	categories.forEach((cat) => {
+	categories.forEach((catName) => {
 		const btn = document.createElement("span");
 		btn.className = "event-tag";
-		// On utilise cat.nom provenant de l'objet catégorie du backend
-		btn.textContent = cat.nom; 
+		btn.textContent = catName; 
 		btn.addEventListener("click", () => {
 			$$(".event-tag", filters).forEach((t) => t.classList.remove("active"));
 			btn.classList.add("active");
-			displayAnnonces(annoncesStore.filter((a) => a.categorie_id === cat.id));
+			displayAnnonces(annoncesStore.filter((a) => a.categorie_nom === catName));
 		});
 		filters.appendChild(btn);
 	});
