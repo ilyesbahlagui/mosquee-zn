@@ -233,7 +233,18 @@ function buildAnnoncesFilters(categories) {
 	const { filters } = getAnnoncesContainers();
 	if (!filters) return;
 
-	filters.innerHTML = '<span class="event-tag active" data-cat="all">Tout voir</span>';
+	filters.innerHTML = "";
+	
+	const allBtn = document.createElement("span");
+	allBtn.className = "event-tag active";
+	allBtn.textContent = "Tout voir";
+	allBtn.addEventListener("click", () => {
+		$$(".event-tag", filters).forEach((t) => t.classList.remove("active"));
+		allBtn.classList.add("active");
+		displayAnnonces(annoncesStore);
+	});
+	filters.appendChild(allBtn);
+
 	categories.forEach((c) => {
 		const btn = document.createElement("span");
 		btn.className = "event-tag";
@@ -241,7 +252,7 @@ function buildAnnoncesFilters(categories) {
 		btn.addEventListener("click", () => {
 			$$(".event-tag", filters).forEach((t) => t.classList.remove("active"));
 			btn.classList.add("active");
-			displayAnnonces(c === "all" ? annoncesStore : annoncesStore.filter((a) => a.categorie_nom === c));
+			displayAnnonces(annoncesStore.filter((a) => a.categorie_nom === c));
 		});
 		filters.appendChild(btn);
 	});
