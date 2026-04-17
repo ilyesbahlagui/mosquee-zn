@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 
 <body>
 
@@ -101,8 +100,6 @@
                     </a>
                 </div>
             </div>
-
-
 
         </section>
     </header>
@@ -222,7 +219,6 @@
                     <button class="spiritual-arrow spiritual-next"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
 
-
                 <div class="spiritual-dots">
                     <span class="spiritual-dot active" data-slide="0"></span>
                     <span class="spiritual-dot" data-slide="1"></span>
@@ -282,53 +278,52 @@
         <!-- ═══════════════════════════════════════
              SECTION ACTUALITÉS — Réseaux sociaux & événements
         ═══════════════════════════════════════ -->
-        <section id="actualites" class="section-wrapper bg-white">
-            <div class="section-inner">
-                <div class="section-title-wrapper">
-                    <h2 class="section-title"><i class="fa-regular fa-newspaper"></i> Actualités & Événements</h2>
-                    <div class="section-line"></div>
-                </div>
 
-                <div class="mosquee-card">
-                    <p class="social-desc mb-20">Pour rester à jour sur tous les événements de la
-                        <strong>Mosquée Lumière et Piété à Nîmes</strong>, rejoignez-nous sur nos réseaux sociaux
-                        officiels :
-                    </p>
+<section id="actualites" class="section-wrapper bg-white">
+    <div class="section-inner">
+        <div class="section-title-wrapper">
+            <h2 class="section-title"><i class="fa-regular fa-newspaper"></i> Actualités & Événements</h2>
+            <div class="section-line"></div>
+        </div>
 
-                    <!-- Tags thématiques des publications -->
-                    <div class="event-tags">
-                        <span class="event-tag"><i class="fa-solid fa-bullhorn"></i> Annonces & Infos</span>
-                        <span class="event-tag"><i class="fa-regular fa-clock"></i> Horaires de prières</span>
-                        <span class="event-tag"><i class="fa-solid fa-hands-praying"></i> Salat Janaza</span>
-                        <span class="event-tag"><i class="fa-solid fa-moon"></i> Ramadan</span>
-                        <span class="event-tag"><i class="fa-solid fa-star-and-crescent"></i> Aïd</span>
-                    </div>
+        <div id="filter-container" class="event-tags" style="margin-bottom: 35px;">
+            <span class="event-tag active" data-cat="all">Tout voir</span>
+        </div>
 
-                    <!-- Grille de liens vers les réseaux sociaux -->
-                    <div class="social-grid">
-                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card social-facebook"
-                            title="Suivre la Mosquée Lumière et Piété sur Facebook">
-                            <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
-                            <span>Facebook</span>
-                        </a>
-                        <!-- WhatsApp temporairement désactivé -->
-                        <!-- <a href="https://chat.whatsapp.com/CZLidpS0O5TCOid2E0d9I4" class="social-card social-whatsapp">
-                            <div class="social-icon-wrapper whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                            <span>WhatsApp</span>
-                        </a> -->
-                        <!-- Instagram et Snapchat temporairement désactivés -->
-                        <!-- <a href="#" class="social-card">
-                            <div class="social-icon-wrapper instagram-icon"><i class="fa-brands fa-instagram"></i></div>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="#" class="social-card">
-                            <div class="social-icon-wrapper snapchat-icon"><i class="fa-brands fa-snapchat"></i></div>
-                            <span>Snapchat</span>
-                        </a> -->
-                    </div>
-                </div>
+        <div id="annonces-list" class="annonces-grid">
+            <p class="text-center" style="grid-column: 1/-1;">Chargement des dernières nouvelles...</p>
+        </div>
+
+        <div class="mosquee-card" style="padding: 30px; margin-top: 50px; text-align: center;">
+            <p class="social-desc" style="margin-bottom: 20px;">Pour rester à jour sur tous les événements de la
+                <b>Mosquée Lumière et Piété</b> à Nîmes, rejoignez-nous sur nos réseaux
+                sociaux officiels :</p>
+            <div class="social-grid">
+                <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card social-facebook"
+                    title="Facebook MLN">
+                    <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                    <span>Facebook</span>
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+<div id="modal-annonce" class="sc-modal">
+    <span class="sc-modal-close" id="close-modal-ann">&times;</span>
+    <div class="mosquee-card"
+        style="max-width: 650px; width: 92%; max-height: 85vh; overflow-y: auto; padding: 0; border-radius: 20px; cursor: default;">
+        <img id="m-img" src="" style="width:100%; height:250px; object-fit:cover;">
+        <div style="padding: 30px;">
+            <div id="m-tags" style="margin-bottom: 15px; display: flex; gap: 10px;"></div>
+            <h3 id="m-titre" style="margin-bottom: 10px; font-weight: 800; font-size: 1.6rem;"></h3>
+            <div id="m-date" class="annonce-dates-badges" style="margin-bottom: 20px;"></div>
+
+            <div id="m-content" class="modal-rich-text"></div>
+        </div>
+    </div>
+</div>
+
         <!-- ═══════════════════════════════════════
              SECTION NOTRE MOSQUÉE — Présentation & valeurs
         ═══════════════════════════════════════ -->
@@ -473,9 +468,58 @@
     </div>
 
     <!-- ═══════════════════════════════════════
+         BULLE D'URGENCE (Annonces)
+    ═══════════════════════════════════════ -->
+    <div id="urgent-bubble" class="urgent-bubble hidden" title="Voir les annonces urgentes">
+        <i class="fa-solid fa-bell bell-shake"></i>
+        <span class="urgent-count" id="urgent-count">0</span>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         MODALES — Annonces & Urgences
+    ═══════════════════════════════════════ -->
+    <!-- Modale Détail Annonce -->
+    <div id="annonce-modal" class="sc-modal">
+        <span class="sc-modal-close">×</span>
+        <div class="sc-modal-content annonce-modal-inner">
+            <img class="annonce-modal-img" src="" alt="">
+            <div class="annonce-modal-body">
+                <div class="annonce-modal-cat"></div>
+                <h3 class="annonce-modal-title"></h3>
+                <div class="annonce-modal-text content-rich"></div>
+                <div class="annonce-modal-dates"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale Flash Urgente avec Carrousel -->
+    <div id="urgent-modal" class="sc-modal">
+        <span class="sc-modal-close">×</span>
+        <div class="sc-modal-content urgent-modal-inner">
+            <div class="urgent-modal-header">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <h3>Annonce Urgente</h3>
+            </div>
+
+            <div class="urgent-carousel">
+                <button class="urgent-nav urgent-modal-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="urgent-track-container">
+                    <div id="urgent-modal-list" class="urgent-track"></div>
+                </div>
+                <button class="urgent-nav urgent-modal-next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="urgent-dots" id="urgent-dots"></div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
          SCRIPTS — JS principal (navigation, carrousel, dons)
     ═══════════════════════════════════════ -->
     <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+
+
+

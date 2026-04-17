@@ -148,6 +148,9 @@ main {
     padding: 10px 15px;
     border-radius: 20px;
     transition: all 0.3s ease;
+    position: relative; /* Important pour le badge */
+    display: flex;
+    align-items: center;
 }
 
 .fixed-mosquee-menu-link:hover {
@@ -1258,7 +1261,7 @@ main {
         width: 92%;
         background: var(--m-white);
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 0;
         z-index: 1000;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
@@ -1274,20 +1277,30 @@ main {
         max-height: 500px;
         opacity: 1;
         visibility: visible;
-        padding: 15px 0;
+        padding: 5px 0;
     }
 
     .fixed-mosquee-menu li {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .fixed-mosquee-menu-link {
-        font-size: 1.1rem;
-        padding: 18px 15px;
-        width: 100%;
-        text-align: center;
+        text-decoration: none;
+        color: var(--m-text);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 16px 25px;
         border-radius: 0;
-        display: block;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        width: auto;
+        text-align: center;
+        justify-content: center;
     }
 
     .fixed-mosquee-menu li+li {
@@ -1808,3 +1821,194 @@ main {
 
 
 
+
+/* ════════════════════════════════════════
+   ANNONCES (STYLE AVANT FACTORISATION)
+════════════════════════════════════════ */
+.annonces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.annonce-card {
+    background: var(--m-white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.annonce-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.annonce-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.annonce-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.annonce-meta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.badge-urgent {
+    background: #ff4757;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.tag-orange {
+    background: var(--m-peps);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.annonce-titre {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--m-text);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.annonce-dates-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.date-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.start-date {
+    background: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #C8E6C9;
+}
+
+.end-date {
+    background: #FFEBEE;
+    color: #C62828;
+    border: 1px solid #FFCDD2;
+}
+
+.annonce-txt {
+    color: var(--m-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.fixed-mosquee-menu-link {
+    position: relative;
+}
+
+.badge-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: var(--m-peps);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+
+.badge-count span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+}
+
+.event-tag {
+    cursor: pointer;
+}
+
+.modal-rich-text {
+    color: var(--m-text);
+    line-height: 1.8;
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.modal-rich-text p {
+    margin-bottom: 15px;
+}
+
+.modal-rich-text ul,
+.modal-rich-text ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.modal-rich-text img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.modal-rich-text a {
+    color: var(--m-peps);
+    text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+    .badge-count {
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+}
