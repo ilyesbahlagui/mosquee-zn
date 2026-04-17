@@ -120,7 +120,9 @@ function initSpiritualSlider() {
 	restartTimer();
 }
 
-const catImages = {
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=600&q=80";
+
+const CATEGORY_IMAGES = {
 	"Ramadan": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=600&q=80",
 	"Aïd": "https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=600&q=80",
 	"Conférence": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
@@ -206,7 +208,7 @@ function displayAnnonces(items) {
 		: "<p style=\"grid-column:1/-1; text-align:center;\">Pas d'actualités pour le moment.</p>";
 
 	items.forEach((ann) => {
-		const photo = catImages[ann.categorie_nom] || catImages["Divers"];
+		const photo = CATEGORY_IMAGES[ann.categorie_nom] || FALLBACK_IMAGE;
 		const dateBloc = buildDateBadges(ann);
 		const previewText = String(ann.contenu || "").replace(/<[^>]*>/g, "");
 
