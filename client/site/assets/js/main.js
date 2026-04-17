@@ -1,4 +1,4 @@
-﻿const API_URL = "http://localhost:3000/public/annonces?nom=lumiere-et-piete";
+﻿const API_URL = "https://gestion-mosquee-api.ib-app.fr/public/annonces?nom=lumiere-et-piete";
 
 function $(selector, root = document) {
 	return root.querySelector(selector);
