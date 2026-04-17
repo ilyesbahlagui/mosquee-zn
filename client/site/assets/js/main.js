@@ -245,14 +245,15 @@ function buildAnnoncesFilters(categories) {
 	});
 	filters.appendChild(allBtn);
 
-	categories.forEach((c) => {
+	categories.forEach((cat) => {
 		const btn = document.createElement("span");
 		btn.className = "event-tag";
-		btn.textContent = c;
+		// On utilise cat.nom provenant de l'objet catégorie du backend
+		btn.textContent = cat.nom; 
 		btn.addEventListener("click", () => {
 			$$(".event-tag", filters).forEach((t) => t.classList.remove("active"));
 			btn.classList.add("active");
-			displayAnnonces(annoncesStore.filter((a) => a.categorie_nom === c));
+			displayAnnonces(annoncesStore.filter((a) => a.categorie_id === cat.id));
 		});
 		filters.appendChild(btn);
 	});
@@ -309,6 +310,7 @@ async function initAnnonces() {
 
 	annoncesStore = annonces;
 	updateMenuBadge(annoncesStore.length);
+	
 	buildAnnoncesFilters(categories || []);
 	displayAnnonces(annoncesStore);
 }
