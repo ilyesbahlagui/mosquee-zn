@@ -169,8 +169,22 @@ function initAnnonces() {
     const renderTabs = (categories, annonces) => {
         if (!tabsList) return;
         tabsList.innerHTML = `<button class="tab-btn active" data-filter="all">G?n?ral <span class="tab-badge">${annonces.length}</span></button>`;
-        categories.forEach(cat => {
-            const count = annonces.filter(a => a.categorie_nom === cat).length;
+        const categoryCounts = annonces.reduce((acc, annonce) => {
+            const catName = annonce.categorie_nom;
+            if (!catName) return acc;
+            acc[catName] = (acc[catName] || 0) + 1;
+            return acc;
+        }, {});
+
+        const orderedCategories = [...categories].sort((a, b) => {
+            const aHasAnnonces = (categoryCounts[a] || 0) > 0;
+            const bHasAnnonces = (categoryCounts[b] || 0) > 0;
+            if (aHasAnnonces === bHasAnnonces) return 0;
+            return aHasAnnonces ? -1 : 1;
+        });
+
+        orderedCategories.forEach(cat => {
+            const count = categoryCounts[cat] || 0;
             tabsList.innerHTML += `<button class="tab-btn" data-filter="${cat}">${cat} ${count > 0 ? `<span class="tab-badge">${count}</span>` : ''}</button>`;
         });
         tabsList.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", (e) => {
