@@ -1,481 +1,991 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="fr">
 
+
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Mosquée Lumière et Piété Nîmes | Accueil & Dons</title>
+
     <meta name="description"
+
         content="Site officiel de la Mosquée Lumière et Piété à Nîmes (ZUP Nord). Horaires de prières, dons sécurisés et services communautaires.">
+
     <link rel="canonical" href="https://mosquee-lumiere-piete.fr/">
-    <!-- <iframe class=" lazyloaded" style="width: 400px; height: 600px;" data-src="https://mawaqit.net/fr/m/essalam-nimes?showNotification=0&amp;showSearchButton=0&amp;showFooter=0&amp;showFlashMessage=0&amp;view=mobile" frameborder="0" scrolling="no" src="https://mawaqit.net/fr/m/essalam-nimes?showNotification=0&amp;showSearchButton=0&amp;showFooter=0&amp;showFlashMessage=0&amp;view=mobile"></iframe> -->
+
     <!-- Open Graph -->
+
     <meta property="og:type" content="website">
+
     <meta property="og:url" content="https://mosquee-lumiere-piete.fr/">
+
     <meta property="og:title" content="Mosquée Lumière et Piété Nîmes | Dons & Projet Parking 2026">
+
     <meta property="og:description"
+
         content="Soutenez la Mosquée Lumière et Piété à Nîmes (ZUP Nord). Dons sécurisés, horaires de prières et services communautaires.">
+
     <meta property="og:image" content="https://mosquee-lumiere-piete.fr/assets/images/header.webp">
 
+
+
     <!-- Favicon -->
+
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
 
+
+
     <!-- Preconnect -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+
+
     <!-- Preload Hero Image -->
+
     <link rel="preload" as="image" href="assets/images/header.webp">
 
+
+
     <!-- Fonts & Styles -->
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
+
+
+
 
 
 <body>
 
+
+
     <!-- ═══════════════════════════════════════
+
          HEADER — Navigation + Hero d'accueil
+
     ════════════════════════════════════════ -->
+
     <header>
 
+
+
         <!-- ── NAVBAR : barre de navigation fixe flottante ── -->
+
         <nav class="fixed-mosquee-nav" id="main-nav">
+
             <div class="fixed-mosquee-container">
+
                 <!-- Logo : icône + nom de la mosquée -->
+
                 <a href="#accueil" class="fixed-mosquee-logo" title="Retour à l'accueil de la Mosquée Lumière et Piété">
+
                     <i class="fa-solid fa-mosque fixed-mosquee-logo-icon"></i>
+
                     <div class="fixed-mosquee-logo-text">
+
                         <span class="fixed-mosquee-logo-name">Mosquée Lumière et Piété</span>
+
                         <span class="fixed-mosquee-logo-sub">Nîmes</span>
+
                     </div>
+
                 </a>
+
                 <!-- Menu de navigation (liens ancres) -->
+
                 <ul class="fixed-mosquee-menu" id="nav-menu">
+
                     <li><a href="#horaires" class="fixed-mosquee-menu-link"
+
                             title="Voir les horaires de prière">Horaires</a></li>
+                    <li><a href="#actualites" class="fixed-mosquee-menu-link" title="Voir les annonces">Annonces <span id="nav-badge-count" class="nav-badge-total" style="display:none;">0</span></a></li>
+
+
 
                     <li><a href="#dons" class="fixed-mosquee-menu-link"
+
                             title="Accéder à la section dons et soutien">Dons & RIB</a></li>
-                    <li><a href="#actualites" class="fixed-mosquee-menu-link"
-                            title="Actualités de la mosquée">Actualités</a></li>
+
+
                     <li><a href="#a-propos" class="fixed-mosquee-menu-link" title="En savoir plus sur la mosquée">Notre
+
                             Mosquée</a></li>
+
                     <li><a href="#contact" class="fixed-mosquee-menu-link" title="Contact et accès">Contact</a></li>
+
                 </ul>
+
                 <!-- Actions navbar : bouton don + hamburger mobile -->
+
                 <div class="fixed-mosquee-actions">
+
                     <a href="https://pay.sumup.com/b2c/QWON3PVQ" class="fixed-mosquee-btn-don"
+
                         title="Faire un don sécurisé par carte">
+
                         <i class="fa-solid fa-hand-holding-heart"></i> Faire un don
+
                     </a>
+
                     <button class="fixed-mosquee-hamburger"
+
                         id="hamburger-btn"><span></span><span></span><span></span></button>
+
                 </div>
+
             </div>
+
         </nav>
 
+
+
         <!-- ── HERO : section d'accueil plein écran avec fond image ── -->
+
         <section class="fixed-mosquee-hero" id="accueil">
+
             <!-- Image de fond (overlay assombri) -->
+
             <div class="fixed-mosquee-hero-img"></div>
+
             <!-- Contenu textuel centré -->
+
             <div class="fixed-mosquee-hero-content">
+
                 <span class="hero-top-text">Assalam Alaykoum</span>
+
                 <h1>Bienvenue sur notre site officiel</h1>
 
-                <p class="fixed-mosquee-hero-desc">Située dans le quartier Valdegour (ZN) à Nîmes. Retrouvez ici nos horaires de prière, nos actualités et les moyens de
-                soutenir la mosquée.</p>
+
+
+                <p class="fixed-mosquee-hero-desc">Située dans le quartier Valdegour (ZN) à Nîmes. Retrouvez ici nos
+
+                    horaires de prière, nos actualités et les moyens de
+
+                    soutenir la mosquée.</p>
+
+
 
                 <!-- Boutons CTA du hero -->
+
                 <div class="fixed-mosquee-hero-btns">
+
                     <a href="#horaires" class="fixed-mosquee-btn-don hero-btn-primary"
+
                         title="Consulter les horaires de prières">
+
                         <i class="fa-solid fa-clock"></i> Horaires de prière
+
                     </a>
+
                     <a href="#dons" class="fixed-mosquee-btn-don hero-btn-secondary" title="Soutenir la mosquée">
+
                         <i class="fa-solid fa-hand-holding-heart"></i> Faire un don
+
                     </a>
+
                 </div>
+
             </div>
+
+
+
+
 
 
 
         </section>
+
     </header>
 
+
+
     <!-- ═══════════════════════════════════════
+
          MAIN — Sections de contenu
+
     ════════════════════════════════════════ -->
+
     <main>
 
+
+
         <!-- ═══════════════════════════════════════
+
              SECTION HORAIRES — Prières Vendredi & Mawaqit
+
         ═══════════════════════════════════════ -->
+
         <!-- section horaires now uses white background so the white card stands out -->
+
         <section id="horaires" class="section-wrapper bg-white">
+
             <div class="section-inner">
+
                 <div class="section-title-wrapper">
+
                     <h2 class="section-title"><i class="fa-regular fa-clock"></i> Horaires de Prière</h2>
+
                     <div class="section-line"></div>
+
                 </div>
+
+
 
                 <div class="mosquee-card">
 
+
+
                     <!-- Carte Vendredi : heure été / hiver -->
+
                     <div class="vendredi-section">
+
                         <h3 class="vendredi-title">Prière du Vendredi</h3>
+
                         <div class="vendredi-grid">
+
                             <div class="v-card">
+
                                 <div class="v-icon v-ete"><i class="fa-solid fa-sun"></i></div>
+
                                 <div class="v-info"><strong>Été</strong><span>13:30</span></div>
+
                             </div>
+
                             <div class="v-card">
+
                                 <div class="v-icon v-hiver"><i class="fa-solid fa-snowflake"></i></div>
+
                                 <div class="v-info"><strong>Hiver</strong><span>12:40</span></div>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
 
                     <!-- Widget Mawaqit : prières quotidiennes en direct -->
+
                     <div class="mawaqit-section">
+
                         <h3 class="vendredi-title mt-10">Prières Quotidiennes</h3>
 
+
+
                         <div class="iframe-wrapper">
+
                             <iframe frameborder="0" scrolling="no"
+
                                 src="https://mawaqit.net/fr/m/nour-nimes?view=mobile&showEmbed=true"
+
                                 class="mawaqit-iframe"></iframe>
+
                         </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+
+             SECTION ACTUALITÉS - Annonces & RÉseaux Sociaux
+
+        ========================================== -->
+
+        <section id="actualites" class="section-wrapper bg-beige">
+
+            <div class="section-inner">
+
+                <div class="section-title-wrapper">
+
+                    <h2 class="section-title"><i class="fa-regular fa-newspaper"></i> Annonces</h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
+
+                <!-- Point d'ancrage pour les annonces dynamiques -->
+
+                <div id="annonces"></div>
+
+
+
+                <div class="mosquee-card" id="annonces-main-card">
+
+                    <div id="annonces-loader" style="text-align: center; padding: 40px; color: var(--m-text-light); font-weight: 600;">
+
+                        <i class="fa-solid fa-circle-notch fa-spin fa-2x" style="color: var(--m-peps); margin-bottom: 15px;"></i><br>
+
+                        Récupération des annonces...
+
+                    </div>
+
+
+
+                    <div id="annonces-content-area" class="hidden">
+
+                        <div class="annonces-tabs-wrapper">
+
+                            <button class="tabs-arrow tabs-prev" id="tabs-scroll-left"><i class="fa-solid fa-chevron-left"></i></button>
+
+                            <div class="annonces-tabs-container">
+
+                                <div class="annonces-tabs" id="annonces-tabs-list"></div>
+
+                            </div>
+
+                            <button class="tabs-arrow tabs-next" id="tabs-scroll-right"><i class="fa-solid fa-chevron-right"></i></button>
+
+                        </div>
+
+                        <div class="annonces-grid" id="annonces-grid-container"></div>
+
+                    </div>
+
+
+
+                    <div id="annonces-empty-state" class="annonces-empty-state hidden" style="text-align: center; padding: 30px;">
+
+                        <i class="fa-regular fa-bell-slash fa-3x" style="color: #ccc; margin-bottom: 15px;"></i>
+
+                        <p style="font-size: 1.1rem; color: var(--m-text-light); font-weight: 600;">Aucune annonce pour le moment.</p>
+
                     </div>
 
                 </div>
-            </div>
-        </section>
-        <!-- ═══════════════════════════════════════
-             SECTION DONS — Soutenir la Mosquée
-        ═══════════════════════════════════════ -->
-        <section id="dons" class="section-wrapper bg-beige">
-            <div class="section-inner section-inner-narrow">
-                <div class="section-title-wrapper">
-                    <h2 class="section-title"><i class="fa-solid fa-heart"></i> Soutenir la Mosquée</h2>
-                    <div class="section-line"></div>
+
+
+
+                <div class="mosquee-card" style="">
+
+                    <p class="social-desc mb-20">Pour rester à jour sur tous les événements de la <b>Mosquée Lumière et Piété</b> à Nîmes, rejoignez-nous sur nos réseaux
+                    sociaux officiels :</p>
+
+                    
+
+                    <div class="social-grid">
+
+                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card social-facebook"
+
+                            title="Suivre la Mosqu?e Lumi?re et Pi?t? sur Facebook">
+
+                            <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
+
+                            <span>Facebook</span>
+
+                        </a>
+
+
+                    </div>
+
                 </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Modale des annonces -->
+
+        <div class="amodal-overlay" id="annonce-modal">
+
+            <div class="amodal-content">
+
+                <div class="amodal-header">
+
+                    <div class="amodal-close" id="amodal-close-btn"><i class="fa-solid fa-xmark"></i></div>
+
+                    <div class="tag-container" id="amodal-tags-container">
+
+                        <div id="amodal-cat" class="card-cat">Catégorie</div>
+
+                    </div>
+
+                    <h3 id="amodal-title" class="card-title" style="font-size: 1.4rem;">Titre</h3>
+
+                    <div id="amodal-dates" class="amodal-dates"></div>
+
+                </div>
+
+                <div class="amodal-body" id="amodal-body-html"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <section id="dons" class="section-wrapper bg-white">
+
+            <div class="section-inner section-inner-narrow">
+
+                <div class="section-title-wrapper">
+
+                    <h2 class="section-title"><i class="fa-solid fa-heart"></i> Soutenir la Mosquée</h2>
+
+                    <div class="section-line"></div>
+
+                </div>
+
+
 
                 <!-- Carte des boutons actions -->
+
                 <div class="mosquee-card" style="margin-bottom: 40px;">
+
                     <p style="text-align: center; margin-bottom: 25px; font-size: 1.1rem; color: var(--m-text-light);">
+
                         Soutenez le fonctionnement et les projets de la mosquée via nos moyens de paiement sécurisés.
+
                     </p>
+
                     <div class="don-action-btns">
+
                         <a href="https://pay.sumup.com/b2c/QWON3PVQ" class="btn-outline-peps btn-cb-style"
+
                             title="Faire un don par Carte Bancaire">
+
                             <i class="fa-solid fa-credit-card"></i> Carte Bancaire
+
                         </a>
-                        <a href="#info-rib" class="btn-outline-peps btn-rib-style" title="Voir les coordonnées bancaires">
+
+                        <a href="#info-rib" class="btn-outline-peps btn-rib-style"
+
+                            title="Voir les coordonnées bancaires">
+
                             <i class="fa-solid fa-building-columns"></i> RIB / Virement
+
                         </a>
+
                     </div>
+
                 </div>
 
+
+
                 <!-- ── Slider de rappels spirituels ── -->
+
                 <div class="spiritual-slider">
+
                     <button class="spiritual-arrow spiritual-prev"><i class="fa-solid fa-chevron-left"></i></button>
+
                     <div class="spiritual-slides-container">
+
                         <div class="spiritual-slide active">
+
                             <div class="spiritual-icon"><i class="fa-solid fa-book-quran"></i></div>
+
                             <p class="spiritual-text">« Ceux qui dépensent leurs biens dans le sentier d'Allah
+
                                 ressemblent à un grain qui fait germer sept épis, sur chaque épi cent grains. Et Allah
+
                                 multiplie la récompense à qui Il veut. Car la grâce d'Allah est immense et Il est
+
                                 Omniscient. »</p>
+
                             <span class="spiritual-source">Coran - Sourate Al-Baqarah (2:261)</span>
+
                         </div>
+
                         <div class="spiritual-slide">
+
                             <div class="spiritual-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+
                             <p class="spiritual-text">« Prenez l'habitude de faire l'aumône, car l'aumône éteint le
+
                                 péché comme l'eau
+
                                 éteint le feu. »</p>
+
                             <span class="spiritual-source">Sahih Muslim</span>
+
                         </div>
+
                         <div class="spiritual-slide">
+
                             <div class="spiritual-icon"><i class="fa-solid fa-mosque"></i></div>
+
                             <p class="spiritual-text">« Quiconque construit une mosquée pour Allah, Allah lui construira
+
                                 une maison au
+
                                 Paradis. »</p>
+
                             <span class="spiritual-source">Sahih Al-Bukhari & Muslim</span>
+
                         </div>
+
                         <div class="spiritual-slide">
+
                             <div class="spiritual-icon"><i class="fa-solid fa-book-quran"></i></div>
+
                             <p class="spiritual-text">« Ceux et celles qui font l'aumône et qui font à Allah un prêt
+
                                 généreux, cela leur sera multiplié et ils auront une généreuse récompense. »</p>
+
                             <span class="spiritual-source">Coran - Sourate Al-Hadid (57:18)</span>
+
                         </div>
+
                         <div class="spiritual-slide">
+
                             <div class="spiritual-icon"><i class="fa-solid fa-hands-praying"></i></div>
+
                             <p class="spiritual-text">« Le croyant sera, le Jour de la Résurrection, sous l'ombre de son
+
                                 aumône. »</p>
+
                             <span class="spiritual-source">Sahih At-Tirmidhi</span>
+
                         </div>
+
                     </div>
+
                     <button class="spiritual-arrow spiritual-next"><i class="fa-solid fa-chevron-right"></i></button>
+
                 </div>
+
+
+
 
 
                 <div class="spiritual-dots">
+
                     <span class="spiritual-dot active" data-slide="0"></span>
+
                     <span class="spiritual-dot" data-slide="1"></span>
+
                     <span class="spiritual-dot" data-slide="2"></span>
+
                     <span class="spiritual-dot" data-slide="3"></span>
+
                     <span class="spiritual-dot" data-slide="4"></span>
+
                 </div>
+
+
 
                 <!-- Carte RIB -->
+
                 <div class="mosquee-card" id="info-rib">
-                    <h3 style="text-align: center; margin-bottom: 20px; color: var(--m-text);"><i class="fa-solid fa-building-columns"></i> Coordonnées Bancaires</h3>
+
+                    <h3 style="text-align: center; margin-bottom: 20px; color: var(--m-text);"><i
+
+                            class="fa-solid fa-building-columns"></i> Coordonnées Bancaires</h3>
+
                     <div class="bank-field">
+
                         <label>Bénéficiaire</label>
+
                         <div class="copy-group">
+
                             <input type="text" value="UNION IMANOPAIX NIMOISE" readonly id="bene">
+
                             <button class="btn-copy" data-copy-id="bene">
+
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
+
                             </button>
+
                         </div>
+
                     </div>
+
                     <div class="bank-field">
+
                         <label>IBAN</label>
+
                         <div class="copy-group">
+
                             <input type="text" value="FR76 1027 8089 6500 0210 2920 165" readonly id="iban">
+
                             <button class="btn-copy" data-copy-id="iban">
+
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
+
                             </button>
+
                         </div>
+
                     </div>
+
                     <div class="bank-field">
+
                         <label>BIC (SWIFT)</label>
+
                         <div class="copy-group">
+
                             <input type="text" value="CMCIFR2A" readonly id="bic">
+
                             <button class="btn-copy" data-copy-id="bic">
+
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
+
                             </button>
+
                         </div>
+
                     </div>
+
                     <div class="bank-field">
+
                         <label>Référence</label>
+
                         <div class="copy-group">
+
                             <input type="text" value="DON UNION IMANOPAIX NIMOISE" readonly id="ref">
+
                             <button class="btn-copy" data-copy-id="ref">
+
                                 <i class="fa-regular fa-copy"></i> <span class="txt-copy">Copier</span>
+
                             </button>
+
                         </div>
+
                     </div>
+
+
 
                     <a href="assets/fichiers/rib-mosquee-lumiere-et-piete.pdf" download class="btn-dl"
+
                         title="Télécharger le RIB complet en PDF">
+
                         <i class="fa-solid fa-file-pdf"></i> Télécharger le RIB
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
 
+
+
         <!-- ═══════════════════════════════════════
-             SECTION ACTUALITÉS — Réseaux sociaux & événements
-        ═══════════════════════════════════════ -->
-        <section id="actualites" class="section-wrapper bg-white">
-            <div class="section-inner">
-                <div class="section-title-wrapper">
-                    <h2 class="section-title"><i class="fa-regular fa-newspaper"></i> Actualités & Événements</h2>
-                    <div class="section-line"></div>
-                </div>
 
-                <div class="mosquee-card">
-                    <p class="social-desc mb-20">Pour rester à jour sur tous les événements de la
-                        <strong>Mosquée Lumière et Piété à Nîmes</strong>, rejoignez-nous sur nos réseaux sociaux
-                        officiels :
-                    </p>
-
-                    <!-- Tags thématiques des publications -->
-                    <div class="event-tags">
-                        <span class="event-tag"><i class="fa-solid fa-bullhorn"></i> Annonces & Infos</span>
-                        <span class="event-tag"><i class="fa-regular fa-clock"></i> Horaires de prières</span>
-                        <span class="event-tag"><i class="fa-solid fa-hands-praying"></i> Salat Janaza</span>
-                        <span class="event-tag"><i class="fa-solid fa-moon"></i> Ramadan</span>
-                        <span class="event-tag"><i class="fa-solid fa-star-and-crescent"></i> Aïd</span>
-                    </div>
-
-                    <!-- Grille de liens vers les réseaux sociaux -->
-                    <div class="social-grid">
-                        <a href="https://www.facebook.com/mlpnimes/?locale=fr_FR" class="social-card social-facebook"
-                            title="Suivre la Mosquée Lumière et Piété sur Facebook">
-                            <div class="social-icon-wrapper facebook-icon"><i class="fa-brands fa-facebook-f"></i></div>
-                            <span>Facebook</span>
-                        </a>
-                        <!-- WhatsApp temporairement désactivé -->
-                        <!-- <a href="https://chat.whatsapp.com/CZLidpS0O5TCOid2E0d9I4" class="social-card social-whatsapp">
-                            <div class="social-icon-wrapper whatsapp-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                            <span>WhatsApp</span>
-                        </a> -->
-                        <!-- Instagram et Snapchat temporairement désactivés -->
-                        <!-- <a href="#" class="social-card">
-                            <div class="social-icon-wrapper instagram-icon"><i class="fa-brands fa-instagram"></i></div>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="#" class="social-card">
-                            <div class="social-icon-wrapper snapchat-icon"><i class="fa-brands fa-snapchat"></i></div>
-                            <span>Snapchat</span>
-                        </a> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ═══════════════════════════════════════
              SECTION NOTRE MOSQUÉE — Présentation & valeurs
+
         ═══════════════════════════════════════ -->
+
         <section id="a-propos" class="section-wrapper bg-beige">
+
             <div class="section-inner">
+
                 <div class="section-title-wrapper">
+
                     <h2 class="section-title"><i class="fa-solid fa-mosque"></i> Notre Mosquée</h2>
+
                     <div class="section-line"></div>
+
                 </div>
 
+
+
                 <div class="mosquee-card">
+
                     <p class="social-desc text-center mb-30">
+
                         La <strong>Mosquée Lumière et Piété</strong>, située au quartier de Valdegour (ZUP Nord / ZN)
+
                         à Nîmes Ouest, est un lieu de prière, d'apprentissage et de fraternité.<br>
+
                         Elle accueille toute la communauté, hommes, femmes et enfants, dans le respect des valeurs de
+
                         l'islam et de la cohésion sociale à Nîmes.
+
                     </p>
+
                     <div class="values-discrete-block mt-30">
+
                         <!-- Titre H3 masqué visuellement mais très utile pour le SEO -->
+
                         <h3 class="sr-only">Associer prière, savoir, entraide et fraternité à Nîmes</h3>
+
                         <ul class="values-minimal-list">
+
                             <li>
+
                                 <strong><i class="fa-solid fa-pray text-peps"></i> Prière et spiritualité</strong>
+
                                 <span>Un espace de recueillement</span>
+
                             </li>
+
                             <li>
+
                                 <strong><i class="fa-solid fa-book-open text-peps"></i> Apprentissage</strong>
+
                                 <span>Transmission du savoir</span>
+
                             </li>
+
                             <li>
+
                                 <strong><i class="fa-solid fa-hands-helping text-peps"></i> Solidarité</strong>
+
                                 <span>Entraide envers les plus fragiles</span>
+
                             </li>
+
                             <li>
+
                                 <strong><i class="fa-solid fa-heart text-peps"></i> Fraternité & respect</strong>
+
                                 <span>Le ciment de notre communauté</span>
+
                             </li>
+
                         </ul>
+
                     </div>
+
+
 
                     <!-- ancien slider "Notre Mosquée" réimplémenté avec la nouvelle
+
                          simple-carousel pour assurer l'indépendance et la réactivité -->
+
                     <div class="simple-carousel" data-autoplay="4000">
+
                         <button class="sc-prev"><i class="fa-solid fa-chevron-left"></i></button>
+
                         <div class="sc-track-wrapper">
+
                             <ul class="sc-track">
+
                                 <li class="sc-slide">
+
                                     <img src="assets/images/entree-principal.jpg"
+
                                         alt="Entrée principale pour les hommes" loading="lazy">
+
                                     <div class="sc-desc">Entrée principale – Espace hommes</div>
+
                                 </li>
+
                                 <li class="sc-slide">
+
                                     <img src="assets/images/entree-femme.jpg" alt="Entrée dédiée pour les femmes"
+
                                         loading="lazy">
+
                                     <div class="sc-desc">Entrée dédiée – Espace femmes</div>
+
                                 </li>
+
                             </ul>
+
                         </div>
+
                         <button class="sc-next"><i class="fa-solid fa-chevron-right"></i></button>
+
                     </div>
+
                 </div>
+
         </section>
+
         <!-- ═══════════════════════════════════════
+
              SECTION CONTACT — Adresse, email & carte Maps
+
         ═══════════════════════════════════════ -->
+
         <section id="contact" class="section-wrapper bg-white">
+
             <div class="section-inner">
+
                 <div class="section-title-wrapper">
+
                     <h2 class="section-title"><i class="fa-solid fa-address-card"></i> Contact & Accès</h2>
+
                     <div class="section-line"></div>
+
                 </div>
+
+
 
                 <div class="mosquee-card">
+
                     <div class="contact-layout">
+
                         <div class="contact-list">
+
                             <div class="c-card">
+
                                 <div class="c-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+
                                 <div class="c-info">
+
                                     <strong>Adresse</strong>
+
                                     <p>
+
                                         <a href="https://maps.google.com/?q=1+rue+Jacques+Monod,+30900+Nîmes"
+
                                             target="_blank" rel="noopener noreferrer" class="contact-link"
+
                                             title="Ouvrir l'adresse dans Google Maps">
+
                                             1 rue Jacques Monod, 30900 Nîmes
+
                                         </a>
+
                                     </p>
+
                                 </div>
+
                             </div>
+
                             <!-- <div class="c-card">
+
                                 <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+
                                 <div class="c-info">
+
                                     <strong>Téléphone</strong>
+
                                     <p><a href="tel:+33466676869" class="contact-link">0 66 67 68 69</a></p>
+
                                 </div>
+
                             </div> -->
+
                             <div class="c-card">
+
                                 <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+
                                 <div class="c-info">
+
                                     <strong>Email</strong>
+
                                     <p><a href="mailto:imanopaix@gmail.com" class="contact-link"
+
                                             title="Envoyer un email à la mosquée">imanopaix@gmail.com</a>
+
                                     </p>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                         <div class="map-container">
+
                             <iframe src="https://www.google.com/maps?q=43.82993600887529,4.331689257003327&output=embed"
+
                                 width="100%" height="100%" class="iframe-no-border" loading="lazy"
+
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
+
+
     <!-- ═══════════════════════════════════════
+
          FOOTER — Pied de page
+
     ════════════════════════════════════════ -->
+
     <footer class="main-footer">
+
         <p>© <span id="currentYear"></span> Mosquée Lumière et Piété à Nîmes. Tous droits réservés. | <a
+
                 href="mentions-legales.html" class="footer-link" title="Consulter les mentions légales">Mentions
+
                 légales</a></p>
+
     </footer>
 
+
+
     <!-- ── Bouton scroll to top (s'affiche après défilement) ── -->
+
     <a href="#accueil" class="scroll-to-top" id="scrollTopBtn" title="Revenir en haut de page">
+
         <i class="fa-solid fa-arrow-up"></i>
+
     </a>
 
-    <!-- ═══════════════════════════════════════
-         MODALE — Carrousel plein écran
-    ═══════════════════════════════════════ -->
-    <div id="scModal" class="sc-modal">
-        <span class="sc-modal-close">×</span>
-        <button class="sc-modal-prev sc-modal-nav"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="sc-modal-content">
-            <img class="sc-modal-img" src="" alt="">
-            <div class="sc-modal-desc"></div>
-        </div>
-        <button class="sc-modal-next sc-modal-nav"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+
 
     <!-- ═══════════════════════════════════════
-         SCRIPTS — JS principal (navigation, carrousel, dons)
+
+         MODALE — Carrousel plein écran
+
     ═══════════════════════════════════════ -->
+
+    <div id="scModal" class="sc-modal">
+
+        <span class="sc-modal-close">×</span>
+
+        <button class="sc-modal-prev sc-modal-nav"><i class="fa-solid fa-chevron-left"></i></button>
+
+        <div class="sc-modal-content">
+
+            <img class="sc-modal-img" src="" alt="">
+
+            <div class="sc-modal-desc"></div>
+
+        </div>
+
+        <button class="sc-modal-next sc-modal-nav"><i class="fa-solid fa-chevron-right"></i></button>
+
+    </div>
+
+
+
+    <!-- ═══════════════════════════════════════
+
+         SCRIPTS — JS principal (navigation, carrousel, dons)
+
+    ═══════════════════════════════════════ -->
+
     <script src="assets/js/main.js"></script>
+
 </body>
+
+
 
 </html>
