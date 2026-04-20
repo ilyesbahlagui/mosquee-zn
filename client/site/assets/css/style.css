@@ -1881,3 +1881,18 @@ html { scrollbar-gutter: stable; }
     background-color: rgba(231, 76, 60, 0.1); /* Rouge pour la deuxi?me (Exp) */
     color: #e74c3c;
 }
+
+.fixed-mosquee-hamburger {
+    overflow: visible !important;
+    position: relative;
+    padding: 5px; /* Espace pour les bords de la croix */
+}
+.fixed-mosquee-hamburger span {
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+.fixed-mosquee-hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.fixed-mosquee-hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}

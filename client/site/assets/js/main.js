@@ -63,6 +63,7 @@ function initSpiritualSlider() {
     restartTimer();
 }
 
+
 function initMosqueeCarouselModal() {
     const track = document.querySelector(".sc-track");
     const slides = Array.from(document.querySelectorAll(".sc-slide"));
@@ -71,21 +72,44 @@ function initMosqueeCarouselModal() {
     const modalImg = document.querySelector(".sc-modal-img");
     const modalDesc = document.querySelector(".sc-modal-desc");
     const modalClose = document.querySelector(".sc-modal-close");
+    const modalNext = document.querySelector(".sc-modal-next");
+    const modalPrev = document.querySelector(".sc-modal-prev");
     let index = 0;
-    const render = (i) => { index = (i + slides.length) % slides.length; track.style.transform = `translateX(-${index * 100}%)`; };
-    document.querySelector(".sc-next")?.addEventListener("click", () => render(index + 1));
-    document.querySelector(".sc-prev")?.addEventListener("click", () => render(index - 1));
+    
+    const renderTrack = (i) => { 
+        index = (i + slides.length) % slides.length; 
+        track.style.transform = `translateX(-${index * 100}%)`; 
+    };
+    
+    document.querySelector(".sc-next")?.addEventListener("click", () => renderTrack(index + 1));
+    document.querySelector(".sc-prev")?.addEventListener("click", () => renderTrack(index - 1));
+    
     slides.forEach((sl, i) => sl.querySelector("img")?.addEventListener("click", () => {
+        index = i;
         modalImg.src = sl.querySelector("img").src;
         modalDesc.textContent = sl.querySelector(".sc-desc")?.textContent || "";
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
     }));
+    
+    modalNext?.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
+        const nextSlide = slides[index];
+        modalImg.src = nextSlide.querySelector("img").src;
+        modalDesc.textContent = nextSlide.querySelector(".sc-desc")?.textContent || "";
+    });
+    
+    modalPrev?.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        const prevSlide = slides[index];
+        modalImg.src = prevSlide.querySelector("img").src;
+        modalDesc.textContent = prevSlide.querySelector(".sc-desc")?.textContent || "";
+    });
+    
     modalClose?.addEventListener("click", () => { modal.classList.remove("show"); document.body.style.overflow = ""; });
+    modal?.addEventListener("click", (e) => { if(e.target === modal) modalClose.click(); });
 }
-
 function initAnnonces() {
-    // 
     const API_URL = "https://gestion-mosquee-api.ib-app.fr/public/annonces?nom=lumiere-et-piete";
     const loader = document.getElementById("annonces-loader");
     const contentArea = document.getElementById("annonces-content-area");
@@ -119,40 +143,32 @@ function initAnnonces() {
     };
 
     const showEmptyMessage = () => {
-        if (loader) loader.style.display = "none"; 
-        if (emptyState) {
-            emptyState.style.display = "block";
-            emptyState.classList.remove("hidden");
-            emptyState.innerHTML = `<i class="fa-regular fa-bell-slash fa-3x" style="color: #ccc; margin-bottom: 15px;"></i><p>Aucune annonce pour le moment.</p>`;
-        }
+        if (loader) loader.classList.add("hidden");
+        if (emptyState) emptyState.classList.remove("hidden");
     };
 
     const fetchAnnonces = async () => {
-
         try {
             const response = await fetch(API_URL);
             const result = await response.json();
             if (loader) loader.style.display = "none";
             if (result.success && result.data && result.data.annonces.length > 0) {
-
                 allAnnonces = result.data.annonces;
                 updateNavBadge(allAnnonces.length);
                 renderTabs(result.data.categories || [], allAnnonces);
                 renderCards(allAnnonces);
                 if (contentArea) { contentArea.style.display = "block"; contentArea.classList.remove("hidden"); }
-            } else if (emptyState) {
-                emptyState.style.display = "block";
-                emptyState.innerHTML = `<i class="fa-regular fa-bell-slash fa-3x" style="color: #ccc; margin-bottom: 15px;"></i><p>Aucune annonce n\'est disponible pour le moment.</p>`;
+            } else {
+                showEmptyMessage();
             }
         } catch (e) {
-            console.error("Erreur r?seau/API:", e);
             showEmptyMessage();
         }
     };
 
     const renderTabs = (categories, annonces) => {
         if (!tabsList) return;
-        tabsList.innerHTML = `<button class="tab-btn active" data-filter="all">Général <span class="tab-badge">${annonces.length}</span></button>`;
+        tabsList.innerHTML = `<button class="tab-btn active" data-filter="all">G?n?ral <span class="tab-badge">${annonces.length}</span></button>`;
         categories.forEach(cat => {
             const count = annonces.filter(a => a.categorie_nom === cat).length;
             tabsList.innerHTML += `<button class="tab-btn" data-filter="${cat}">${cat} ${count > 0 ? `<span class="tab-badge">${count}</span>` : ''}</button>`;
@@ -167,11 +183,11 @@ function initAnnonces() {
 
     const renderCards = (list) => {
         if (!gridContainer) return;
-        gridContainer.innerHTML = list.length ? "" : "<p style='grid-column:1/-1;text-align:center;'>Aucune annonce.</p>";
+        gridContainer.innerHTML = list.length ? "" : "<p class=\"annonces-none-msg\">Aucune annonce.</p>";
         list.forEach(a => {
             const dEvt = formatDate(a.date_evenement);
             const dExp = formatDate(a.date_expiration);
-            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> <b>Début :</b> ${dEvt}</div>` : "";
+            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> <b>D?but :</b> ${dEvt}</div>` : "";
             if (dExp) datesHTML += `<div><i class="fa-regular fa-clock"></i> <b>Fin :</b> ${dExp}</div>`;
             const card = document.createElement("div");
             card.className = "annonce-card";
