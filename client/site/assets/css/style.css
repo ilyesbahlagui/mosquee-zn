@@ -1858,7 +1858,7 @@ html { scrollbar-gutter: stable; }
 .amodal-body h1, .amodal-body h2, .amodal-body h3 { font-weight: 800; line-height: 1.3; margin-bottom: 15px; margin-top: 15px; }
 .hidden { display: none !important; }
 
-/* Style des dates via s?lecteurs CSS directs (sans classes JS) */
+/* STYLES DES DATES (Automatiques) */
 .card-dates div, .amodal-dates div {
     padding: 8px 12px;
     border-radius: 6px;

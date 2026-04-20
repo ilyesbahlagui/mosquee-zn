@@ -83,7 +83,7 @@ function initMosqueeCarouselModal() {
 }
 
 function initAnnonces() {
-    // console.log("Démarrage initAnnonces...");
+    // 
     const API_URL = "https://gestion-mosquee-api.ib-app.fr/public/annonces?nom=lumiere-et-piete";
     const loader = document.getElementById("annonces-loader");
     const contentArea = document.getElementById("annonces-content-area");
@@ -117,7 +117,7 @@ function initAnnonces() {
     };
 
     const showEmptyMessage = () => {
-        if (loader) loader.style.display = "none"; // On s'assure que le loading dispara?t
+        if (loader) loader.style.display = "none"; 
         if (emptyState) {
             emptyState.style.display = "block";
             emptyState.classList.remove("hidden");
@@ -126,13 +126,13 @@ function initAnnonces() {
     };
 
     const fetchAnnonces = async () => {
-        
+
         try {
             const response = await fetch(API_URL);
             const result = await response.json();
             if (loader) loader.style.display = "none";
             if (result.success && result.data && result.data.annonces.length > 0) {
-                console.log("Annonces reçues :", result.data.annonces.length);
+
                 allAnnonces = result.data.annonces;
                 updateNavBadge(allAnnonces.length);
                 renderTabs(result.data.categories || [], allAnnonces);
