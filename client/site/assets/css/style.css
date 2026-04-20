@@ -1843,6 +1843,15 @@ html { scrollbar-gutter: stable; }
 .tab-badge { background: rgba(0,0,0,0.08); color: inherit; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 800; }
 .tab-btn.active .tab-badge { background: rgba(255,255,255,0.25); color: white; }
 .annonces-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.annonces-none-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    justify-self: center;
+    width: 100%;
+    margin: 10px 0 0;
+    color: var(--m-text-light);
+    font-weight: 700;
+}
 .annonce-card { background: var(--m-white); border: 1px solid rgba(0,0,0,0.06); border-radius: 16px; padding: 25px 20px; cursor: pointer; position: relative; transition: all 0.3s ease; display: flex; flex-direction: column; gap: 12px; }
 .annonce-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); border-color: var(--m-peps); }
 .tag-container { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
@@ -1885,15 +1894,15 @@ html { scrollbar-gutter: stable; }
     width: fit-content;
 }
 
-/* On utilise nth-child ou les ic?nes pour diff?rencier si besoin, 
-   mais ici on met un background par d?faut propre au site */
+/* Use nth-child or icon hooks to differentiate when needed,
+   but keep a clean default background for this site. */
 .card-dates div:first-child, .amodal-dates div:first-child {
-    background-color: rgba(39, 174, 96, 0.1); /* Vert pour la premi?re date (Evt) */
+    background-color: rgba(39, 174, 96, 0.1); /* Event start date */
     color: #27ae60;
 }
 
 .card-dates div:nth-child(2), .amodal-dates div:nth-child(2) {
-    background-color: rgba(231, 76, 60, 0.1); /* Rouge pour la deuxi?me (Exp) */
+    background-color: rgba(231, 76, 60, 0.1); /* Expiration date */
     color: #e74c3c;
 }
 

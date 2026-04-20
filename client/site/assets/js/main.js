@@ -168,7 +168,7 @@ function initAnnonces() {
 
     const renderTabs = (categories, annonces) => {
         if (!tabsList) return;
-        tabsList.innerHTML = `<button class="tab-btn active" data-filter="all">G?n?ral <span class="tab-badge">${annonces.length}</span></button>`;
+        tabsList.innerHTML = `<button class="tab-btn active" data-filter="all">G\u00e9n\u00e9ral <span class="tab-badge">${annonces.length}</span></button>`;
         const categoryCounts = annonces.reduce((acc, annonce) => {
             const catName = annonce.categorie_nom;
             if (!catName) return acc;
@@ -201,7 +201,7 @@ function initAnnonces() {
         list.forEach(a => {
             const dEvt = formatDate(a.date_evenement);
             const dExp = formatDate(a.date_expiration);
-            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> <b>D?but :</b> ${dEvt}</div>` : "";
+            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> <b>D\u00e9but :</b> ${dEvt}</div>` : "";
             if (dExp) datesHTML += `<div><i class="fa-regular fa-clock"></i> <b>Fin :</b> ${dExp}</div>`;
             const card = document.createElement("div");
             card.className = "annonce-card";
