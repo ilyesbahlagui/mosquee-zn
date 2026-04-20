@@ -1,6 +1,6 @@
 
-document.addEventListener("DOMContentLoaded", () => { const y = document.getElementById("currentYear"); if(y) y.textContent = new Date().getFullYear(); });
-﻿const nav = document.getElementById("main-nav");
+document.addEventListener("DOMContentLoaded", () => { const y = document.getElementById("currentYear"); if (y) y.textContent = new Date().getFullYear(); });
+const nav = document.getElementById("main-nav");
 const hamburger = document.getElementById("hamburger-btn");
 const menu = document.getElementById("nav-menu");
 const menuLinks = document.querySelectorAll(".fixed-mosquee-menu-link");
@@ -75,15 +75,15 @@ function initMosqueeCarouselModal() {
     const modalNext = document.querySelector(".sc-modal-next");
     const modalPrev = document.querySelector(".sc-modal-prev");
     let index = 0;
-    
-    const renderTrack = (i) => { 
-        index = (i + slides.length) % slides.length; 
-        track.style.transform = `translateX(-${index * 100}%)`; 
+
+    const renderTrack = (i) => {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
     };
-    
+
     document.querySelector(".sc-next")?.addEventListener("click", () => renderTrack(index + 1));
     document.querySelector(".sc-prev")?.addEventListener("click", () => renderTrack(index - 1));
-    
+
     slides.forEach((sl, i) => sl.querySelector("img")?.addEventListener("click", () => {
         index = i;
         modalImg.src = sl.querySelector("img").src;
@@ -91,23 +91,23 @@ function initMosqueeCarouselModal() {
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
     }));
-    
+
     modalNext?.addEventListener("click", () => {
         index = (index + 1) % slides.length;
         const nextSlide = slides[index];
         modalImg.src = nextSlide.querySelector("img").src;
         modalDesc.textContent = nextSlide.querySelector(".sc-desc")?.textContent || "";
     });
-    
+
     modalPrev?.addEventListener("click", () => {
         index = (index - 1 + slides.length) % slides.length;
         const prevSlide = slides[index];
         modalImg.src = prevSlide.querySelector("img").src;
         modalDesc.textContent = prevSlide.querySelector(".sc-desc")?.textContent || "";
     });
-    
+
     modalClose?.addEventListener("click", () => { modal.classList.remove("show"); document.body.style.overflow = ""; });
-    modal?.addEventListener("click", (e) => { if(e.target === modal) modalClose.click(); });
+    modal?.addEventListener("click", (e) => { if (e.target === modal) modalClose.click(); });
 }
 function initAnnonces() {
     const API_URL = "https://gestion-mosquee-api.ib-app.fr/public/annonces?nom=lumiere-et-piete";
@@ -219,8 +219,8 @@ function initAnnonces() {
     };
 
     if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => { modal.classList.remove("show"); document.body.style.overflow = ""; });
-    if (scrollLeftBtn) scrollLeftBtn.addEventListener("click", () => tabsList.scrollBy({left:-200, behavior:'smooth'}));
-    if (scrollRightBtn) scrollRightBtn.addEventListener("click", () => tabsList.scrollBy({left:200, behavior:'smooth'}));
+    if (scrollLeftBtn) scrollLeftBtn.addEventListener("click", () => tabsList.scrollBy({ left: -200, behavior: 'smooth' }));
+    if (scrollRightBtn) scrollRightBtn.addEventListener("click", () => tabsList.scrollBy({ left: 200, behavior: 'smooth' }));
 
     fetchAnnonces();
 }
