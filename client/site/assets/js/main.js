@@ -83,8 +83,8 @@ function initMosqueeCarouselModal() {
 }
 
 function initAnnonces() {
-    console.log("Démarrage initAnnonces...");
-    const API_URL = "http://127.0.0.1:3000/public/annonces?nom=lumiere-et-piete";
+    // console.log("Démarrage initAnnonces...");
+    const API_URL = "https://gestion-mosquee-api.ib-app.fr/public/annonces?nom=lumiere-et-piete";
     const loader = document.getElementById("annonces-loader");
     const contentArea = document.getElementById("annonces-content-area");
     const emptyState = document.getElementById("annonces-empty-state");
@@ -116,6 +116,15 @@ function initAnnonces() {
         return isNaN(date.getTime()) ? null : date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
     };
 
+    const showEmptyMessage = () => {
+        if (loader) loader.style.display = "none"; // On s'assure que le loading dispara?t
+        if (emptyState) {
+            emptyState.style.display = "block";
+            emptyState.classList.remove("hidden");
+            emptyState.innerHTML = `<i class="fa-regular fa-bell-slash fa-3x" style="color: #ccc; margin-bottom: 15px;"></i><p>Aucune annonce pour le moment.</p>`;
+        }
+    };
+
     const fetchAnnonces = async () => {
         
         try {
@@ -129,11 +138,13 @@ function initAnnonces() {
                 renderTabs(result.data.categories || [], allAnnonces);
                 renderCards(allAnnonces);
                 if (contentArea) { contentArea.style.display = "block"; contentArea.classList.remove("hidden"); }
-            } else if (emptyState) emptyState.style.display = "block";
+            } else if (emptyState) {
+                emptyState.style.display = "block";
+                emptyState.innerHTML = `<i class="fa-regular fa-bell-slash fa-3x" style="color: #ccc; margin-bottom: 15px;"></i><p>Aucune annonce n\'est disponible pour le moment.</p>`;
+            }
         } catch (e) {
-            console.error("Erreur Fetch Annonces:", e);
-            if (loader) loader.style.display = "none";
-            if (emptyState) emptyState.style.display = "block";
+            console.error("Erreur r?seau/API:", e);
+            showEmptyMessage();
         }
     };
 
