@@ -1837,7 +1837,7 @@ html { scrollbar-gutter: stable; }
 .card-title { font-size: 1.15rem; font-weight: 800; color: var(--m-text); line-height: 1.3; margin: 0; }
 .card-dates { font-size: 0.85rem; color: var(--m-text-light); display: flex; flex-direction: column; gap: 5px; margin-top: auto; padding-top: 10px; border-top: 1px dashed rgba(0,0,0,0.1); }
 .amodal-dates { display: flex; flex-direction: column; gap: 5px; font-size: 0.9rem; color: var(--m-text-light); margin-top: 5px; }
-.card-date-item { display: flex; align-items: center; gap: 6px; }
+
 .nav-badge-total { background: var(--m-peps); color: white; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 20px; margin-left: 6px; display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; transform: translateY(-2px); }
 .amodal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 4000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
 .amodal-overlay.show { display: flex; opacity: 1; }
@@ -1857,3 +1857,27 @@ html { scrollbar-gutter: stable; }
 .amodal-body .ql-align-justify { text-align: justify; }
 .amodal-body h1, .amodal-body h2, .amodal-body h3 { font-weight: 800; line-height: 1.3; margin-bottom: 15px; margin-top: 15px; }
 .hidden { display: none !important; }
+
+/* Style des dates via s?lecteurs CSS directs (sans classes JS) */
+.card-dates div, .amodal-dates div {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
+/* On utilise nth-child ou les ic?nes pour diff?rencier si besoin, 
+   mais ici on met un background par d?faut propre au site */
+.card-dates div:first-child, .amodal-dates div:first-child {
+    background-color: rgba(39, 174, 96, 0.1); /* Vert pour la premi?re date (Evt) */
+    color: #27ae60;
+}
+
+.card-dates div:nth-child(2), .amodal-dates div:nth-child(2) {
+    background-color: rgba(231, 76, 60, 0.1); /* Rouge pour la deuxi?me (Exp) */
+    color: #e74c3c;
+}

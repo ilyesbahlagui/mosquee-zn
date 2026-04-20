@@ -169,8 +169,8 @@ function initAnnonces() {
         list.forEach(a => {
             const dEvt = formatDate(a.date_evenement);
             const dExp = formatDate(a.date_expiration);
-            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> ${dEvt}</div>` : "";
-            if (dExp) datesHTML += `<div><i class="fa-regular fa-clock"></i> Expire le ${dExp}</div>`;
+            let datesHTML = dEvt ? `<div><i class="fa-regular fa-calendar-check"></i> <b>Début :</b> ${dEvt}</div>` : "";
+            if (dExp) datesHTML += `<div><i class="fa-regular fa-clock"></i> <b>Fin :</b> ${dExp}</div>`;
             const card = document.createElement("div");
             card.className = "annonce-card";
             card.innerHTML = `${a.est_urgent ? '<div class="urgent-tag">Urgent</div>' : ''}<div class="card-cat">${a.categorie_nom}</div><h3 class="card-title">${a.titre}</h3><div class="card-dates">${datesHTML}</div>`;
