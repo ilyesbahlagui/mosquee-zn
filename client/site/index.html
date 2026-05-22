@@ -32,6 +32,374 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .site-intro-section {
+            position: relative;
+            padding: clamp(28px, 5vw, 72px) 0 clamp(26px, 4vw, 56px);
+
+            overflow: hidden;
+        }
+
+
+        .site-intro-section::before {
+            width: 220px;
+            height: 220px;
+            top: -90px;
+            right: -60px;
+            background: rgba(224, 109, 61, 0.08);
+        }
+
+        .site-intro-section::after {
+            width: 180px;
+            height: 180px;
+            bottom: -80px;
+            left: -70px;
+            background: rgba(44, 62, 80, 0.06);
+        }
+
+        .site-intro-heading {
+            margin-bottom: 12px;
+        }
+
+        .site-intro-subtitle {
+            max-width: 68ch;
+            color: var(--m-text-light);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            text-align: center;
+            margin: 0 auto 22px auto;
+        }
+
+        .site-intro-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .site-intro-grid-wide {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .aid-bubble-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 170px;
+            padding: 22px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(44, 62, 80, 0.08);
+            box-shadow: var(--m-card-shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+            transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+        }
+
+        .aid-bubble-card::before {
+            content: '';
+            position: absolute;
+            inset: auto -20px -20px auto;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .aid-bubble-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--m-shadow);
+            border-color: rgba(224, 109, 61, 0.18);
+        }
+
+        .aid-bubble-card-center {
+            align-items: center;
+            text-align: center;
+        }
+
+        .aid-bubble-card-center .aid-bubble-head {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .aid-bubble-card-center .aid-bubble-icon {
+            margin-bottom: 0;
+        }
+
+        .aid-bubble-values {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .aid-bubble-value {
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(240, 235, 225, 0.72);
+            border: 1px solid rgba(44, 62, 80, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .aid-bubble-value span {
+            display: block;
+            color: var(--m-text-light);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .aid-bubble-value strong {
+            color: var(--m-text);
+            font-size: 0.96rem;
+            line-height: 1.4;
+            font-weight: 800;
+        }
+
+        .aid-bubble-location-value {
+            margin-top: 10px;
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(240, 235, 225, 0.72);
+            border: 1px solid rgba(44, 62, 80, 0.06);
+            color: var(--m-text);
+            font-size: 0.96rem;
+            line-height: 1.4;
+            font-weight: 800;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .aid-bubble-card-wide {
+            grid-column: 1 / -1;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .aid-bubble-card-wide .aid-bubble-head {
+            margin-bottom: 0;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            width: 100%;
+            gap: 12px;
+        }
+
+        .aid-bubble-card-wide .aid-bubble-head h3 {
+            margin: 0;
+            line-height: 1;
+            width: 100%;
+        }
+
+        .aid-bubble-card-wide .aid-bubble-icon {
+            margin: 0;
+        }
+
+        .aid-bubble-merged-content {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .aid-bubble-text-lg {
+            font-size: 0.95rem;
+            color: var(--m-text);
+            text-align: left;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        .aid-bubble-text-lg strong {
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .aid-bubble-text-sm {
+            font-size: 0.95rem;
+            font-weight: normal;
+        }
+
+        .map-container-aid {
+            min-height: 350px;
+            border-radius: 14px;
+            border-color: rgba(44, 62, 80, 0.06);
+            width: 90%;
+            margin: auto;
+        }
+
+        .aid-bubble-card-wide .aid-bubble-list {
+            margin-top: 4px;
+        }
+
+        .aid-bubble-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .aid-bubble-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            color: var(--m-peps);
+            background: linear-gradient(180deg, rgba(224, 109, 61, 0.16), rgba(224, 109, 61, 0.06));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .aid-bubble-card h3 {
+            color: var(--m-text);
+            font-size: 1.02rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .aid-bubble-card p {
+            color: var(--m-text-light);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .aid-bubble-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            width: fit-content;
+            border-radius: 999px;
+            background: rgba(240, 235, 225, 0.92);
+            color: var(--m-text);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .aid-bubble-list {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .aid-bubble-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: var(--m-text-light);
+            line-height: 1.55;
+            font-size: 0.95rem;
+        }
+
+        .aid-bubble-list i {
+            color: var(--m-peps);
+            margin-top: 7px;
+            font-size: 0.5rem;
+            flex: 0 0 auto;
+        }
+
+        .site-intro-section .site-intro-subtitle,
+        .site-intro-section .aid-bubble-card {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .site-intro-section.is-visible .site-intro-subtitle,
+        .site-intro-section.is-visible .aid-bubble-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .site-intro-section.is-visible .site-intro-subtitle {
+            transition-delay: 0.08s;
+        }
+
+        .site-intro-section.is-visible .aid-bubble-card:nth-child(1) {
+            transition-delay: 0.14s;
+        }
+
+        .site-intro-section.is-visible .aid-bubble-card:nth-child(2) {
+            transition-delay: 0.20s;
+        }
+
+        .site-intro-section.is-visible .aid-bubble-card:nth-child(3) {
+            transition-delay: 0.26s;
+        }
+
+        .site-intro-section.is-visible .aid-bubble-card:nth-child(4) {
+            transition-delay: 0.32s;
+        }
+
+        @media (max-width: 900px) {
+            .site-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .site-intro-grid-wide {
+                grid-template-columns: 1fr;
+            }
+
+            .aid-bubble-card-wide {
+                grid-column: auto;
+            }
+
+            .aid-bubble-values {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-intro-grid {
+                gap: 12px;
+            }
+
+            .aid-bubble-card {
+                min-height: auto;
+                padding: 18px;
+                border-radius: 24px;
+            }
+
+            .aid-bubble-icon {
+                width: 46px;
+                height: 46px;
+                border-radius: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .site-intro-section .site-intro-subtitle,
+            .site-intro-section .aid-bubble-card {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .aid-bubble-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 
@@ -111,6 +479,50 @@
          MAIN — Sections de contenu
     ════════════════════════════════════════ -->
     <main>
+        <section  class="section-wrapper bg-beige">
+
+        <section class="site-intro-section" id="presentation">
+            <div class="section-inner">
+                <div class="section-title-wrapper site-intro-heading">
+                    <h2 class="section-title"><i class="fa-solid fa-circle-info"></i> Prière de l’Aïd</h2>
+                    <div class="section-line"></div>
+                </div>
+                <p class="site-intro-subtitle">Tous les détails essentiels pour préparer votre célébration dans la sérénité et le partage.</p>
+
+                <div class="site-intro-grid site-intro-grid-wide">
+                    <article class="aid-bubble-card aid-bubble-card-wide">
+                        <div class="aid-bubble-head">
+                            <div class="aid-bubble-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <h3>Date, Heure &amp; Lieu</h3>
+                        </div>
+                        <div class="aid-bubble-merged-content">
+                            <p class="aid-bubble-text-lg">
+                                <b>Mercredi 27 mai 2026 à 8h00
+                                au Stade Bernard Auzon-Cape</b> (face à la mosquée) situé Rue Thalès, 30900 Nîmes.
+                            </p>
+                            <div class="map-container map-container-aid">
+                                <iframe src="https://www.google.com/maps?q=43.82940554527289, 4.334441958409675&output=embed"
+                                    width="100%" height="100%" class="iframe-no-border" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="aid-bubble-card aid-bubble-card-wide">
+                        <div class="aid-bubble-head">
+                            <div class="aid-bubble-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                            <h3>Règlements et infos complémentaires</h3>
+                        </div>
+                        <ul class="aid-bubble-list">
+                            <li><i class="fa-solid fa-circle"></i><span>Le parking de la mosquée reste entièrement disponible.</span></li>
+                            <li><i class="fa-solid fa-circle"></i><span>Venez en avance afin de fluidifier les accès et de faciliter l'organisation.</span></li>
+                            <li><i class="fa-solid fa-circle"></i><span>Suivez impérativement les consignes des bénévoles pour éviter les débordements et sécuriser le stationnement.</span></li>
+                            <li><i class="fa-solid fa-circle"></i><span>Préservez la propreté et le calme du site par respect pour le voisinage et les autres fidèles.</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
 
         <!-- ═══════════════════════════════════════
              SECTION HORAIRES — Prières Vendredi & Mawaqit
@@ -476,6 +888,33 @@
          SCRIPTS — JS principal (navigation, carrousel, dons)
     ═══════════════════════════════════════ -->
     <script src="assets/js/main.js"></script>
+    <script>
+        (() => {
+            const section = document.querySelector('.site-intro-section');
+
+            if (!section) {
+                return;
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                section.classList.add('is-visible');
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries, currentObserver) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.add('is-visible');
+                        currentObserver.disconnect();
+                    }
+                });
+            }, {
+                threshold: 0.18,
+            });
+
+            observer.observe(section);
+        })();
+    </script>
 </body>
 
 </html>
